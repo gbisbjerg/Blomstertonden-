@@ -19,7 +19,7 @@
         </Grid.ColumnDefinitions>
 
         <!--Title Bar-->
-        <Grid VerticalAlignment="Top" x:Name="TitleBar">
+        <Grid VerticalAlignment="Top" x:Name="TitleBar" Grid.ColumnSpan="2" BorderThickness="0,0,0,1" BorderBrush="Black">
             <Rectangle x:Name="BackgroundElement" Fill="Transparent" />
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -28,7 +28,7 @@
                 </Grid.ColumnDefinitions>
                 <Image Height="32" Margin="5,0" Source="/Assets/cornerIcon.ico" />
                 <!--Need to insert-->
-                <TextBlock Grid.Column="1" VerticalAlignment="Center" Text="Flowers" />
+                <TextBlock Grid.Column="1" VerticalAlignment="Center" Text="Blomstertønden" />
             </Grid>
         </Grid>
 
@@ -38,7 +38,7 @@
                 <FlipView.ItemTemplate>
                     <DataTemplate>
                         <Grid>
-                            <Image Source="{Binding}" Stretch="UniformToFill" />
+                            <Image Source="{Binding}" Stretch="UniformToFill" HorizontalAlignment="Center"/>
                         </Grid>
                     </DataTemplate>
                 </FlipView.ItemTemplate>
@@ -46,24 +46,23 @@
         </StackPanel>
 
         <!--Right Side-->
-        <Grid Grid.Row="1" Grid.Column="1" Background="#FFE9EEE8" BorderThickness="2,0,0,0" BorderBrush="Black">
+        <Grid Grid.Row="1" Grid.Column="1" Background="#FFFFF7F7" BorderThickness="2,0,0,0" BorderBrush="Black">
             <Grid.RowDefinitions>
                 <RowDefinition Height="95*"/>
-                <RowDefinition Height="147*"/>
+                <RowDefinition Height="150*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="10*"/>
-                <ColumnDefinition Width="40*"/>
+                <ColumnDefinition MinWidth="200" Width="40*"/>
                 <ColumnDefinition Width="10*"/>
             </Grid.ColumnDefinitions>
 
             <StackPanel  Grid.Row="1" Grid.Column="1">
-                <TextBox HorizontalAlignment="Stretch" Height="36" PlaceholderText="Username"/>
-                <TextBox HorizontalAlignment="Stretch" Height="36" PlaceholderText="Password" Margin="0,15,0,0"/>
-                <Button  HorizontalAlignment="Right"   Height="32" Content="Login" Margin="0,15,0,0" Click="Button_Click"/>
+                <TextBox PlaceholderText="Username" Height="36" HorizontalAlignment="Stretch"/>
+                <TextBox PlaceholderText="Password" Height="36" HorizontalAlignment="Stretch" Margin="0,15,0,0"/>
+                <Button  Content="Login" Height="32" Click="Button_Click" HorizontalAlignment="Right" Margin="0,15,0,0"/>
             </StackPanel>
-
+            
         </Grid>
-
     </Grid>
 </Page>

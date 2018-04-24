@@ -48,11 +48,12 @@
                 <ColumnDefinition Width="475*"/>
                 <ColumnDefinition Width="75*"/>
             </Grid.ColumnDefinitions>
+            <!--Left Middle-->
             <Grid Background="AliceBlue" Grid.Column="1" Grid.Row="1" Height="auto" Width="auto"/>
 
         </Grid>
 
-        <!--MainPage Left-->
+        <!--MainPage Right-->
         <Grid Grid.Row="1" Grid.RowSpan="2" Grid.Column="2" Height="auto" Width="auto" Background="Aquamarine">
             <Grid.RowDefinitions>
                 <RowDefinition Height="15*"/>
