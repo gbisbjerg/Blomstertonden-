@@ -7,7 +7,99 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50px"/>
+            <ColumnDefinition Width="750*"/>
+            <ColumnDefinition Width="750*"/>
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="800*"/>
+            <RowDefinition Height="50*"/>
+        </Grid.RowDefinitions>
+
+        <!--Top Menu-->
+        <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Height="auto" Width="auto" Background="#FF3CA0FA">
+            <TextBlock Text="Payment Page" FontSize="25px" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Button Content="Logout" Height="auto" HorizontalAlignment="Right" Width="150" FontSize="20px" Foreground="Black" Margin="0,0,5,0"/>
+        </Grid>
+
+        <!--Left Dropdown menu-->
+        <Grid Grid.Row="1" Grid.RowSpan="2" Grid.Column="0" Height="auto" Width="auto" Background="Gray">
+            <StackPanel>
+                <Button x:Name="MenuButton2" FontFamily="Segoe MDL2 Assets" Content="&#xE80F;" Width="50" Height="50" Background="Transparent"/>
+                <Button x:Name="MenuButton3" FontFamily="Segoe MDL2 Assets" Content="&#xE1D6;" Width="50" Height="50" Background="Transparent"/>
+                <Button x:Name="MenuButton4" FontFamily="Segoe MDL2 Assets" Content="&#xE77B;" Width="50" Height="50" Background="Transparent"/>
+                <Button x:Name="MenuButton5" FontFamily="Segoe MDL2 Assets" Content="&#xE806;" Width="50" Height="50" Background="Transparent"/>
+            </StackPanel>
+        </Grid>
+
+        <!--MainPage Left-->
+        <Grid Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" Height="auto" Width="auto" Background="IndianRed">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="15*"/>
+                <RowDefinition Height="150*"/>
+                <RowDefinition Height="15*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="75*"/>
+                <ColumnDefinition Width="475*"/>
+                <ColumnDefinition Width="75*"/>
+            </Grid.ColumnDefinitions>
+            <!--Left Middle-->
+            <Grid Background="AliceBlue" Grid.Column="1" Grid.Row="1" Height="auto" Width="auto">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="123*"/>
+                    <RowDefinition Height="266*"/>
+                </Grid.RowDefinitions>
+
+                <!--Order Summary-->
+                <Grid Grid.Row="0" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="424*"/>
+                        <ColumnDefinition Width="127*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="35*"/>
+                        <RowDefinition Height="159*"/>
+                        <RowDefinition Height="52*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Text="Order Summary" FontSize="20px" VerticalAlignment="Bottom" Height="27" Grid.ColumnSpan="2" />
+                    <ScrollViewer Grid.Row="1" Background="Aqua" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="2" >
+                        <ListView BorderBrush="Black" BorderThickness="2">
+
+                        </ListView>
+                    </ScrollViewer>
+                    <TextBlock Text="Total:" FontSize="20px" Margin="0,0,10,0" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right" />
+                    <StackPanel Grid.Row="2" Grid.Column="1" BorderBrush="Black" BorderThickness="2">
+                        <TextBlock Text="231" FontSize="20px" HorizontalAlignment="Stretch" VerticalAlignment="Center" />
+                    </StackPanel>
+                    
+                </Grid>
+            </Grid>
+
+        </Grid>
+
+        <!--MainPage Right-->
+        <Grid Grid.Row="1" Grid.RowSpan="2" Grid.Column="2" Height="auto" Width="auto" Background="Aquamarine">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="15*"/>
+                <RowDefinition Height="150*"/>
+                <RowDefinition Height="15*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="75*"/>
+                <ColumnDefinition Width="475*"/>
+                <ColumnDefinition Width="75*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--Right middle-->
+            <Grid Background="AliceBlue" Grid.Column="1" Grid.Row="1" Height="auto" Width="auto">
+                <TextBox Text=""/>
+            </Grid>
+        </Grid>
     </Grid>
 </Page>
