@@ -8,6 +8,96 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50px"/>
+            <ColumnDefinition Width="750*"/>
+            <ColumnDefinition Width="750*"/>
 
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="800*"/>
+            <RowDefinition Height="50*"/>
+        </Grid.RowDefinitions>
+
+        <!--Top Menu-->
+        <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Height="auto" Width="auto" Background="#FF3CA0FA">
+            <TextBlock Text="____ Page" FontSize="25px" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Button Content="Logout" Height="auto" HorizontalAlignment="Right" Width="150" FontSize="20px" Foreground="Black" Margin="0,0,5,0"/>
+        </Grid>
+
+        <!--Left Dropdown menu-->
+        <Grid Grid.Row="1" Grid.RowSpan="2" Grid.Column="0" Height="auto" Width="auto" Background="Gray">
+            <StackPanel>
+                <Button x:Name="MenuButton2" FontFamily="Segoe MDL2 Assets" Content="&#xE80F;" Width="50" Height="50" Background="Transparent"/>
+                <Button x:Name="MenuButton3" FontFamily="Segoe MDL2 Assets" Content="&#xE1D6;" Width="50" Height="50" Background="Transparent"/>
+                <Button x:Name="MenuButton4" FontFamily="Segoe MDL2 Assets" Content="&#xE77B;" Width="50" Height="50" Background="Transparent"/>
+                <Button x:Name="MenuButton5" FontFamily="Segoe MDL2 Assets" Content="&#xE806;" Width="50" Height="50" Background="Transparent"/>
+            </StackPanel>
+        </Grid>
+
+        <!--MainPage Left-->
+        <Grid Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" Height="auto" Width="auto" Background="IndianRed">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="15*"/>
+                <RowDefinition Height="150*"/>
+                <RowDefinition Height="15*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="75*"/>
+                <ColumnDefinition Width="475*"/>
+                <ColumnDefinition Width="75*"/>
+            </Grid.ColumnDefinitions>
+            <!--MainPagecustomer-->
+            <Grid Background="AliceBlue" Grid.Column="1" Grid.Row="1" Height="auto" Width="auto">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="150*"/>
+                    <RowDefinition Height="15*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="125*"/>
+                    <ColumnDefinition Width="475*"/>
+                    <ColumnDefinition Width="125*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="KUNDE:" FontSize="12" Grid.Column="0" Grid.Row="0" Margin="10,10,0,0"/>
+                <TextBlock Text="NAVN:" FontSize="12" Grid.Column="0" Grid.Row="1" Margin="10,10,0,0"/>
+                <TextBlock Text="KLIP:" FontSize="12" Grid.Column="2" Grid.Row="0" TextAlignment="Center" Margin="10,10,0,0"/>
+                <TextBox Background="LightGray" PlaceholderText="Indtast navn" FontSize="12" Height="25" Grid.Column="1" Grid.Row="1" Margin="5,5,10,0"/>
+                <TextBlock Text="TELEFON:" FontSize="12" Grid.Column="0" Grid.Row="2" Margin="10,10,0,0"/>
+                <TextBox Background="LightGray" PlaceholderText="Indtast telefonnummer" FontSize="12" Height="25" Grid.Column="1" Grid.Row="2" Margin="5,5,10,0"/>
+                <TextBox Background="LightGray" FontSize="16" Height="25" Grid.Column="2" Grid.Row="1" Margin="5,5,10,0"/>
+                <Button Content="Søg" Grid.Column="2" Grid.Row="2" Width="75" Height="30" Margin="10,10,0 2"/>
+                <Border Grid.ColumnSpan="3" Grid.Row="3" BorderThickness="1" BorderBrush="Black" Margin="0,10,0,0"/>
+
+
+
+
+            </Grid>
+
+            </Grid>
+
+        <!--MainPage right-->
+        <Grid Grid.Row="1" Grid.RowSpan="2" Grid.Column="2" Height="auto" Width="auto" Background="Aquamarine">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="15*"/>
+                <RowDefinition Height="150*"/>
+                <RowDefinition Height="15*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="75*"/>
+                <ColumnDefinition Width="475*"/>
+                <ColumnDefinition Width="75*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--Right middle-->
+            <Grid Background="AliceBlue" Grid.Column="1" Grid.Row="1" Height="auto" Width="auto">
+
+            </Grid>
+        </Grid>
     </Grid>
 </Page>
