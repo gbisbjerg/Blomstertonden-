@@ -8,6 +8,151 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50px"/>
+            <ColumnDefinition Width="750*"/>
+            <ColumnDefinition Width="750*"/>
 
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="800*"/>
+            <RowDefinition Height="50*"/>
+        </Grid.RowDefinitions>
+
+        <!--Top Menu-->
+        <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Height="auto" Width="auto" Background="#FF3CA0FA">
+            <TextBlock Text="Order Page" FontSize="25px" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Button Content="Logout" Height="auto" HorizontalAlignment="Right" Width="150" FontSize="20px" Foreground="Black" Margin="0,0,5,0"/>
+        </Grid>
+
+        <!--Left Dropdown menu-->
+        <Grid Grid.Row="1" Grid.RowSpan="2" Grid.Column="0" Height="auto" Width="auto" Background="Gray">
+            <StackPanel>
+                <Button x:Name="MenuButton2" FontFamily="Segoe MDL2 Assets" Content="&#xE80F;" Width="50" Height="50" Background="Transparent"/>
+                <Button x:Name="MenuButton3" FontFamily="Segoe MDL2 Assets" Content="&#xE1D6;" Width="50" Height="50" Background="Transparent"/>
+                <Button x:Name="MenuButton4" FontFamily="Segoe MDL2 Assets" Content="&#xE77B;" Width="50" Height="50" Background="Transparent"/>
+                <Button x:Name="MenuButton5" FontFamily="Segoe MDL2 Assets" Content="&#xE806;" Width="50" Height="50" Background="Transparent"/>
+            </StackPanel>
+        </Grid>
+
+        <!--MainPage Left-->
+        <Grid Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" Height="auto" Width="auto" Background="IndianRed">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="15*"/>
+                <RowDefinition Height="150*"/>
+                <RowDefinition Height="15*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="75*"/>
+                <ColumnDefinition Width="475*"/>
+                <ColumnDefinition Width="75*"/>
+            </Grid.ColumnDefinitions>
+            <!--Left Middle-->
+            <Grid Background="AliceBlue" Grid.Column="1" Grid.Row="1" Height="auto" Width="auto">
+                <ScrollViewer>
+                    <ListView BorderBrush="Black" BorderThickness="2">
+
+                    </ListView>
+                </ScrollViewer>
+            </Grid>
+        </Grid>
+
+        <!--MainPage Right-->
+        <Grid Grid.Row="1" Grid.RowSpan="2" Grid.Column="2" Height="auto" Width="auto" Background="Aquamarine">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="15*"/>
+                <RowDefinition Height="150*"/>
+                <RowDefinition Height="15*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="75*"/>
+                <ColumnDefinition Width="475*"/>
+                <ColumnDefinition Width="75*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--Right middle-->
+            <Grid Background="AliceBlue" Grid.Column="1" Grid.Row="1" Height="auto" Width="auto">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="75*"/>
+                    <RowDefinition Height="199*"/>
+                    <RowDefinition Height="219*"/>
+                    <RowDefinition Height="120*"/>
+                    <RowDefinition Height="173*"/>
+                </Grid.RowDefinitions>
+
+                <!--Customer Information-->
+                <Grid Grid.Row="0" Margin="0,0,0,199" Grid.RowSpan="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="175*"/>
+                        <ColumnDefinition Width="350*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Name" Grid.Column="0" Grid.Row="0"/>
+                    <TextBox Text="" BorderBrush="Black" BorderThickness="2" Grid.Column="1" Grid.Row="0"/>
+                    <TextBlock Text="Phone" Grid.Column="0" Grid.Row="1"/>
+                    <TextBox Text="" BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="1"/>
+                </Grid>
+
+                <!--Description-->
+                <Grid Grid.Row="1" Margin="0,0.333,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="32*"/>
+                        <RowDefinition Height="167*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Description" Grid.Row="0"/>
+                    <TextBox BorderBrush="Black" BorderThickness="2" Grid.Row="1"/>
+                </Grid>
+                <!--Card Message-->
+                <Grid Grid.Row="2" Margin="0,0,0,0.333">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="32*"/>
+                        <RowDefinition Height="167*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Card Message" Grid.Row="0"/>
+                    <TextBox BorderBrush="Black" BorderThickness="2" Grid.Row="1"/>
+                </Grid>
+                <!--Delivery Information-->
+                <Grid Grid.Row="3" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="175*"/>
+                        <ColumnDefinition Width="350*"/>
+                    </Grid.ColumnDefinitions>
+                    <CheckBox Content="Delivery" Grid.Row="0" />
+                    <TextBlock Text="Street" Grid.Column="0" Grid.Row="1"/>
+                    <TextBox Text="" BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="1"/>
+                    <TextBlock Text="Zipcode" Grid.Column="0" Grid.Row="2"/>
+                    <TextBox Text="" BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="2"/>
+                </Grid>
+
+                <!--Status-->
+                <Grid Grid.Row="4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition Width="8*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+
+                    <RadioButton Content="Completed"  Grid.Column="2" Grid.Row="1"/>
+                    <RadioButton Content="Deliver" Grid.Column="1" Grid.Row="1"/>
+                    <RadioButton Content="Made" Grid.Column="2" Grid.Row="0"/>
+                    <RadioButton Content="Incomplete" Grid.Column="1" Grid.Row="0"/>
+
+                </Grid>
+
+            </Grid>
+        </Grid>
     </Grid>
 </Page>

@@ -55,7 +55,7 @@ namespace Blomstertonden
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(CreateOrder), null);
+            this.Frame.Navigate(typeof(Template), null);
         }
     }
 }
