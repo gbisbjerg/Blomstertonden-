@@ -15,29 +15,53 @@
 
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="60*"/>
             <RowDefinition Height="800*"/>
             <RowDefinition Height="50*"/>
         </Grid.RowDefinitions>
 
+        <!--Title Bar-->
+        <Grid VerticalAlignment="Top" x:Name="TitleBar" Grid.Row="0" Grid.ColumnSpan="3" BorderThickness="0,0,0,1" BorderBrush="Black">
+            <Rectangle x:Name="BackgroundElement" Fill="#33D3D3D3"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Image Height="32" Margin="5,0" Source="/Assets/Corner.ico"/>
+                <!--Need to change-->
+                <StackPanel VerticalAlignment="Center" Grid.Column="1" BorderBrush="Gray" BorderThickness="1,0,0,0">
+                    <TextBlock Margin="5,0,0,0" VerticalAlignment="Center" Text="Blomstertønden" />
+                </StackPanel>
+
+            </Grid>
+        </Grid>
+
         <!--Top Menu-->
-        <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Height="auto" Width="auto" Background="#FF3CA0FA">
-            <TextBlock Text="____ Page" FontSize="25px" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <Button Content="Logout" Height="auto" HorizontalAlignment="Right" Width="150" FontSize="20px" Foreground="Black" Margin="0,0,5,0"/>
+        <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Height="auto" Width="auto" BorderBrush="Black" BorderThickness="0,0,0,1">
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#591E7832" Offset="1"/>
+                    <GradientStop Color="#261E7832" Offset="0"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <TextBlock Text="Template Page" FontSize="25px" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Button Content="Logout" Height="auto" HorizontalAlignment="Right" Width="100" FontSize="20px" Margin="0,0,20,0" Background="#19000000" BorderBrush="Black" BorderThickness="1"/>
         </Grid>
 
         <!--Left Dropdown menu-->
-        <Grid Grid.Row="1" Grid.RowSpan="2" Grid.Column="0" Height="auto" Width="auto" Background="Gray">
+        <Grid Grid.Row="2" Grid.RowSpan="2" Grid.Column="0" Height="auto" Width="auto" Background="#3F787878" BorderBrush="Black" BorderThickness="0,0,1,0">
             <StackPanel>
-                <Button x:Name="MenuButton2" FontFamily="Segoe MDL2 Assets" Content="&#xE80F;" Width="50" Height="50" Background="Transparent"/>
-                <Button x:Name="MenuButton3" FontFamily="Segoe MDL2 Assets" Content="&#xE1D6;" Width="50" Height="50" Background="Transparent"/>
-                <Button x:Name="MenuButton4" FontFamily="Segoe MDL2 Assets" Content="&#xE77B;" Width="50" Height="50" Background="Transparent"/>
-                <Button x:Name="MenuButton5" FontFamily="Segoe MDL2 Assets" Content="&#xE806;" Width="50" Height="50" Background="Transparent"/>
+                <Button x:Name="MenuButton2" FontFamily="Segoe MDL2 Assets" Content="&#xE80F;" Width="50" Height="50" Background="Transparent" BorderBrush="#33282828" BorderThickness="0,0,0,1"/>
+                <Button x:Name="MenuButton3" FontFamily="Segoe MDL2 Assets" Content="&#xE1D6;" Width="50" Height="50" Background="Transparent" BorderBrush="#33282828" BorderThickness="0,0,0,1"/>
+                <Button x:Name="MenuButton4" FontFamily="Segoe MDL2 Assets" Content="&#xE77B;" Width="50" Height="50" Background="Transparent" BorderBrush="#33282828" BorderThickness="0,0,0,1"/>
+                <Button x:Name="MenuButton5" FontFamily="Segoe MDL2 Assets" Content="&#xE806;" Width="50" Height="50" Background="Transparent" BorderBrush="#33282828" BorderThickness="0,0,0,1"/>
             </StackPanel>
         </Grid>
 
         <!--MainPage Left-->
-        <Grid Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" Height="auto" Width="auto" Background="IndianRed">
+        <Grid Grid.Row="2" Grid.RowSpan="2" Grid.Column="1" Height="auto" Width="auto" Background="#0C1E7832">
             <Grid.RowDefinitions>
                 <RowDefinition Height="15*"/>
                 <RowDefinition Height="150*"/>
@@ -49,12 +73,14 @@
                 <ColumnDefinition Width="75*"/>
             </Grid.ColumnDefinitions>
             <!--Left Middle-->
-            <Grid Background="AliceBlue" Grid.Column="1" Grid.Row="1" Height="auto" Width="auto"/>
+            <Grid Background="White" Grid.Column="1" Grid.Row="1" Height="auto" Width="auto">
+
+            </Grid>
 
         </Grid>
 
         <!--MainPage Right-->
-        <Grid Grid.Row="1" Grid.RowSpan="2" Grid.Column="2" Height="auto" Width="auto" Background="Aquamarine">
+        <Grid Grid.Row="2" Grid.RowSpan="2" Grid.Column="2" Height="auto" Width="auto" Background="#0C1E7832">
             <Grid.RowDefinitions>
                 <RowDefinition Height="15*"/>
                 <RowDefinition Height="150*"/>
@@ -67,7 +93,7 @@
             </Grid.ColumnDefinitions>
 
             <!--Right middle-->
-            <Grid Background="AliceBlue" Grid.Column="1" Grid.Row="1" Height="auto" Width="auto">
+            <Grid Background="White" Grid.Column="1" Grid.Row="1" Height="auto" Width="auto">
 
             </Grid>
         </Grid>

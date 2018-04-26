@@ -52,35 +52,89 @@
             <!--Left Middle-->
             <Grid Background="AliceBlue" Grid.Column="1" Grid.Row="1" Height="auto" Width="auto">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="123*"/>
-                    <RowDefinition Height="266*"/>
+                    <RowDefinition Height="219*"/>
+                    <RowDefinition Height="276*"/>
+                    <RowDefinition Height="105*"/>
+                    <RowDefinition Height="83*"/>
+                    <RowDefinition Height="64*"/>
                 </Grid.RowDefinitions>
 
                 <!--Order Summary-->
-                <Grid Grid.Row="0" >
+                <Grid Grid.Row="0" Margin="0,0,0,0.333">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="424*"/>
                         <ColumnDefinition Width="127*"/>
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="35*"/>
-                        <RowDefinition Height="159*"/>
-                        <RowDefinition Height="52*"/>
+                        <RowDefinition Height="31*"/>
+                        <RowDefinition Height="147*"/>
+                        <RowDefinition Height="42*"/>
                     </Grid.RowDefinitions>
-                    <TextBlock Grid.Row="0" Text="Order Summary" FontSize="20px" VerticalAlignment="Bottom" Height="27" Grid.ColumnSpan="2" />
-                    <ScrollViewer Grid.Row="1" Background="Aqua" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="2" >
+                    <TextBlock Grid.Row="0" Text="Order Summary" FontSize="20px" VerticalAlignment="Bottom" Height="27" Grid.ColumnSpan="2"/>
+                    <ScrollViewer Margin="0,0,0,10" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="2">
                         <ListView BorderBrush="Black" BorderThickness="2">
 
                         </ListView>
                     </ScrollViewer>
-                    <TextBlock Text="Total:" FontSize="20px" Margin="0,0,10,0" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right" />
-                    <StackPanel Grid.Row="2" Grid.Column="1" BorderBrush="Black" BorderThickness="2">
-                        <TextBlock Text="231" FontSize="20px" HorizontalAlignment="Stretch" VerticalAlignment="Center" />
+                    <TextBlock VerticalAlignment="Center" Text="Total:" FontSize="20px" Margin="0,0,10,0" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right" Width="50"/>
+                    <StackPanel VerticalAlignment="Center" Height="35px" Grid.Row="2" Grid.Column="1" BorderBrush="Black" BorderThickness="2">
+                        <TextBlock Text="231" FontSize="20px" TextAlignment="Center"/>
                     </StackPanel>
-                    
+                </Grid>
+                <!--Card Information-->
+                <Grid Margin="0,219,0,0.333" Grid.RowSpan="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40*"/>
+                        <RowDefinition Height="350*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Card Message" Height="30px" Grid.Row="0" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <TextBox Grid.Row="1" BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                </Grid>
+                <!--Delivery Info-->
+                <Grid Grid.Row="2" Margin="0,9.667,0,3.666">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100*"/>
+                        <ColumnDefinition Width="200*"/>
+                        <ColumnDefinition Width="100*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Margin="0,0,10,0" VerticalAlignment="Center" Height="27" Grid.Column="0" Grid.Row="0" Text="Street" FontSize="20" HorizontalAlignment="Right"/>
+                    <TextBox VerticalAlignment="Center" Height="32" Grid.Column="1" Grid.Row="0" BorderThickness="2" BorderBrush="Black" Text=""/>
+                    <TextBlock Margin="0,0,10,0" VerticalAlignment="Center" Height="27" Grid.Column="0" Grid.Row="1" Text="Zipcode" FontSize="20" HorizontalAlignment="Right"/>
+                    <TextBox VerticalAlignment="Center" Height="32" Grid.Column="1" Grid.Row="1" BorderThickness="2" BorderBrush="Black" Text=""/>
+                    <CheckBox Content="Deliver" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Right" Height="32" Width="120"/>
+                </Grid>
+                <!--Payment Method-->
+                <Grid Grid.Row="3" Margin="0,0.334,0,10.333">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100*"/>
+                        <ColumnDefinition Width="200*"/>
+                        <ColumnDefinition Width="200*"/>
+                    </Grid.ColumnDefinitions>
+                    <RadioButton Content="Cash" Grid.Column="1" Grid.Row="0" Height="32" Width="120"/>
+                    <RadioButton Content="MobilePay" Grid.Column="1" Grid.Row="1" Height="32" Width="120"/>
+                    <RadioButton Content="CreditCard" Grid.Column="2" Grid.Row="0" Height="32" Width="120"/>
+                    <RadioButton Content="Other" Grid.Column="2" Grid.Row="1" Height="32" Width="120"/>
+                </Grid>
+
+                <Grid Grid.Row="4" Margin="0,4.667,0,0.333">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="366*"/>
+                        <ColumnDefinition Width="163*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button Content="Complete Order" Grid.Column="1"/>
+                    <Button Margin="0,0,20,0" HorizontalAlignment="Right" Content="Cancel" Grid.Column="0"/>
+
                 </Grid>
             </Grid>
-
         </Grid>
 
         <!--MainPage Right-->
@@ -98,7 +152,7 @@
 
             <!--Right middle-->
             <Grid Background="AliceBlue" Grid.Column="1" Grid.Row="1" Height="auto" Width="auto">
-                <TextBox Text=""/>
+                <TextBox Text=" Was thinking we can have a order summary here with a print button at the bottom."/>
             </Grid>
         </Grid>
     </Grid>
