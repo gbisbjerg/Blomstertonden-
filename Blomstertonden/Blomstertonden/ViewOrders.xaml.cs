@@ -20,9 +20,9 @@ namespace Blomstertonden
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class CreateOrder : Page
+    public sealed partial class ViewOrdersPage : Page
     {
-        public CreateOrder()
+        public ViewOrdersPage()
         {
             this.InitializeComponent();
         }
@@ -55,16 +55,6 @@ namespace Blomstertonden
         private void Summary_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(StatisticPage), null);
-        }
-
-        private void ToPayment_Click(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(PaymentPage), null);
-        }
-
-        private void btn_Click(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(CreateOrder), null);
         }
     }
 }
