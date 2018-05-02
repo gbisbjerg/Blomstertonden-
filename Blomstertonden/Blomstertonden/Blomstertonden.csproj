@@ -101,6 +101,28 @@
     <Compile Include="DeliveryPage.xaml.cs">
       <DependentUpon>DeliveryPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Generics\CommandsBase\CommandBase.cs" />
+    <Compile Include="Generics\CommandsBase\CreateCommandBase.cs" />
+    <Compile Include="Generics\CommandsBase\DeleteCommandBase.cs" />
+    <Compile Include="Generics\CommandsBase\UpdateCommandBase.cs" />
+    <Compile Include="Generics\DataPersistency\DBPersistency\DBSource.cs" />
+    <Compile Include="Generics\DataPersistency\FilePersistency\FileSource.cs" />
+    <Compile Include="Generics\DataPersistency\FilePersistency\FileStringPersistence.cs" />
+    <Compile Include="Generics\DataPersistency\FilePersistency\IStringConverter.cs" />
+    <Compile Include="Generics\DataPersistency\FilePersistency\IStringPersistence.cs" />
+    <Compile Include="Generics\DataPersistency\FilePersistency\JSONConverter.cs" />
+    <Compile Include="Generics\DomainBase\CatalogBase.cs" />
+    <Compile Include="Generics\DomainBase\CatalogBaseDB.cs" />
+    <Compile Include="Generics\FactoryBase\ViewModelFactoryBase.cs" />
+    <Compile Include="Generics\Interfaces\IAppViewModel.cs" />
+    <Compile Include="Generics\Interfaces\ICRUD.cs" />
+    <Compile Include="Generics\Interfaces\IDBSource.cs" />
+    <Compile Include="Generics\Interfaces\IFactory.cs" />
+    <Compile Include="Generics\Interfaces\IFileSource.cs" />
+    <Compile Include="Generics\Interfaces\IKey.cs" />
+    <Compile Include="Generics\ViewModelsBase\AppViewModelBase.cs" />
+    <Compile Include="Generics\ViewModelsBase\ItemViemModelBase.cs" />
+    <Compile Include="Generics\ViewModelsBase\MasterDetailsViewModelBase.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -184,6 +206,9 @@
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.0.8</Version>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="AppBase\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
