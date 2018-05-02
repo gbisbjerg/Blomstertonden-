@@ -64,7 +64,7 @@ namespace Blomstertonden
 
         private void Complete_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(CreateOrder), null);
+            this.Frame.Navigate(typeof(ViewOrdersPage), null);
         }
     }
 }

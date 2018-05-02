@@ -27,6 +27,36 @@ namespace Blomstertonden
             this.InitializeComponent();
         }
 
+        #region Colapsable List
+        public void ListViewVisiblity(ListView listView)
+        {
+            if (listView.Visibility == Visibility.Visible)
+            {
+                listView.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                listView.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            ListViewVisiblity(ListView1);
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            ListViewVisiblity(ListView2);
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            ListViewVisiblity(ListView3);
+        }
+        #endregion
+
+        #region Nav
         private void Logout_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(MainPage), null);
@@ -66,5 +96,6 @@ namespace Blomstertonden
         {
             this.Frame.Navigate(typeof(CreateOrder), null);
         }
+        #endregion
     }
 }
