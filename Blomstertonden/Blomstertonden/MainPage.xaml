@@ -26,9 +26,12 @@
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
-                <Image Height="32" Margin="5,0" Source="/Assets/cornerIcon.ico" />
+                <Image Height="32" Margin="5,0" Source="/Assets/Corner.ico" />
                 <!--Need to insert-->
-                <TextBlock Grid.Column="1" VerticalAlignment="Center" Text="Blomstertønden" />
+                <StackPanel VerticalAlignment="Center" Grid.Column="1" BorderBrush="Gray" BorderThickness="1,0,0,0">
+                    <TextBlock Margin="5,0,0,0" VerticalAlignment="Center" Text="Blomstertønden" />
+                </StackPanel>
+
             </Grid>
         </Grid>
 
@@ -46,7 +49,7 @@
         </StackPanel>
 
         <!--Right Side-->
-        <Grid Grid.Row="1" Grid.Column="1" Background="#FFFFF7F7" BorderThickness="2,0,0,0" BorderBrush="Black">
+        <Grid Grid.Row="1" Grid.Column="1" Background="#0C1E7832" BorderThickness="2,0,0,0" BorderBrush="Black">
             <Grid.RowDefinitions>
                 <RowDefinition Height="95*"/>
                 <RowDefinition Height="150*"/>
