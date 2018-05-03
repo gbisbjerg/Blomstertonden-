@@ -56,5 +56,10 @@ namespace Blomstertonden
         {
             this.Frame.Navigate(typeof(StatisticPage), null);
         }
+
+        private void TextBlock_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

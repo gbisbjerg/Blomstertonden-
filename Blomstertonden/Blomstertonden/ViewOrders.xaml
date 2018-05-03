@@ -46,7 +46,7 @@
                     <GradientStop Color="#261E7832" Offset="0"/>
                 </LinearGradientBrush>
             </Grid.Background>
-            <TextBlock Text="Template Page" FontSize="25px" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBlock Text="Ordrer" FontSize="25px" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             <Button Content="Logout" Height="auto" HorizontalAlignment="Right" Width="100" FontSize="20px" Margin="0,0,20,0" Background="#19000000" BorderBrush="Black" BorderThickness="1" Click="Logout_Click"/>
         </Grid>
 
@@ -74,11 +74,31 @@
                 <ColumnDefinition Width="75*"/>
             </Grid.ColumnDefinitions>
             <!--Left Middle-->
-            <Grid Background="White" Grid.Column="1" Grid.Row="1" Height="auto" Width="auto">
+            <Grid Background="White" Grid.Column="1" Grid.Row="1" Height="auto" Width="auto" BorderBrush="Black" BorderThickness="1">
                 <ScrollViewer>
-                    <ListView BorderBrush="Black" BorderThickness="2">
-
-                    </ListView>
+                    <Grid Background="White" Grid.Column="1" Grid.Row="1" Height="auto" Width="auto" BorderThickness="1,1,1,1"  BorderBrush="Black">
+                        <!--Start customer list-->
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20*"/>
+                            <RowDefinition Height="15*"/>
+                            <RowDefinition Height="410*"/>
+                            <RowDefinition Height="10*"/>
+                            <RowDefinition Height="20*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="75*"/>
+                            <ColumnDefinition Width="475*"/>
+                            <ColumnDefinition Width="75*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="ORDRELISTE:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" Height="20"/>
+                        <TextBlock Text="Ordrenummer:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="1"/>
+                        <TextBlock Text="Navn:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="1" Margin="125,0,0,0"/>
+                        <TextBlock Text="Telefon:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="1" Margin="200,0,0,0" Height="23"/>
+                        <TextBlock Text="Dato:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right" Margin="0,0,10,0"/>
+                        <ListView Background="LightGray" BorderThickness="1,1,1,1" Height="auto" BorderBrush="Black" Grid.Column="1" Grid.Row="2" >
+                        </ListView>
+                        <!--end customer list-->
+                    </Grid>
                 </ScrollViewer>
             </Grid>
         </Grid>
@@ -124,12 +144,16 @@
 
                 <!--Description-->
                 <Grid Grid.Row="1" Margin="0,0.333,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="65*"/>
+                        <ColumnDefinition Width="198*"/>
+                    </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="32*"/>
                         <RowDefinition Height="167*"/>
                     </Grid.RowDefinitions>
-                    <TextBlock Text="Description" Grid.Row="0"/>
-                    <TextBox BorderBrush="Black" BorderThickness="2" Grid.Row="1"/>
+                    <TextBlock Text="Description" Grid.Row="0" Grid.ColumnSpan="2" Margin="0,0,0,151.666" Grid.RowSpan="2"/>
+                    <TextBox BorderBrush="Black" BorderThickness="2" Grid.Row="1" Grid.ColumnSpan="2" Margin="0,0.166,0,-0.334"/>
                 </Grid>
                 <!--Card Message-->
                 <Grid Grid.Row="2" Margin="0,0,0,0.333">

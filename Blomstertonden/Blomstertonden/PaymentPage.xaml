@@ -7,7 +7,6 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="50px"/>
@@ -47,7 +46,7 @@
                     <GradientStop Color="#261E7832" Offset="0"/>
                 </LinearGradientBrush>
             </Grid.Background>
-            <TextBlock Text="Template Page" FontSize="25px" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBlock Text="Betaling" FontSize="25px" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             <Button Content="Logout" Height="auto" HorizontalAlignment="Right" Width="100" FontSize="20px" Margin="0,0,20,0" Background="#19000000" BorderBrush="Black" BorderThickness="1" Click="Logout_Click"/>
         </Grid>
 
@@ -72,101 +71,75 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="75*"/>
                 <ColumnDefinition Width="475*"/>
-                <ColumnDefinition Width="75*"/>
+                <ColumnDefinition Width="50*"/>
             </Grid.ColumnDefinitions>
             <!--Left Middle-->
+            
+            <!--Start card-->
             <Grid Background="White" Grid.Column="1" Grid.Row="1" Height="auto" Width="auto" BorderBrush="Black" BorderThickness="1">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="219*"/>
-                    <RowDefinition Height="276*"/>
-                    <RowDefinition Height="105*"/>
-                    <RowDefinition Height="83*"/>
-                    <RowDefinition Height="64*"/>
+                    <RowDefinition Height="20*"/>
+                    <RowDefinition Height="20*"/>
+                    <RowDefinition Height="110*"/>
+                    <RowDefinition Height="5*"/>
+                    <RowDefinition Height="20*"/>
+                    <RowDefinition Height="5*"/>
+                    <RowDefinition Height="25*"/>
+                    <RowDefinition Height="25*"/>
+                    <RowDefinition Height="25*"/>
+                    <RowDefinition Height="25*"/>
+                    <RowDefinition Height="20*"/>
+                    <RowDefinition Height="20*"/>
+                    <RowDefinition Height="20*"/>
                 </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="75*"/>
+                    <ColumnDefinition Width="475*"/>
+                    <ColumnDefinition Width="75*"/>
+                </Grid.ColumnDefinitions>
 
-                <!--Order Summary-->
-                <Grid Grid.Row="0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="20*"/>
-                        <ColumnDefinition Width="180*"/>
-                        <ColumnDefinition Width="40*"/>
-                        <ColumnDefinition Width="20*"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="31*"/>
-                        <RowDefinition Height="147*"/>
-                        <RowDefinition Height="42*"/>
-                    </Grid.RowDefinitions>
-
-                    <TextBlock Grid.Row="0" Text="Order Summary:" FontSize="20px" VerticalAlignment="Bottom" Height="27" Grid.ColumnSpan="4"/>
-                    <ScrollViewer Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="2" Grid.Column="1">
-                        <ListView BorderBrush="Black" BorderThickness="2">
-
-                        </ListView>
-                    </ScrollViewer>
-                    <TextBlock VerticalAlignment="Center" Text="Total:" FontSize="20px" Margin="0,0,10,0" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Right" Width="50"/>
-                    <StackPanel VerticalAlignment="Center" Height="35px" Grid.Row="2" Grid.Column="2" BorderBrush="Black" BorderThickness="2">
-                        <TextBlock Text="231" FontSize="20px" TextAlignment="Center"/>
-                    </StackPanel>
-                </Grid>
                 <!--Card Information-->
-                <Grid Grid.Row="1">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="20*"/>
-                        <ColumnDefinition Width="220*"/>
-                        <ColumnDefinition Width="20*"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="40*"/>
-                        <RowDefinition Height="350*"/>
-                    </Grid.RowDefinitions>
-                    <TextBlock Text="Card Message:" Height="30px" Grid.Row="0" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.ColumnSpan="2"/>
-                    <TextBox Grid.Row="1" Grid.Column="1" BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                </Grid>
+                <TextBlock Text="ORDRE INFO:" FontWeight="Bold" TextAlignment="Center" FontSize="12" Grid.ColumnSpan="2" Grid.Row="0" Margin="10,10,0,0"/>
+                <TextBlock Text="Besked på kort:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="1" Margin="10,10,0,0"/>
+                <ListView Background="LightGray" BorderThickness="1,1,1,1" BorderBrush="Black" Grid.Column="1" Grid.Row="2">
+                </ListView>
+                <!-- end card information-->
+                
                 <!--Delivery Info-->
-                <Grid Grid.Row="2">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="1*"/>
-                        <RowDefinition Height="1*"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="100*"/>
-                        <ColumnDefinition Width="200*"/>
-                        <ColumnDefinition Width="100*"/>
-                    </Grid.ColumnDefinitions>
-                    <TextBlock Margin="0,0,10,0" VerticalAlignment="Center" Height="27" Grid.Column="0" Grid.Row="0" Text="Street" FontSize="20" HorizontalAlignment="Right"/>
+                <TextBlock Text="Levering" FontWeight="Bold" FontSize="12" Grid.Column="1" Grid.Row="4" Margin="10,10,0,0"/>
+                <CheckBox Grid.Column="1" Grid.Row="4" HorizontalAlignment="Right"/>
+                <TextBlock Text="Navn:" FontSize="12" Grid.Column="0" Grid.Row="6" Margin="10,10,0,0"/>
+                <TextBox Background="LightGray" BorderThickness="1,1,1,1" BorderBrush="Black" VerticalAlignment="Center" PlaceholderText="Indtast navn" FontSize="12" Height="20" Grid.Column="1" Grid.Row="6" Margin="10,0,10,0"/>
+                <TextBlock Text="Adresse:" FontSize="12" Grid.Column="0" Grid.Row="7" Margin="10,10,0,0"/>
+                <TextBox Background="LightGray" BorderThickness="1,1,1,1" BorderBrush="Black" VerticalAlignment="Center" PlaceholderText="Indtast adresse" FontSize="12" Height="20" Grid.Column="1" Grid.Row="7" Margin="10,0,10,0"/>
+                <TextBlock Text="Postnr:" FontSize="12" Grid.Column="0" Grid.Row="8" Margin="10,10,0,0"/>
+                <TextBox Background="LightGray" BorderThickness="1,1,1,1" BorderBrush="Black" Width="125" HorizontalAlignment="Left"  PlaceholderText="Indtast postnummer" FontSize="12" Height="20" Grid.Column="1" Grid.Row="8" Margin="10,0,10,0"/>
+                <TextBlock Text="By:" FontSize="12" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="8" Margin="100,10,0,0"/>
+                <TextBox Background="LightGray" BorderThickness="1,1,1,1" BorderBrush="Black" Width="125" HorizontalAlignment="Right"  PlaceholderText="Indtast by" FontSize="12" Height="20" Grid.Column="1" Grid.Row="8" Margin="10,0,10,0"/>
+                <TextBlock Text="Telefon:" FontSize="12" Grid.Column="0" Grid.Row="9" Margin="10,10,0,0"/>
+                <TextBox Background="LightGray" BorderThickness="1,1,1,1" BorderBrush="Black" Width="125" HorizontalAlignment="Left"  PlaceholderText="Indtast telefon" FontSize="12" Height="20" Grid.Column="1" Grid.Row="9" Margin="10,0,10,0"/>
+                <!--<TextBlock Margin="0,0,10,0" VerticalAlignment="Center" Height="27" Grid.Column="0" Grid.Row="0" Text="Street" FontSize="20" HorizontalAlignment="Right"/>
                     <TextBox VerticalAlignment="Center" Height="32" Grid.Column="1" Grid.Row="0" BorderThickness="2" BorderBrush="Black" Text=""/>
                     <TextBlock Margin="0,0,10,0" VerticalAlignment="Center" Height="27" Grid.Column="0" Grid.Row="1" Text="Zipcode" FontSize="20" HorizontalAlignment="Right"/>
                     <TextBox VerticalAlignment="Center" Height="32" Grid.Column="1" Grid.Row="1" BorderThickness="2" BorderBrush="Black" Text=""/>
-                    <CheckBox Content="Deliver" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Right" Height="32" Width="120"/>
-                </Grid>
+                    <CheckBox Content="Deliver" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Right" Height="32" Width="120"/>-->
+
                 <!--Payment Method-->
-                <Grid Grid.Row="3" Margin="0,0.334,0,10.333">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="1*"/>
-                        <RowDefinition Height="1*"/>
-                    </Grid.RowDefinitions>
+                <Grid Grid.Row="10" Grid.Column="1">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="100*"/>
-                        <ColumnDefinition Width="200*"/>
-                        <ColumnDefinition Width="200*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
-                    <RadioButton Content="Cash" Grid.Column="1" Grid.Row="0" Height="32" Width="120"/>
-                    <RadioButton Content="MobilePay" Grid.Column="1" Grid.Row="1" Height="32" Width="120"/>
-                    <RadioButton Content="CreditCard" Grid.Column="2" Grid.Row="0" Height="32" Width="120"/>
-                    <RadioButton Content="Other" Grid.Column="2" Grid.Row="1" Height="32" Width="120"/>
+                    <RadioButton Content="Kontant" Grid.Column="0" Height="32" FontSize="12"/>
+                    <RadioButton Content="MobilePay" Grid.Column="1" Height="32" FontSize="12"/>
+                    <RadioButton Content="CreditCard" Grid.Column="2" Height="32" FontSize="12"/>
+                    <RadioButton Content="Andet" Grid.Column="3" Height="32" FontSize="12"/>
                 </Grid>
-
-                <Grid Grid.Row="4" Margin="0,4.667,0,0.333">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="366*"/>
-                        <ColumnDefinition Width="163*"/>
-                    </Grid.ColumnDefinitions>
-
-                    <Button Content="Complete Order" Grid.Column="1" Click="Complete_Click"/>
-                    <Button Margin="0,0,20,0" HorizontalAlignment="Right" Content="Cancel" Grid.Column="0" Click="Cancel_Click"/>
-
-                </Grid>
+                <Button Content="Afbryd" HorizontalAlignment="Left" Grid.Row="11" Grid.Column="1" Click="Cancel_Click"/>
+                <Button Content="Udfør ordre" HorizontalAlignment="Center"  Grid.Column="1" Grid.Row="11" Click="Complete_Click"/>
+                <Button Content="Tilbage" HorizontalAlignment="Right" Grid.Column="1" Grid.Row="11" Click="Back_Click"/>
             </Grid>
         </Grid>
 
@@ -184,9 +157,51 @@
             </Grid.ColumnDefinitions>
 
             <!--Right middle-->
-            <Grid Background="White" Grid.Column="1" Grid.Row="1" Height="auto" Width="auto">
-                <TextBox Text=" Was thinking we can have a order summary here with a print button at the bottom."/>
+            
+            <Grid Background="White" Grid.Column="1" Grid.Row="1" Height="auto" Width="auto" BorderBrush="Black" BorderThickness="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="15*"/>
+                    <RowDefinition Height="15*"/>
+                    <RowDefinition Height="15*"/>
+                    <RowDefinition Height="15*"/>
+                    <RowDefinition Height="5*"/>
+                    <RowDefinition Height="50*"/>
+                    <RowDefinition Height="15*"/>
+                    <RowDefinition Height="15*"/>
+                    <RowDefinition Height="15*"/>
+                    <RowDefinition Height="15*"/>
+                    <RowDefinition Height="20*"/>
+                    <RowDefinition Height="20*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="125*"/>
+                    <ColumnDefinition Width="475*"/>
+                </Grid.ColumnDefinitions>
+                
+                <TextBox Text="Ordre beskrivelse:" FontSize="12"  FontWeight="Bold" Grid.Column="1" Grid.Row="0" BorderThickness="0,0,0,0"/>
+                <TextBox Text="Ordrenummer:" FontSize="12" FontWeight="Bold" Grid.Column="0" Grid.Row="1" BorderThickness="0,0,0,0"/>
+                <TextBox Text="12857:" FontSize="12" Grid.Column="1" Grid.Row="1" BorderThickness="0,0,0,0"/>
+                <TextBox Text="Navn:" FontSize="12" FontWeight="Bold" Grid.Column="0" Grid.Row="2" BorderThickness="0,0,0,0" />
+                <TextBox Text="Jan Møller:" FontSize="12" Grid.Column="1" Grid.Row="2" BorderThickness="0,0,0,0"/>
+                <TextBox Text="Telefon:" FontSize="12" FontWeight="Bold" Grid.Column="0" Grid.Row="3" BorderThickness="0,0,0,0"/>
+                <TextBox Text="26230804:" FontSize="12" Grid.Column="1" Grid.Row="3" BorderThickness="0,0,0,0"/>
+                <TextBox Text="Beskrivelse:" FontSize="12" FontWeight="Bold" Grid.Column="0" Grid.Row="5" BorderThickness="0,0,0,0"/>
+                <TextBox Text="Kistepynt til begravelse og et kort:" FontSize="12" Grid.Column="1" Grid.Row="5" BorderThickness="0,0,0,0"/>
+                <TextBox Text="Pris:" FontSize="12" FontWeight="Bold" Grid.Column="0" Grid.Row="6" BorderThickness="0,0,0,0"/>
+
+                    <Grid Grid.Row="6" Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                    <TextBox Text="Kistepynt" FontSize="12" Grid.Column="0" BorderThickness="0,0,0,0"/>
+                    <TextBox Text="1500" FontSize="12" Grid.Column="3" BorderThickness="0,0,0,0"/>
+
+                </Grid>
             </Grid>
+
         </Grid>
     </Grid>
 </Page>

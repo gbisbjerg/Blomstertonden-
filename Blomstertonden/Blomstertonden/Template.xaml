@@ -74,7 +74,7 @@
                 <ColumnDefinition Width="75*"/>
             </Grid.ColumnDefinitions>
             <!--Left Middle-->
-            <Grid Background="White" Grid.Column="1" Grid.Row="1" Height="auto" Width="auto">
+            <Grid Background="White" Grid.Column="1" Grid.Row="1" Height="auto" Width="auto" BorderBrush="Black" BorderThickness="1">
 
             </Grid>
 
@@ -94,7 +94,7 @@
             </Grid.ColumnDefinitions>
 
             <!--Right middle-->
-            <Grid Background="White" Grid.Column="1" Grid.Row="1" Height="auto" Width="auto">
+            <Grid Background="White" Grid.Column="1" Grid.Row="1" Height="auto" Width="auto" BorderBrush="Black" BorderThickness="1">
 
             </Grid>
         </Grid>
