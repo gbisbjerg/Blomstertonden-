@@ -3,16 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GenericsLibrary;
 
 namespace Blomstertonden
 {
-    public static class AppConfig
+    public class OrderFactory : IFactory<OrderTData, Order>
     {
-        private static string _serverURL = "";
-
-        public static string ServerURL
+        public Order Convert(OrderTData data)
         {
-            get { return _serverURL; }
+            throw new NotImplementedException();
         }
     }
 }

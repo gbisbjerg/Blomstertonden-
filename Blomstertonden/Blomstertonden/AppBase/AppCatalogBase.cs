@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using GenericsLibrary;
 
-namespace Blomstertonden.AppBase
+namespace Blomstertonden
 {
     public class AppCatalogBase<T, TData, TKey> : CatalogBaseDB<TData, T, TKey>
         where T : IKey<TKey> 

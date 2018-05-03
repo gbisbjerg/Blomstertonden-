@@ -3,16 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GenericsLibrary;
 
 namespace Blomstertonden
 {
-    public static class AppConfig
+    public class OrderIVM : ItemViewModelBase<Order, int>
     {
-        private static string _serverURL = "";
-
-        public static string ServerURL
+        public OrderIVM(Order obj) : base(obj)
         {
-            get { return _serverURL; }
         }
+        //properties for list view...
     }
 }
