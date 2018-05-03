@@ -95,12 +95,57 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AppBase\AppCatalogBase.cs" />
+    <Compile Include="AppBase\AppConfig.cs" />
+    <Compile Include="Controllers\Commands\CustomerCommands\CustomerCreateCmd.cs" />
+    <Compile Include="Controllers\Commands\CustomerCommands\CustomerDeleteCmd.cs" />
+    <Compile Include="Controllers\Commands\CustomerCommands\CustomerUpdateCmd.cs" />
+    <Compile Include="Controllers\TData\CustomerTData.cs" />
+    <Compile Include="Controllers\TData\OrderTData.cs" />
+    <Compile Include="Controllers\TData\ProductTData.cs" />
+    <Compile Include="Controllers\ViewModels\IVMs\CustomerIVM.cs" />
+    <Compile Include="Controllers\ViewModels\IVMs\OrderIVM.cs" />
+    <Compile Include="Controllers\ViewModels\IVMs\ProductIVM.cs" />
+    <Compile Include="Controllers\ViewModels\MDVMs\CustomerMDVM.cs" />
+    <Compile Include="Controllers\ViewModels\MDVMs\OrderMDVM.cs" />
+    <Compile Include="Controllers\ViewModels\MDVMs\ProductMDVM.cs" />
     <Compile Include="CreateOrder.xaml.cs">
       <DependentUpon>CreateOrder.xaml</DependentUpon>
     </Compile>
     <Compile Include="DeliveryPage.xaml.cs">
       <DependentUpon>DeliveryPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AppGenerics\CommandsBase\CommandBase.cs" />
+    <Compile Include="AppGenerics\CommandsBase\CreateCommandBase.cs" />
+    <Compile Include="AppGenerics\CommandsBase\DeleteCommandBase.cs" />
+    <Compile Include="AppGenerics\CommandsBase\UpdateCommandBase.cs" />
+    <Compile Include="AppGenerics\DataPersistency\DBPersistency\DBSource.cs" />
+    <Compile Include="AppGenerics\DataPersistency\FilePersistency\FileSource.cs" />
+    <Compile Include="AppGenerics\DataPersistency\FilePersistency\FileStringPersistence.cs" />
+    <Compile Include="AppGenerics\DataPersistency\FilePersistency\IStringConverter.cs" />
+    <Compile Include="AppGenerics\DataPersistency\FilePersistency\IStringPersistence.cs" />
+    <Compile Include="AppGenerics\DataPersistency\FilePersistency\JSONConverter.cs" />
+    <Compile Include="AppGenerics\DomainBase\CatalogBase.cs" />
+    <Compile Include="AppGenerics\DomainBase\CatalogBaseDB.cs" />
+    <Compile Include="AppGenerics\FactoryBase\ViewModelFactoryBase.cs" />
+    <Compile Include="AppGenerics\Interfaces\IAppViewModel.cs" />
+    <Compile Include="AppGenerics\Interfaces\ICRUD.cs" />
+    <Compile Include="AppGenerics\Interfaces\IDBSource.cs" />
+    <Compile Include="AppGenerics\Interfaces\IFactory.cs" />
+    <Compile Include="AppGenerics\Interfaces\IFileSource.cs" />
+    <Compile Include="AppGenerics\Interfaces\IKey.cs" />
+    <Compile Include="AppGenerics\ViewModelsBase\AppViewModelBase.cs" />
+    <Compile Include="AppGenerics\ViewModelsBase\ItemViemModelBase.cs" />
+    <Compile Include="AppGenerics\ViewModelsBase\MasterDetailsViewModelBase.cs" />
+    <Compile Include="DomainModels\Catalogs\CustomerCatalog.cs" />
+    <Compile Include="DomainModels\Catalogs\OrderCatalog.cs" />
+    <Compile Include="DomainModels\Catalogs\ProductCatalog.cs" />
+    <Compile Include="DomainModels\ModelFactories\CustomerFactory.cs" />
+    <Compile Include="DomainModels\ModelFactories\OrderFactory.cs" />
+    <Compile Include="DomainModels\ModelFactories\ProductFactory.cs" />
+    <Compile Include="DomainModels\Models\Customer.cs" />
+    <Compile Include="DomainModels\Models\Order.cs" />
+    <Compile Include="DomainModels\Models\Product.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -181,9 +226,18 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNet.WebApi.Client">
+      <Version>5.2.5</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.0.8</Version>
     </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>11.0.2</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controllers\ViewModels\ViewModelFactories\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
