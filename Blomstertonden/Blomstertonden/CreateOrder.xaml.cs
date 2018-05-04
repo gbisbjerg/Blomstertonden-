@@ -27,6 +27,13 @@ namespace Blomstertonden
             this.InitializeComponent();
         }
 
+        private void BtnClickP1(object sender, RoutedEventArgs e)
+        {
+            //this.Frame.Navigate(typeof(PaymentPage), null);
+
+            //FramePage.Frame.FrameContent = new PaymentPage();
+        }
+
         #region Colapsable List
         public void ListViewVisiblity(ListView listView)
         {
@@ -53,54 +60,6 @@ namespace Blomstertonden
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             ListViewVisiblity(ListView3);
-        }
-        #endregion
-
-        private void BtnClickP1(object sender, RoutedEventArgs e)
-        {
-
-            //Frame1.Content = new CreateOrder();
-        }
-
-        #region Nav
-        private void Logout_Click(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(MainPage), null);
-        }
-
-        private void Home_Click(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(CreateOrder), null);
-        }
-
-        private void AllOrders_Click(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(ViewOrdersPage), null);
-        }
-
-        private void AllCustomers_Click(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(ViewCustomerPage), null);
-        }
-
-        private void Delivery_Click(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(DeliveryPage), null);
-        }
-
-        private void Summary_Click(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(StatisticPage), null);
-        }
-
-        private void ToPayment_Click(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(PaymentPage), null);
-        }
-
-        private void btn_Click(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(CreateOrder), null);
         }
         #endregion
     }
