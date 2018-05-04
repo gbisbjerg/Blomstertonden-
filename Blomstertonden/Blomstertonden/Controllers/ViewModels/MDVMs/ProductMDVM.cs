@@ -11,6 +11,7 @@ namespace Blomstertonden
     {
         public ProductMDVM(ViewModelFactoryBase<ProductTData, Product, int> factoryVM) : base(factoryVM, ProductCatalog.Instance)
         {
+            //commands see CustomerMDVM for an example
         }
 
         public override void SelectedItemEvent()

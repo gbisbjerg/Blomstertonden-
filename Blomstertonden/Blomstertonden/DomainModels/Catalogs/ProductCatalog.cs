@@ -10,9 +10,12 @@ namespace Blomstertonden
     public class ProductCatalog : AppCatalogBase<Product, ProductTData, int>
     {
         private static ProductCatalog _instance;
+
         public ProductCatalog(ProductFactory factory, string apiId) : base(factory, apiId)
         {
+            Load();
         }
+
         public static ProductCatalog Instance
         {
             get
@@ -23,6 +26,11 @@ namespace Blomstertonden
                 }
                 return _instance;
             }
+        }
+
+        public override Task<Dictionary<int, Product>> ConstructObjects()
+        {
+            return null;
         }
     }
 }

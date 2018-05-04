@@ -9,6 +9,33 @@ namespace Blomstertonden
 {
     public class Customer : IKey<int>
     {
-        public int Key { get; set; }
+        private int _id;
+        private string _name;
+        private int _phone;
+        private int _stamps;
+
+        public int Key
+        {
+            get => _id;
+            set { _id = value; }
+        }
+
+        public string Name
+        {
+            get { return _name; }
+            set { _name = value; }
+        }
+
+        public int Phone
+        {
+            get { return _phone; }
+            set { _phone = value; }
+        }
+
+        public int Stamps
+        {
+            get { return _stamps; }
+            set { _stamps = value; }
+        }
     }
 }

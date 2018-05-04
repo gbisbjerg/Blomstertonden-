@@ -19,5 +19,10 @@ namespace Blomstertonden
         {
             throw new NotImplementedException();
         }
+
+        public override Task<Dictionary<TKey, T>> ConstructObjects()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
