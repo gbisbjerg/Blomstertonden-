@@ -9,60 +9,12 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="50px"/>
             <ColumnDefinition Width="750*"/>
             <ColumnDefinition Width="750*"/>
-
         </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="60*"/>
-            <RowDefinition Height="800*"/>
-            <RowDefinition Height="50*"/>
-        </Grid.RowDefinitions>
-
-        <!--Title Bar-->
-        <Grid VerticalAlignment="Top" x:Name="TitleBar" Grid.Row="0" Grid.ColumnSpan="3" BorderThickness="0,0,0,1" BorderBrush="Black">
-            <Rectangle x:Name="BackgroundElement" Fill="#33D3D3D3"/>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
-                <Image Height="32" Margin="5,0" Source="/Assets/Corner.ico"/>
-                <!--Need to change-->
-                <StackPanel VerticalAlignment="Center" Grid.Column="1" BorderBrush="Gray" BorderThickness="1,0,0,0">
-                    <TextBlock Margin="5,0,0,0" VerticalAlignment="Center" Text="Blomstertønden" />
-                </StackPanel>
-
-            </Grid>
-        </Grid>
-
-        <!--Top Menu-->
-        <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Height="auto" Width="auto" BorderBrush="Black" BorderThickness="0,0,0,1">
-            <Grid.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#591E7832" Offset="1"/>
-                    <GradientStop Color="#261E7832" Offset="0"/>
-                </LinearGradientBrush>
-            </Grid.Background>
-            <TextBlock Text="Ordrer" FontSize="25px" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <Button Content="Logout" Height="auto" HorizontalAlignment="Right" Width="100" FontSize="20px" Margin="0,0,20,0" Background="#19000000" BorderBrush="Black" BorderThickness="1" Click="Logout_Click"/>
-        </Grid>
-
-        <!--Left Dropdown menu-->
-        <Grid Grid.Row="2" Grid.RowSpan="2" Grid.Column="0" Height="auto" Width="auto" Background="#3F787878" BorderBrush="Black" BorderThickness="0,0,1,0">
-            <StackPanel>
-                <Button x:Name="Home" FontFamily="Segoe MDL2 Assets" Content="&#xE80F;" Width="50" Height="50" Background="Transparent" BorderBrush="#33282828" BorderThickness="0,0,0,1" Click="Home_Click"/>
-                <Button x:Name="AllOrders" FontFamily="Segoe MDL2 Assets" Content="&#xE7C3;" Width="50" Height="50" Background="Transparent" BorderBrush="#33282828" BorderThickness="0,0,0,1" Click="AllOrders_Click"/>
-                <Button x:Name="AllCustomers" FontFamily="Segoe MDL2 Assets" Content="&#xE77B;" Width="50" Height="50" Background="Transparent" BorderBrush="#33282828" BorderThickness="0,0,0,1" Click="AllCustomers_Click"/>
-                <Button x:Name="Delivery" FontFamily="Segoe MDL2 Assets" Content="&#xE806;" Width="50" Height="50" Background="Transparent" BorderBrush="#33282828" BorderThickness="0,0,0,1" Click="Delivery_Click"/>
-                <Button x:Name="Summary" FontFamily="Segoe MDL2 Assets" Content="&#xE9D9;" Width="50" Height="50" Background="Transparent" BorderBrush="#33282828" BorderThickness="0,0,0,1" Click="Summary_Click"/>
-            </StackPanel>
-        </Grid>
 
         <!--MainPage Left-->
-        <Grid Grid.Row="2" Grid.RowSpan="2" Grid.Column="1" Height="auto" Width="auto" Background="#0C1E7832">
+        <Grid Grid.Column="0" Height="auto" Width="auto" Background="#0C1E7832">
             <Grid.RowDefinitions>
                 <RowDefinition Height="15*"/>
                 <RowDefinition Height="150*"/>
@@ -104,7 +56,7 @@
         </Grid>
 
         <!--MainPage Right-->
-        <Grid Grid.Row="2" Grid.RowSpan="2" Grid.Column="2" Height="auto" Width="auto" Background="#0C1E7832">
+        <Grid Grid.Column="1" Height="auto" Width="auto" Background="#0C1E7832">
             <Grid.RowDefinitions>
                 <RowDefinition Height="15*"/>
                 <RowDefinition Height="150*"/>

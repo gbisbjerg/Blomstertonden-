@@ -56,6 +56,12 @@ namespace Blomstertonden
         }
         #endregion
 
+        private void BtnClickP1(object sender, RoutedEventArgs e)
+        {
+
+            //Frame1.Content = new CreateOrder();
+        }
+
         #region Nav
         private void Logout_Click(object sender, RoutedEventArgs e)
         {
