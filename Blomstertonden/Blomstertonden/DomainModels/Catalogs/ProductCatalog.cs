@@ -13,7 +13,6 @@ namespace Blomstertonden
 
         public ProductCatalog(ProductFactory factory, string apiId) : base(factory, apiId)
         {
-            Load();
         }
 
         public static ProductCatalog Instance
@@ -26,11 +25,6 @@ namespace Blomstertonden
                 }
                 return _instance;
             }
-        }
-
-        public override Task<Dictionary<int, Product>> ConstructObjects()
-        {
-            return null;
         }
     }
 }

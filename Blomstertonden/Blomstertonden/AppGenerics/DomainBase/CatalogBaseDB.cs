@@ -19,20 +19,14 @@ namespace GenericsLibrary
             _dataSource = new DBSource<T, TKey>(serverURL, apiId);
             _factory = factory;
             _data = new Dictionary<TKey, T>();
+            Load();
         }
         public List<T> All => _data.Values.ToList();
         public Dictionary<TKey, T> Data => _data;
 
         protected async void Load(bool direct = false)
         {
-            if (direct)
-            {
-                _data = await _dataSource.Load();
-            }
-            else
-            {
-                _data = await ConstructObjects();
-            }
+             _data = await _dataSource.Load();
         }
         public virtual async Task Create(TData data, bool nextKey)
         {
@@ -68,9 +62,6 @@ namespace GenericsLibrary
             _data.Remove(key);
         }
         public abstract TKey NextKey();
-
-        public abstract Task<Dictionary<TKey, T>> ConstructObjects();
-
 
     }
 }

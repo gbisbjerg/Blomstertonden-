@@ -9,7 +9,7 @@ namespace Blomstertonden
 {
     public class CustomerMDVM : MasterDetailsViewModelBase<CustomerTData, Customer, int>
     {
-        public CustomerMDVM(ViewModelFactoryBase<CustomerTData, Customer, int> factoryVM) : base(factoryVM, CustomerCatalog.Instance)
+        public CustomerMDVM() : base(new CustomerVMFactory(), CustomerCatalog.Instance)
         {
             _createCommand = new CustomerCreateCmd(_catalog, this);
             _deleteCommand = new CustomerDeleteCmd(_catalog, this);

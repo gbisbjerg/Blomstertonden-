@@ -109,10 +109,11 @@
     <Compile Include="Controllers\ViewModels\MDVMs\CustomerMDVM.cs" />
     <Compile Include="Controllers\ViewModels\MDVMs\OrderMDVM.cs" />
     <Compile Include="Controllers\ViewModels\MDVMs\ProductMDVM.cs" />
-    <Compile Include="CreateOrder.xaml.cs">
+    <Compile Include="Controllers\ViewModels\ViewModelFactories\CustomerVMFactory.cs" />
+    <Compile Include="Views\CreateOrder.xaml.cs">
       <DependentUpon>CreateOrder.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DeliveryPage.xaml.cs">
+    <Compile Include="Views\DeliveryPage.xaml.cs">
       <DependentUpon>DeliveryPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="AppGenerics\CommandsBase\CommandBase.cs" />
@@ -146,26 +147,26 @@
     <Compile Include="DomainModels\Models\Customer.cs" />
     <Compile Include="DomainModels\Models\Order.cs" />
     <Compile Include="DomainModels\Models\Product.cs" />
-    <Compile Include="FramePage.xaml.cs">
+    <Compile Include="Views\FramePage.xaml.cs">
       <DependentUpon>FramePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainPage.xaml.cs">
+    <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PaymentPage.xaml.cs">
+    <Compile Include="Views\PaymentPage.xaml.cs">
       <DependentUpon>PaymentPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StatisticPage.xaml.cs">
+    <Compile Include="Views\StatisticPage.xaml.cs">
       <DependentUpon>StatisticPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Template.xaml.cs">
+    <Compile Include="Views\Template.xaml.cs">
       <DependentUpon>Template.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewCustomerPage.xaml.cs">
+    <Compile Include="Views\ViewCustomerPage.xaml.cs">
       <DependentUpon>ViewCustomerPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewOrders.xaml.cs">
+    <Compile Include="Views\ViewOrders.xaml.cs">
       <DependentUpon>ViewOrders.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -194,39 +195,39 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="CreateOrder.xaml">
+    <Page Include="Views\CreateOrder.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DeliveryPage.xaml">
+    <Page Include="Views\DeliveryPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="FramePage.xaml">
+    <Page Include="Views\FramePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainPage.xaml">
+    <Page Include="Views\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="PaymentPage.xaml">
+    <Page Include="Views\PaymentPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="StatisticPage.xaml">
+    <Page Include="Views\StatisticPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Template.xaml">
+    <Page Include="Views\Template.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ViewCustomerPage.xaml">
+    <Page Include="Views\ViewCustomerPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ViewOrders.xaml">
+    <Page Include="Views\ViewOrders.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -242,9 +243,7 @@
       <Version>11.0.2</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controllers\ViewModels\ViewModelFactories\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
