@@ -26,50 +26,5 @@ namespace Blomstertonden
         {
             this.InitializeComponent();
         }
-
-        private void Logout_Click(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(MainPage), null);
-        }
-
-        private void Home_Click(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(CreateOrder), null);
-        }
-
-        private void AllOrders_Click(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(ViewOrdersPage), null);
-        }
-
-        private void AllCustomers_Click(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(ViewCustomerPage), null);
-        }
-
-        private void Delivery_Click(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(DeliveryPage), null);
-        }
-
-        private void Summary_Click(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(StatisticPage), null);
-        }
-
-        private void Cancel_Click(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(CreateOrder), null);
-        }
-
-        private void Complete_Click(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(ViewOrdersPage), null);
-        }
-
-        private void Back_Click(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(CreateOrder), null);
-        }
     }
 }

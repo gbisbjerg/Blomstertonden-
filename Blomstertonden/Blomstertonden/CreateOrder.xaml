@@ -72,7 +72,7 @@
                 </ListView>
                 <TextBlock Text="Total pris:  " TextAlignment="Right" VerticalAlignment="Center" FontSize="20" Grid.Column="1" Width="175" Grid.Row="9"/>
                 <TextBox FontSize="12" Background="LightGray" BorderThickness="1,1,1,1" BorderBrush="Black" HorizontalAlignment="Right" Grid.Column="1" Width="100" Height="30" Grid.Row="9"/>
-                <Button x:Name="btn" FontFamily="Segoe MDL2 Assets" Content="&#xE107;" Width="50" Height="50" Background="Transparent" Grid.Column="1" Grid.Row="9" Click="btn_Click"/>
+                <Button x:Name="btn" FontFamily="Segoe MDL2 Assets" Content="&#xE107;" Width="50" Height="50" Background="Transparent" Grid.Column="1" Grid.Row="9"/>
                 <Button Content="Til betaling" FontSize="12" BorderThickness="1,1,1,1" Width="100" BorderBrush="Black"  Grid.Column="1" Grid.Row="9" Height="32" Margin="60,0,10,0" MinWidth="40" Click="BtnClickP1" />
             </Grid>
         </Grid>

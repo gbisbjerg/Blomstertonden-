@@ -26,7 +26,7 @@
                 <ColumnDefinition Width="75*"/>
             </Grid.ColumnDefinitions>
             <!--Left Middle-->
-            <Grid Grid.Row="2" Grid.RowSpan="2" Grid.Column="1" Height="auto" Width="auto" Background="#0C1E7832">
+            <Grid Grid.Row="1" Grid.Column="1" Height="auto" Width="auto" Background="White" BorderBrush="Black" BorderThickness="1">
                 <!--Start customer list-->
                 <Grid.RowDefinitions>
                     <RowDefinition Height="20*"/>

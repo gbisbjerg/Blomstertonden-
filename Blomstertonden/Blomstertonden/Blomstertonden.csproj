@@ -178,7 +178,6 @@
   <ItemGroup>
     <Content Include="Assets\Corner.ico" />
     <Content Include="FlipView\Basket.jpg" />
-    <Content Include="FlipView\bird.jpg" />
     <Content Include="FlipView\White.jpg" />
     <Content Include="FlipView\window.jpg" />
     <Content Include="Properties\Default.rd.xml" />
