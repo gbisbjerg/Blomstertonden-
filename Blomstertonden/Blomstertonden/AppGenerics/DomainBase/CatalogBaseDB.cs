@@ -23,15 +23,25 @@ namespace GenericsLibrary
         }
         public List<T> All => _data.Values.ToList();
         public Dictionary<TKey, T> Data => _data;
-        private async void Load()
+
+        protected async void Load(bool direct = false)
         {
-            _data = await _dataSource.Load();
+             _data = await _dataSource.Load();
+        }
+        public virtual async Task Create(TData data, bool nextKey)
+        {
+            T obj = _factory.Convert(data);
+            if (nextKey)
+            {
+                TKey newKey = NextKey();
+                obj.Key = newKey;
+            }
+            await _dataSource.Create(obj);
+            _data.Add(obj.Key, obj);
         }
         public virtual async Task Create(TData data)
         {
             T obj = _factory.Convert(data);
-            TKey newKey = NextKey();
-            obj.Key = newKey;
             await _dataSource.Create(obj);
             _data.Add(obj.Key, obj);
         }
@@ -52,5 +62,6 @@ namespace GenericsLibrary
             _data.Remove(key);
         }
         public abstract TKey NextKey();
+
     }
 }

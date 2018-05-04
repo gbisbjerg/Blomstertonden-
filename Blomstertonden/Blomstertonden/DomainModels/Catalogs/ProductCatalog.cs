@@ -10,9 +10,11 @@ namespace Blomstertonden
     public class ProductCatalog : AppCatalogBase<Product, ProductTData, int>
     {
         private static ProductCatalog _instance;
+
         public ProductCatalog(ProductFactory factory, string apiId) : base(factory, apiId)
         {
         }
+
         public static ProductCatalog Instance
         {
             get

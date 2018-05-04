@@ -8,11 +8,8 @@ namespace Blomstertonden
 {
     public static class AppConfig
     {
-        private static string _serverURL = "";
+        private static string _serverURL = "http://localhost:54966/";
 
-        public static string ServerURL
-        {
-            get { return _serverURL; }
-        }
+        public static string ServerURL => _serverURL;
     }
 }

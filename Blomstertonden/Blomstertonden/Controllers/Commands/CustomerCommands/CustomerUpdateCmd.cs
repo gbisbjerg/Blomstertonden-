@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using GenericsLibrary;
 
-namespace Blomstertonden.Controllers.Commands.CustomerCommands
+namespace Blomstertonden
 {
     public class CustomerUpdateCmd : UpdateCommandBase<CustomerTData, Customer, int>
     {

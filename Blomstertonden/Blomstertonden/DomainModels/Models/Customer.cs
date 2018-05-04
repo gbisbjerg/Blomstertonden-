@@ -7,7 +7,7 @@ using GenericsLibrary;
 
 namespace Blomstertonden
 {
-    public class Customer : IKey<int>
+    public partial class Customer : IKey<int>
     {
         public int Key { get; set; }
     }

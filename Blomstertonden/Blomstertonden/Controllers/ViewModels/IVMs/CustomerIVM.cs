@@ -13,5 +13,9 @@ namespace Blomstertonden
         {
         }
         //properties for list view...
+        public string Name
+        {
+            get => Obj.Name;
+        }
     }
 }

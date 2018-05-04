@@ -20,12 +20,11 @@ namespace WebService
         [Required]
         [StringLength(500)]
         public string Description { get; set; }
-
+         
         public DateTime Date { get; set; }
 
         public DateTime? DeliveryDate { get; set; }
 
-        [Required]
         [StringLength(100)]
         public string Street { get; set; }
 
@@ -38,7 +37,7 @@ namespace WebService
 
         public int? FK_PaymentType { get; set; }
 
-        public int FK_City { get; set; }
+        public int? FK_City { get; set; }
 
         public int FK_Status { get; set; }
 

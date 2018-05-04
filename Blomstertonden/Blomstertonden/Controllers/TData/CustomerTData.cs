@@ -10,5 +10,11 @@ namespace Blomstertonden
     public class CustomerTData : IKey<int>
     {
         public int Key { get; set; }
+
+        public string Name { get; set; }
+
+        public int Phone { get; set; }
+
+        public int Stamps { get; set; }
     }
 }
