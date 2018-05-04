@@ -146,6 +146,9 @@
     <Compile Include="DomainModels\Models\Customer.cs" />
     <Compile Include="DomainModels\Models\Order.cs" />
     <Compile Include="DomainModels\Models\Product.cs" />
+    <Compile Include="FramePage.xaml.cs">
+      <DependentUpon>FramePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -175,7 +178,6 @@
   <ItemGroup>
     <Content Include="Assets\Corner.ico" />
     <Content Include="FlipView\Basket.jpg" />
-    <Content Include="FlipView\bird.jpg" />
     <Content Include="FlipView\White.jpg" />
     <Content Include="FlipView\window.jpg" />
     <Content Include="Properties\Default.rd.xml" />
@@ -197,6 +199,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DeliveryPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FramePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
