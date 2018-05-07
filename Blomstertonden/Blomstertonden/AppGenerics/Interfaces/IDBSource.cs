@@ -12,6 +12,6 @@ namespace GenericsLibrary
         Task<T> Read(TKey key);
         Task Update(T obj);
         Task Delete(TKey key);
-        Task<Dictionary<TKey, T>> Load();
+        Task<List<T>> Load();
     }
 }

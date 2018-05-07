@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Xaml.Controls.Maps;
 using System.Net.Http.Headers;
+using System.Security.Cryptography.X509Certificates;
 
 namespace GenericsLibrary
 {
@@ -29,9 +30,10 @@ namespace GenericsLibrary
             _httpClient = new HttpClient(_httpClientHandler) {BaseAddress = new Uri(_serverURL)};
 
         }
-        public async Task<Dictionary<TKey, T>> Load()
+
+        public async Task<List<T>> Load()
         {
-            return await InvokeAPIWithReturnValueAsync<Dictionary<TKey, T>>(() => _httpClient.GetAsync(BuildRequestURI(APIMethod.Load)));
+            return await InvokeAPIWithReturnValueAsync<List<T>>(() => _httpClient.GetAsync(BuildRequestURI(APIMethod.Load)));
         }
         #region CRUD
         public async Task Create(T obj)
