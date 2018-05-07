@@ -8,7 +8,7 @@
     mc:Ignorable="d">
 
     <Page.DataContext>
-    <local:CustomerMDVM/>
+        <local:CustomerMDVM/>
     </Page.DataContext>
     
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -110,8 +110,8 @@
                 
                     <!--Start details-->    
                     <TextBlock Text="Ordrenr:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left"/>
-                    <TextBox Text="{Binding Name}"
-                    <TextBlock Text="Dato:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center"/>
+                <TextBox Text="{Binding Name}"/>
+                <TextBlock Text="Dato:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center"/>
                     <TextBlock Text="Pris:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Right"/>
                     <ListView Background="LightGray" BorderThickness="1,1,1,1" Height="auto" BorderBrush="Black" Grid.Column="1" Grid.Row="5">
                     </ListView>
