@@ -50,10 +50,10 @@
                 <TextBlock Text="Pris:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right"/>
 
                 <!--end customer list-->
-                <ListView ItemsSource="{Binding ItemViewModelCollection}" SelectedItem="{Binding ItemViewModelSelected, Mode=TwoWay}" BorderBrush="Black" BorderThickness="1">
+                <ListView Grid.Row="2" Grid.Column="1" ItemsSource="{Binding ItemViewModelCollection}" SelectedItem="{Binding ItemViewModelSelected, Mode=TwoWay}" BorderBrush="Black" BorderThickness="1">
                     <ListView.ItemTemplate>
                         <DataTemplate x:DataType="local:CustomerIVM">
-                            <StackPanel Orientation="Horizontal" Height="51" Width="702" BorderThickness="0,0,0,2" BorderBrush="Blue">
+                            <StackPanel Background="Aqua"  Orientation="Horizontal" Height="51" Width="702" BorderThickness="0,0,0,2" BorderBrush="Blue">
                                 <!--Name-->
                                 <TextBlock Text="{Binding Name}"/>
                                 <!--Phone-->
@@ -110,7 +110,7 @@
                 
                     <!--Start details-->    
                     <TextBlock Text="Ordrenr:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left"/>
-                    <TextBox Text="{Binding Name}"
+                    <TextBox Text="{Binding Name}"></TextBox>
                     <TextBlock Text="Dato:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center"/>
                     <TextBlock Text="Pris:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Right"/>
                     <ListView Background="LightGray" BorderThickness="1,1,1,1" Height="auto" BorderBrush="Black" Grid.Column="1" Grid.Row="5">

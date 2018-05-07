@@ -28,7 +28,6 @@ namespace GenericsLibrary
             _apiPrefix = apiPrefix;
             _httpClientHandler = new HttpClientHandler {UseDefaultCredentials = true};
             _httpClient = new HttpClient(_httpClientHandler) {BaseAddress = new Uri(_serverURL)};
-
         }
 
         public async Task<List<T>> Load()

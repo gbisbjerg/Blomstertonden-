@@ -10,9 +10,9 @@ namespace Blomstertonden
     {
         public Startup()
         {
-            //CustomerCatalog customerCatalog = CustomerCatalog.Instance;
-            //OrderCatalog orderCatalog = OrderCatalog.Instance;
-            //ProductCatalog productCatalog = ProductCatalog.Instance;
+            CustomerCatalog customerCatalog = CustomerCatalog.Instance;
+            OrderCatalog orderCatalog = OrderCatalog.Instance;
+            ProductCatalog productCatalog = ProductCatalog.Instance;
         }
     }
 }

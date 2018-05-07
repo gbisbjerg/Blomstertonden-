@@ -27,8 +27,6 @@ namespace GenericsLibrary
         public async void Load()
         {
             List<T> data = await _dataSource.Load();
-
-
             foreach (T t in data)
             {
                 _data.Add(t.Key, t);
