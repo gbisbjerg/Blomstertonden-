@@ -57,7 +57,8 @@ namespace GenericsLibrary
         #region Private method for API method invocation
         private async Task<U> InvokeAPIWithReturnValueAsync<U>(Func<Task<HttpResponseMessage>> apiMethod)
         {
-            return await InvokeAPIAsync(apiMethod).Result.Content.ReadAsAsync<U>();
+            HttpResponseMessage response = await InvokeAPIAsync(apiMethod);
+            return await response.Content.ReadAsAsync<U>();
         }
         private async Task InvokeAPINoReturnValueAsync(Func<Task<HttpResponseMessage>> apiMethod)
         {
