@@ -97,6 +97,7 @@
     </Compile>
     <Compile Include="AppBase\AppCatalogBase.cs" />
     <Compile Include="AppBase\AppConfig.cs" />
+    <Compile Include="AppBase\Startup.cs" />
     <Compile Include="Controllers\Commands\CustomerCommands\CustomerCreateCmd.cs" />
     <Compile Include="Controllers\Commands\CustomerCommands\CustomerDeleteCmd.cs" />
     <Compile Include="Controllers\Commands\CustomerCommands\CustomerUpdateCmd.cs" />
@@ -110,6 +111,16 @@
     <Compile Include="Controllers\ViewModels\MDVMs\OrderMDVM.cs" />
     <Compile Include="Controllers\ViewModels\MDVMs\ProductMDVM.cs" />
     <Compile Include="Controllers\ViewModels\ViewModelFactories\CustomerVMFactory.cs" />
+    <Compile Include="DomainModels\Models\Category.cs" />
+    <Compile Include="DomainModels\Models\City.cs" />
+    <Compile Include="DomainModels\Models\Customer.cs" />
+    <Compile Include="DomainModels\Models\Order.cs" />
+    <Compile Include="DomainModels\Models\OrderedProduct.cs" />
+    <Compile Include="DomainModels\Models\PaymentType.cs" />
+    <Compile Include="DomainModels\Models\Product.cs" />
+    <Compile Include="DomainModels\Models\Role.cs" />
+    <Compile Include="DomainModels\Models\Status.cs" />
+    <Compile Include="DomainModels\Models\User.cs" />
     <Compile Include="Views\CreateOrder.xaml.cs">
       <DependentUpon>CreateOrder.xaml</DependentUpon>
     </Compile>
@@ -144,9 +155,6 @@
     <Compile Include="DomainModels\ModelFactories\CustomerFactory.cs" />
     <Compile Include="DomainModels\ModelFactories\OrderFactory.cs" />
     <Compile Include="DomainModels\ModelFactories\ProductFactory.cs" />
-    <Compile Include="DomainModels\Models\Customer.cs" />
-    <Compile Include="DomainModels\Models\Order.cs" />
-    <Compile Include="DomainModels\Models\Product.cs" />
     <Compile Include="Views\FramePage.xaml.cs">
       <DependentUpon>FramePage.xaml</DependentUpon>
     </Compile>
@@ -243,7 +251,9 @@
       <Version>11.0.2</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

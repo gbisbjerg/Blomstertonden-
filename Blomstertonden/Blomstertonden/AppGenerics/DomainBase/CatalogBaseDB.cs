@@ -24,9 +24,12 @@ namespace GenericsLibrary
         public List<T> All => _data.Values.ToList();
         public Dictionary<TKey, T> Data => _data;
 
-        protected async void Load(bool direct = false)
+        public void Load()
         {
-             _data = await _dataSource.Load();
+            foreach (T t in _dataSource.Load().Result)
+            {
+                _data.Add(t.Key, t);
+            }
         }
         public virtual async Task Create(TData data, bool nextKey)
         {

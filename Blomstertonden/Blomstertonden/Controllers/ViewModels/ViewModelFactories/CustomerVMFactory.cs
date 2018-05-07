@@ -11,7 +11,7 @@ namespace Blomstertonden
     {
         public override ItemViewModelBase<Customer, int> CreateItemViewModel(Customer obj)
         {
-            throw new NotImplementedException();
+            return new CustomerIVM(obj);
         }
     }
 }

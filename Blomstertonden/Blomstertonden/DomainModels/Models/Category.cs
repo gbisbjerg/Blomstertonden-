@@ -1,5 +1,3 @@
-using GenericsLibrary;
-
 namespace Blomstertonden
 {
     using System;
@@ -7,28 +5,22 @@ namespace Blomstertonden
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    [Table("Customer")]
-    public partial class Customer : IKey<int>
+    [Table("Category")]
+    public partial class Category
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Customer()
+        public Category()
         {
-            Orders = new HashSet<Order>();
+            Products = new HashSet<Product>();
         }
 
         public int Id { get; set; }
 
         [Required]
-        [StringLength(100)]
+        [StringLength(50)]
         public string Name { get; set; }
 
-        public int Phone { get; set; }
-
-        public int Stamps { get; set; }
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Order> Orders { get; set; }
-
-        public int Key { get=>Id; set=>Id=value; }
+        public virtual ICollection<Product> Products { get; set; }
     }
 }
