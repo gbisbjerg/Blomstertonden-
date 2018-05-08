@@ -12,6 +12,7 @@ namespace Blomstertonden
         private static OrderCatalog _instance;
         public OrderCatalog(OrderFactory factory, string apiId) : base(factory, apiId)
         {
+          
         }
         public static OrderCatalog Instance
         {
