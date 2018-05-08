@@ -43,10 +43,10 @@
                             <ColumnDefinition Width="75*"/>
                         </Grid.ColumnDefinitions>
                         <TextBlock Text="ORDRELISTE:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" Height="20"/>
-                        <TextBlock Text="Ordrenummer:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="1"/>
-                        <TextBlock Text="Navn:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="1" Margin="125,0,0,0"/>
-                        <TextBlock Text="Telefon:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="1" Margin="200,0,0,0" Height="23"/>
-                        <TextBlock Text="Dato:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right" Margin="0,0,10,0"/>
+                        <TextBlock Text="Ordrenummer:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left"/>
+                        <TextBlock Text="Dato:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center"/>
+                        <TextBlock Text="Pris:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right"/>
+                       
                         <ListView Background="LightGray" BorderThickness="1,1,1,1" Height="auto" BorderBrush="Black" Grid.Column="1" Grid.Row="2" >
                         </ListView>
                         <!--end customer list-->
