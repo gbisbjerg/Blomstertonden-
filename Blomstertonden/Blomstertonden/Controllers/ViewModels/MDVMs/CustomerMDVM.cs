@@ -18,7 +18,12 @@ namespace Blomstertonden
 
         public override void SelectedItemEvent()
         {
-            throw new NotImplementedException();
+            OnPropertyChanged(nameof(Name));
+            OnPropertyChanged(nameof(Phone));
+            OnPropertyChanged(nameof(Stamps));
+            _createCommand.RaiseCanExecuteChanged();
+            _deleteCommand.RaiseCanExecuteChanged();
+            _updateCommand.RaiseCanExecuteChanged();
         }
         //All properties for binding to the given view
         public string Name

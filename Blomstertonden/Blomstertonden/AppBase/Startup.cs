@@ -12,7 +12,7 @@ namespace Blomstertonden
         {
             CustomerCatalog customerCatalog = CustomerCatalog.Instance;
             //OrderCatalog orderCatalog = OrderCatalog.Instance;
-            ProductCatalog productCatalog = ProductCatalog.Instance;
+            //ProductCatalog productCatalog = ProductCatalog.Instance;
         }
     }
 }

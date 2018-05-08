@@ -13,7 +13,7 @@ namespace Blomstertonden
 
         public ProductCatalog(ProductFactory factory, string apiId) : base(factory, apiId)
         {
-            //Load();
+            Load();
         }
 
         public static ProductCatalog Instance
