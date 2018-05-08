@@ -9,7 +9,8 @@ namespace Blomstertonden
     [Table("Customer")]
     public partial class Customer : IKey<int>
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage",
+            "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Customer()
         {
             Orders = new HashSet<Order>();
@@ -25,9 +26,16 @@ namespace Blomstertonden
 
         public int Stamps { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage",
+            "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Orders { get; set; }
 
-        public int Key { get=>Id; set=>Id=value; }
+        public int Key
+        {
+            get => Id;
+            set => Id = value;
+        }
+
     }
 }
+

@@ -19,7 +19,7 @@ namespace GenericsLibrary
             _dataSource = new DBSource<T, TKey>(serverURL, apiId);
             _factory = factory;
             _data = new Dictionary<TKey, T>();
-            Load();
+         
         }
         public List<T> All => _data.Values.ToList();
         public Dictionary<TKey, T> Data => _data;
