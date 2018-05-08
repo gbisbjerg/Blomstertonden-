@@ -26,11 +26,12 @@ namespace Blomstertonden
         {
             this.InitializeComponent();
 
-            Frame1.Content = new CreateOrder();
+            Frame1.Content = new CreateOrder(this);
         }
 
-        public Frame FrameContent
+        public Object FrameContent
         {
+            get { return Frame1.Content; }
             set { Frame1.Content = value; }
         }
 
@@ -42,7 +43,7 @@ namespace Blomstertonden
         #region NavigationButtons
         private void BtnClickP1(object sender, RoutedEventArgs e)
         {
-            Frame1.Content = new CreateOrder();
+            Frame1.Content = new CreateOrder(this);
         }
 
         private void BtnClickP2(object sender, RoutedEventArgs e)
@@ -61,7 +62,7 @@ namespace Blomstertonden
 
         private void BtnClickP5(object sender, RoutedEventArgs e)
         {
-            Frame1.Content = new PaymentPage();
+            Frame1.Content = new StatisticPage();
         }
         #endregion
 

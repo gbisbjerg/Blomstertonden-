@@ -22,9 +22,26 @@ namespace Blomstertonden
     /// </summary>
     public sealed partial class PaymentPage : Page
     {
-        public PaymentPage()
+        FramePage framePage;
+        public PaymentPage(FramePage _framePage)
         {
             this.InitializeComponent();
+            framePage = _framePage;
+        }
+
+
+        private void BtnClickP1(object sender, RoutedEventArgs e)
+        {
+            framePage.FrameContent = new CreateOrder(framePage);
+        }
+        private void BtnClickP2(object sender, RoutedEventArgs e)
+        {
+            framePage.FrameContent = new ViewOrdersPage();
+        }
+
+        private void BtnClickP3(object sender, RoutedEventArgs e)
+        {
+            framePage.FrameContent = new CreateOrder(framePage);
         }
     }
 }
