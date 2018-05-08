@@ -8,7 +8,7 @@
     mc:Ignorable="d">
 
     <Page.DataContext>
-    <local:CustomerMDVM/>
+        <local:CustomerMDVM/>
     </Page.DataContext>
     
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -53,11 +53,11 @@
                 <ListView Grid.Row="2" Grid.Column="1" ItemsSource="{Binding ItemViewModelCollection}" SelectedItem="{Binding ItemViewModelSelected, Mode=TwoWay}" BorderBrush="Black" BorderThickness="1">
                     <ListView.ItemTemplate>
                         <DataTemplate x:DataType="local:CustomerIVM">
-                            <StackPanel Background="Aqua"  Orientation="Horizontal" Height="51" Width="702" BorderThickness="0,0,0,2" BorderBrush="Blue">
+                            <StackPanel Background="Red" Orientation="Horizontal" Height="51" Width="auto" BorderThickness="0,0,0,2" BorderBrush="Blue">
                                 <!--Name-->
-                                <TextBlock Text="{Binding Name}"/>
+                                <TextBlock Width="50px" Text="{Binding Name}"/>
                                 <!--Phone-->
-                                <!--<TextBlock Text="{Binding Phone}" />-->
+                                <!--<TextBlock Text="{Binding Phone}"/>-->
                             </StackPanel>
                         </DataTemplate>
                     </ListView.ItemTemplate>
@@ -110,7 +110,7 @@
                 
                     <!--Start details-->    
                     <TextBlock Text="Ordrenr:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left"/>
-                    <TextBox Text="{Binding Name}"></TextBox>
+                    <TextBox Grid.Column="1"/>
                     <TextBlock Text="Dato:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center"/>
                     <TextBlock Text="Pris:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Right"/>
                     <ListView Background="LightGray" BorderThickness="1,1,1,1" Height="auto" BorderBrush="Black" Grid.Column="1" Grid.Row="5">
