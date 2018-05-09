@@ -19,7 +19,7 @@ namespace GenericsLibrary
         protected ICRUD<T, TData, TKey> _catalog;
         protected ViewModelFactoryBase<TData, T, TKey> _factoryVM;
         protected ItemViewModelBase<T, TKey> _itemViewModelSelected;
-        protected TData _dataPackage;
+        //protected TData _dataPackage;
         protected DeleteCommandBase<TData, T, TKey> _deleteCommand;
         protected CreateCommandBase<TData, T, TKey> _createCommand;
         protected UpdateCommandBase<TData, T, TKey> _updateCommand;
@@ -31,7 +31,7 @@ namespace GenericsLibrary
         {
             _catalog = catalog;
             _factoryVM = factoryVM;
-            _dataPackage = new TData();
+            //_dataPackage = new TData();
         }
         #endregion
         #region Properties for Data Binding
@@ -86,10 +86,10 @@ namespace GenericsLibrary
                 SelectedItemEvent();
             }
         }
-        public TData DataPackage {
-            get => _dataPackage;
-            set => _dataPackage = value;
-        }
+        //public TData DataPackage {
+        //    get => _dataPackage;
+        //    set => _dataPackage = value;
+        //}
         #endregion
         #region Methods
         public void RefreshItemViewModelCollection()

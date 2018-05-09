@@ -8,18 +8,25 @@ namespace GenericsLibrary
 {
     public abstract class CatalogBaseDB<TData, T, TKey> : ICRUD<T, TData, TKey>
         where T : IKey<TKey>
-        where TData : IKey<TKey>
+        where TData : IKey<TKey>, new()
     {
         protected Dictionary<TKey, T> _data;
         protected IFactory<TData, T> _factory;
         protected IDBSource<T, TKey> _dataSource;
+        protected TData _dataPackage;
 
         protected CatalogBaseDB(IFactory<TData, T> factory, string serverURL ,string apiId)
         {
             _dataSource = new DBSource<T, TKey>(serverURL, apiId);
             _factory = factory;
             _data = new Dictionary<TKey, T>();
-         
+            _dataPackage = new TData();
+
+        }
+        public TData DataPackage
+        {
+            get => _dataPackage;
+            set => _dataPackage = value;
         }
         public List<T> All => _data.Values.ToList();
         public Dictionary<TKey, T> Data => _data;

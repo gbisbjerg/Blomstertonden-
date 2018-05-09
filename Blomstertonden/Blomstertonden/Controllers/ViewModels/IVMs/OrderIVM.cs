@@ -13,5 +13,19 @@ namespace Blomstertonden
         {
         }
         //properties for list view...
+        public int ID
+        {
+            get => Obj.Id;
+        }
+        public DateTime Date
+        {
+            get => Obj.Date;
+        }
+        public int Price
+        {
+            get => Obj.TotalPrice;
+        }
+
+
     }
 }
