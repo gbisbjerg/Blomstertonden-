@@ -18,25 +18,30 @@ namespace Blomstertonden
 
         public override void SelectedItemEvent()
         {
-            throw new NotImplementedException();
+            OnPropertyChanged(nameof(Name));
+            OnPropertyChanged(nameof(Phone));
+            OnPropertyChanged(nameof(Stamps));
+            _createCommand.RaiseCanExecuteChanged();
+            _deleteCommand.RaiseCanExecuteChanged();
+            _updateCommand.RaiseCanExecuteChanged();
         }
         //All properties for binding to the given view
         public string Name
         {
             get => ItemViewModelSelected.Obj.Name;
-            set => DataPackage.Name = value;
+            set => CustomerCatalog.Instance.DataPackage.Name = value;
         }
 
         public int Phone
         {
             get => ItemViewModelSelected.Obj.Phone;
-            set => DataPackage.Phone = value;
+            set => CustomerCatalog.Instance.DataPackage.Phone = value;
         }
 
         public int Stamps
         {
             get => ItemViewModelSelected.Obj.Stamps;
-            set => DataPackage.Stamps = value;
+            set => CustomerCatalog.Instance.DataPackage.Stamps = value;
         }
     }
 }

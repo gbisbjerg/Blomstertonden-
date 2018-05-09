@@ -12,5 +12,6 @@ namespace GenericsLibrary
         Task Delete(TKey key);
 
         List<T> All { get; }
+        TData DataPackage { get; set; }
     }
 }

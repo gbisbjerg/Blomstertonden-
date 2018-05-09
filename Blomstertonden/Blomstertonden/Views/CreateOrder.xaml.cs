@@ -22,16 +22,16 @@ namespace Blomstertonden
     /// </summary>
     public sealed partial class CreateOrder : Page
     {
-        public CreateOrder()
+        FramePage framePage;
+        public CreateOrder( FramePage _framePage )
         {
             this.InitializeComponent();
+            framePage = _framePage;
         }
 
         private void BtnClickP1(object sender, RoutedEventArgs e)
         {
-            //this.Frame.Navigate(typeof(PaymentPage), null);
-
-            //FramePage.Frame.FrameContent = new PaymentPage();
+            framePage.FrameContent  = new PaymentPage(framePage);
         }
 
         #region Colapsable List

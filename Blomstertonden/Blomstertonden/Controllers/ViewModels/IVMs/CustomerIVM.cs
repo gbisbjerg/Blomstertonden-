@@ -17,5 +17,9 @@ namespace Blomstertonden
         {
             get => Obj.Name;
         }
+        public int Stamp
+        {
+            get => Obj.Stamps;
+        }
     }
 }

@@ -7,6 +7,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
+    
+    
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="750*"/>
@@ -89,9 +91,9 @@
                     <RadioButton Content="CreditCard" Grid.Column="2" Height="32" FontSize="12"/>
                     <RadioButton Content="Andet" Grid.Column="3" Height="32" FontSize="12"/>
                 </Grid>
-                <Button Content="Afbryd" HorizontalAlignment="Left" Grid.Row="11" Grid.Column="1"/>
-                <Button Content="Udfør ordre" HorizontalAlignment="Center"  Grid.Column="1" Grid.Row="11"/>
-                <Button Content="Tilbage" HorizontalAlignment="Right" Grid.Column="1" Grid.Row="11"/>
+                <Button Content="Afbryd" HorizontalAlignment="Left" Grid.Row="11" Grid.Column="1" Click="BtnClickP1"/>
+                <Button Content="Udfør ordre" HorizontalAlignment="Center"  Grid.Column="1" Grid.Row="11" Click="BtnClickP2"/>
+                <Button Content="Tilbage" HorizontalAlignment="Right" Grid.Column="1" Grid.Row="11" Click="BtnClickP3"/>
             </Grid>
         </Grid>
 

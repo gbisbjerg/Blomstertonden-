@@ -22,7 +22,8 @@ namespace GenericsLibrary
         }
         public override void Execute()
         {
-            _catalog.Create(_viewModel.DataPackage);
+            //_catalog.Create(_viewModel.DataPackage);
+            _catalog.Create(_catalog.DataPackage);
             ExecuteEvent();
         }
     }

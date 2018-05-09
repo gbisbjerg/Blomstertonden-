@@ -9,7 +9,7 @@ namespace Blomstertonden
 {
     public class AppCatalogBase<T, TData, TKey> : CatalogBaseDB<TData, T, TKey>
         where T : IKey<TKey> 
-        where TData : IKey<TKey>
+        where TData : IKey<TKey>, new()
     {
         public AppCatalogBase(IFactory<TData, T> factory, string apiId) : base(factory, AppConfig.ServerURL, apiId)
         {
