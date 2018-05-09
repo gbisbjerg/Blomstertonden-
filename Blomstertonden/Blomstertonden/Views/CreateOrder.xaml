@@ -7,6 +7,10 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
+    <Page.DataContext>
+        <local:OrderMDVM/>
+    </Page.DataContext>
+
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="750*"/>
@@ -48,10 +52,10 @@
                 <TextBlock Text="KUNDE:" FontWeight="Bold" FontSize="12" Grid.Column="0" Grid.Row="0" Margin="10,10,0,0"/>
                 <TextBlock Text="NAVN:" FontSize="12" Grid.Column="0" Grid.Row="1" Margin="10,10,0,0"/>
                 <TextBlock Text="KLIP:" FontWeight="Bold" FontSize="12" Grid.Column="2" Grid.Row="0" TextAlignment="Center" VerticalAlignment="Center"/>
-                <TextBox Background="LightGray" BorderThickness="1,1,1,1" BorderBrush="Black" VerticalAlignment="Center" PlaceholderText="Indtast navn" FontSize="12" Height="20" Grid.Column="1" Grid.Row="1" Margin="10,0,10,0"/>
-                <TextBox Background="LightGray" BorderThickness="1,1,1,1" BorderBrush="Black" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" PlaceholderText="0" FontSize="12" Height="20" Width="auto"  Grid.Column="2" Grid.Row="1" Margin="10,0,10,0" MinWidth="40"/>
+                <TextBox Text="{Binding DataPackage.Customer.Name, Mode=TwoWay}" Background="LightGray" BorderThickness="1,1,1,1" BorderBrush="Black" VerticalAlignment="Center" PlaceholderText="Indtast navn" FontSize="12" Height="20" Grid.Column="1" Grid.Row="1" Margin="10,0,10,0"/>
+                <TextBox Text="{Binding DataPackage.Customer.Stamps, Mode=TwoWay}" Background="LightGray" BorderThickness="1,1,1,1" BorderBrush="Black" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" PlaceholderText="0" FontSize="12" Height="20" Width="auto"  Grid.Column="2" Grid.Row="1" Margin="10,0,10,0" MinWidth="40"/>
                 <TextBlock Text="TELEFON:" FontSize="12" Grid.Column="0" Grid.Row="2" Margin="10,10,0,0"/>
-                <TextBox Background="LightGray" BorderThickness="1,1,1,1"  BorderBrush="Black" VerticalAlignment="Center" PlaceholderText="Indtast telefonnummer" FontSize="12" Height="20" Grid.Column="1" Grid.Row="2" Margin="10,0,10,0"/>
+                <TextBox Text="{Binding DataPackage.Customer.Phone, Mode=TwoWay}" Background="LightGray" BorderThickness="1,1,1,1"  BorderBrush="Black" VerticalAlignment="Center" PlaceholderText="Indtast telefonnummer" FontSize="12" Height="20" Grid.Column="1" Grid.Row="2" Margin="10,0,10,0"/>
                 <Button Content="Søg" FontSize="12" BorderThickness="1,1,1,1"  BorderBrush="Black" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="2" Height="32" Margin="10,0,10,0" MinWidth="40"/>
                 <Border Grid.ColumnSpan="3" Grid.Row="3" BorderThickness="0,0,0,2"  BorderBrush="Black"/>
                 <!--End customer-->
@@ -59,9 +63,9 @@
                 <!--Start order-->
                 <TextBlock Text="ORDRE:" VerticalAlignment="Center" FontWeight="Bold" FontSize="12" Grid.Column="0" Grid.Row="4" Margin="10,0,0,0"/>
                 <TextBlock Text="BESKRIVELSE:" FontWeight="Bold" TextAlignment="Center" VerticalAlignment="Center" FontSize="12" Grid.Column="1" Grid.Row="4"/>
-                <ListView Background="LightGray" BorderThickness="1,1,1,1" BorderBrush="Black" Grid.Column="1" Grid.Row="5">
+                <TextBox Text="{Binding DataPackage.Description, Mode=TwoWay}" Background="LightGray" BorderThickness="1,1,1,1" BorderBrush="Black" Grid.Column="1" Grid.Row="5">
                     <!--<TextBox Background="LightGray" TextWrapping="Wrap" BorderThickness="1,1,1,1" BorderBrush="Black" VerticalAlignment="Top" PlaceholderText="Beskrivelse af ordre" FontSize="12" Height="150" Grid.Column="1" Grid.Row="5" Margin="0,10"/>-->
-                </ListView>
+                </TextBox>
                 <TextBlock Text="PRIS:" FontWeight="bold" VerticalAlignment="Top" TextAlignment="Center" FontSize="12" Grid.Column="0" Grid.Row="7"/>
                 <Border Grid.ColumnSpan="3" Grid.Row="6" BorderThickness="0,0,0,2"  BorderBrush="Black"/>
                 <TextBlock Text="Produkt:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="7" HorizontalAlignment="Left"/>
@@ -71,7 +75,7 @@
                     <!--<TextBox Background="LightGray" TextWrapping="Wrap" BorderThickness="1,1,1,1" BorderBrush="Black" VerticalAlignment="Top" Width="auto" FontSize="12" Height="140" Grid.Column="1" Grid.Row="7" Margin="0,10"/>-->
                 </ListView>
                 <TextBlock Text="Total pris:  " TextAlignment="Right" VerticalAlignment="Center" FontSize="20" Grid.Column="1" Width="175" Grid.Row="9"/>
-                <TextBox FontSize="12" Background="LightGray" BorderThickness="1,1,1,1" BorderBrush="Black" HorizontalAlignment="Right" Grid.Column="1" Width="100" Height="30" Grid.Row="9"/>
+                <TextBox Text="{Binding DataPackage.TotalPrice, Mode=TwoWay}" FontSize="12" Background="LightGray" BorderThickness="1,1,1,1" BorderBrush="Black" HorizontalAlignment="Right" Grid.Column="1" Width="100" Height="30" Grid.Row="9"/>
                 <Button x:Name="btn" FontFamily="Segoe MDL2 Assets" Content="&#xE107;" Width="50" Height="50" Background="Transparent" Grid.Column="1" Grid.Row="9"/>
                 <Button Content="Til betaling" FontSize="12" BorderThickness="1,1,1,1" Width="100" BorderBrush="Black"  Grid.Column="1" Grid.Row="9" Height="32" Margin="60,0,10,0" MinWidth="40" Click="BtnClickP1" />
             </Grid>

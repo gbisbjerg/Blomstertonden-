@@ -22,6 +22,9 @@ namespace GenericsLibrary
         }
         public List<T> All => _data.Values.ToList();
         public Dictionary<TKey, T> Data => _data;
+
+        public TData DataPackage { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
         public async void Save()
         {
             await _dataSource.Save(Data);
