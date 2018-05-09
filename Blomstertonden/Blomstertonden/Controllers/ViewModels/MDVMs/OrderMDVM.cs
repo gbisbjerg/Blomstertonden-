@@ -9,7 +9,6 @@ namespace Blomstertonden
 {
     public class OrderMDVM : MasterDetailsViewModelBase<OrderTData, Order, int>
     {
-        private Customer _customer;
         private CustomerCatalog _customerCatalog;
         public OrderMDVM() : base(new OrderVMFactory(), OrderCatalog.Instance)
         {
@@ -26,23 +25,7 @@ namespace Blomstertonden
             OnPropertyChanged(nameof(TotalPrice));
 
         }
-        public Customer GetCustomer
-        {
-            get
-            {
-                Customer outCustomer;
-                int customer_key = ItemViewModelSelected.Obj.FK_Customer;
-                if (_customerCatalog.Data.TryGetValue(customer_key, out outCustomer))
-                {
-                    return outCustomer;
-                }
-                else
-                {
-                    return new Customer();
-                }
-            }
-        }
-
+        
         //All properties for binding to the given view
         public int Id
         {
@@ -51,13 +34,17 @@ namespace Blomstertonden
         }
         public string Name
         {
-            get => GetCustomer.Name;
-            set => CustomerCatalog.Instance.DataPackage.Name = value;
+            get => Customer.Name;
+            set => _customerCatalog.DataPackage.Name = value;
         }
         public int Phone
         {
-            get => GetCustomer.Phone;
-            set => CustomerCatalog.Instance.DataPackage.Phone = value;
+            get => Customer.Phone;
+            set => _customerCatalog.DataPackage.Phone = value;
+        }
+        public int Stamps
+        {
+            get => Customer.Stamps;
         }
         public string Descrition
         {
@@ -75,5 +62,16 @@ namespace Blomstertonden
             set => OrderCatalog.Instance.DataPackage.TotalPrice = value;
         }
 
+        public Customer Customer
+        {
+            get
+            {
+                if (ItemViewModelSelected.Obj.Customer != null)
+                {
+                    return ItemViewModelSelected.Obj.Customer;
+                }
+                return new Customer();
+            }
+        }
     }
 }

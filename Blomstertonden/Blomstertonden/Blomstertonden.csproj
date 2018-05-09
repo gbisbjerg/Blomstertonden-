@@ -99,7 +99,6 @@
     <Compile Include="AppBase\AppConfig.cs" />
     <Compile Include="AppBase\Startup.cs" />
     <Compile Include="AppGenerics\Interfaces\IData.cs" />
-    <Compile Include="Controllers\Commands\CustomerCommands\CustomerCreateCmd.cs" />
     <Compile Include="Controllers\Commands\CustomerCommands\CustomerDeleteCmd.cs" />
     <Compile Include="Controllers\Commands\CustomerCommands\CustomerUpdateCmd.cs" />
     <Compile Include="Controllers\TData\CustomerTData.cs" />
