@@ -13,6 +13,7 @@ namespace Blomstertonden
         {
             Customer obj = new Customer
             {
+                Id = data.Key,
                 Name = data.Name,
                 Phone = data.Phone,
                 Stamps = data.Stamps
