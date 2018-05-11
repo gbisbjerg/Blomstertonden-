@@ -74,6 +74,15 @@ namespace Blomstertonden
             get => ItemViewModelSelected.Obj.TotalPrice;
             set => OrderCatalog.Instance.DataPackage.TotalPrice = value;
         }
-
+        public string Street
+        {
+            get => ItemViewModelSelected.Obj.Street;
+            set => OrderCatalog.Instance.DataPackage.Street = value;
+        }
+        public int PostalCode
+        {
+            get => ItemViewModelSelected.Obj.City.PostalCode;
+            set => OrderCatalog.Instance.DataPackage.City.PostalCode = value;
+        }
     }
 }
