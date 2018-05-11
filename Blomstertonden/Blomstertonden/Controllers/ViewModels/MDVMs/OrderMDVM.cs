@@ -28,22 +28,6 @@ namespace Blomstertonden
             OnPropertyChanged(nameof(TotalPrice));
 
         }
-        public Customer GetCustomer
-        {
-            get
-            {
-                Customer outCustomer;
-                int customer_key = ItemViewModelSelected.Obj.FK_Customer;
-                if (_customerCatalog.Data.TryGetValue(customer_key, out outCustomer))
-                {
-                    return outCustomer;
-                }
-                else
-                {
-                    return new Customer();
-                }
-            }
-        }
 
         //All properties for binding to the given view
         public int Id
@@ -53,12 +37,12 @@ namespace Blomstertonden
         }
         public string Name
         {
-            get => GetCustomer.Name;
+            get => ItemViewModelSelected.Obj.Customer.Name;
             set => CustomerCatalog.Instance.DataPackage.Name = value;
         }
         public int Phone
         {
-            get => GetCustomer.Phone;
+            get => ItemViewModelSelected.Obj.Customer.Phone;
             set => CustomerCatalog.Instance.DataPackage.Phone = value;
         }
         public string Descrition
