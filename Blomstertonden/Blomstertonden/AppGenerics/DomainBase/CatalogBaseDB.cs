@@ -48,7 +48,7 @@ namespace GenericsLibrary
                 await _dataSource.Create(obj);
             }
             _data.Add(obj.Key, obj);
-          
+
         }
         public virtual async Task<TKey> Create(TData data)
         {

@@ -14,6 +14,9 @@ namespace Blomstertonden
         public OrderMDVM() : base(new OrderVMFactory(), OrderCatalog.Instance)
         {
             _customerCatalog = CustomerCatalog.Instance;
+            _deleteCommand = new OrderDeleteCmd(_catalog, this);
+            _updateCommand = new OrderUpdateCmd(_catalog, this);
+            _createCommand = new OrderCreateCmd(_catalog, this);
         }
 
         public override void SelectedItemEvent()
@@ -22,7 +25,6 @@ namespace Blomstertonden
             OnPropertyChanged(nameof(Name));
             OnPropertyChanged(nameof(Phone));
             OnPropertyChanged(nameof(Descrition));
-            OnPropertyChanged(nameof(CardMessage));
             OnPropertyChanged(nameof(TotalPrice));
 
         }
@@ -64,25 +66,11 @@ namespace Blomstertonden
             get => ItemViewModelSelected.Obj.Description;
             set => OrderCatalog.Instance.DataPackage.Description = value;
         }
-        public string CardMessage
-        {
-            get => ItemViewModelSelected.Obj.CardMessage;
-            set => OrderCatalog.Instance.DataPackage.CardMessage = value;
-        }
         public int TotalPrice
         {
             get => ItemViewModelSelected.Obj.TotalPrice;
             set => OrderCatalog.Instance.DataPackage.TotalPrice = value;
         }
-        public string Street
-        {
-            get => ItemViewModelSelected.Obj.Street;
-            set => OrderCatalog.Instance.DataPackage.Street = value;
-        }
-        public int PostalCode
-        {
-            get => ItemViewModelSelected.Obj.City.PostalCode;
-            set => OrderCatalog.Instance.DataPackage.City.PostalCode = value;
-        }
+
     }
 }
