@@ -35,9 +35,11 @@ namespace GenericsLibrary
             return await InvokeAPIWithReturnValueAsync<List<T>>(() => _httpClient.GetAsync(BuildRequestURI(APIMethod.Load)));
         }
         #region CRUD
-        public async Task Create(T obj)
+        public async Task<TKey> Create(T obj)
         {
-            await InvokeAPINoReturnValueAsync(() => _httpClient.PostAsJsonAsync(BuildRequestURI(APIMethod.Create), obj));
+            HttpResponseMessage response = await InvokeAPIAsync(() => _httpClient.PostAsJsonAsync(BuildRequestURI(APIMethod.Create), obj));
+            T createdObj = await response.Content.ReadAsAsync<T>();
+            return createdObj.Key;
         }
         public async Task<T> Read(TKey key)
         {
@@ -99,6 +101,7 @@ namespace GenericsLibrary
                     throw new ArgumentException("BuildRequestURI");
             }
         }
+
         #endregion
     }
 }
