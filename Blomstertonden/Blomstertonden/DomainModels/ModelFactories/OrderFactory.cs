@@ -11,17 +11,19 @@ namespace Blomstertonden
     {
         public Order Convert(OrderTData data)
         {
-            Order obj = new Order();
-            obj.Description = data.Description;
-            obj.Date = data.Date;
-            obj.DeliveryDate = data.DeliveryDate;
-            obj.Street = data.Street;
-            obj.TotalPrice = data.TotalPrice;
-            obj.CardMessage = data.CardMessage;
-            obj.FK_Customer = data.FK_Customer;
-            obj.FK_PaymentType = data.FK_PaymentType;
-            obj.FK_City = data.FK_City;
-            obj.FK_Status = data.FK_Status;
+            Order obj = new Order
+            {
+                Description = data.Description,
+                Date = data.Date,
+                DeliveryDate = data.DeliveryDate,
+                Street = data.Street,
+                TotalPrice = data.TotalPrice,
+                CardMessage = data.CardMessage,
+                FK_Customer = data.FK_Customer,
+                FK_PaymentType = data.FK_PaymentType,
+                FK_City = data.FK_City,
+                FK_Status = data.FK_Status
+            };
             return obj;
         }
     }
