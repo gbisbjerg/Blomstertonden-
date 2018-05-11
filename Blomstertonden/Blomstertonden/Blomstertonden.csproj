@@ -101,6 +101,9 @@
     <Compile Include="AppGenerics\Interfaces\IData.cs" />
     <Compile Include="Controllers\Commands\CustomerCommands\CustomerDeleteCmd.cs" />
     <Compile Include="Controllers\Commands\CustomerCommands\CustomerUpdateCmd.cs" />
+    <Compile Include="Controllers\Commands\OrderCommands\OrderCreateCmd.cs" />
+    <Compile Include="Controllers\Commands\OrderCommands\OrderDeleteCmd.cs" />
+    <Compile Include="Controllers\Commands\OrderCommands\OrderUpdateCmd.cs" />
     <Compile Include="Controllers\TData\CustomerTData.cs" />
     <Compile Include="Controllers\TData\OrderTData.cs" />
     <Compile Include="Controllers\TData\ProductTData.cs" />

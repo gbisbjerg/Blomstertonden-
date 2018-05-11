@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GenericsLibrary
 {
-    public abstract class CatalogBase<TData, T, TKey> : ICRUD<T, TData, TKey>
+    public abstract class CatalogBase<TData, T, TKey>
         where T : IKey<TKey>
         where TData : IKey<TKey>
     {
