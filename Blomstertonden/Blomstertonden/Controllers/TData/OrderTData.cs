@@ -28,20 +28,21 @@ namespace Blomstertonden
         public string CardMessage { get; set; }
 
         public Customer Customer { get; set; }
-        //public int FK_Customer { get; set; }
 
-        //public int? FK_PaymentType { get; set; }
+        public int FK_Customer { get; set; }
 
-        //public int? FK_City { get; set; }
+        public int? FK_PaymentType { get; set; }
 
-        //public int FK_Status { get; set; }
+        public int? FK_City { get; set; }
 
-        //public virtual City City { get; set; }
+        public int FK_Status { get; set; }
+
+        public virtual City City { get; set; }
 
         //public virtual Customer Customer { get; set; }
 
-        //public virtual PaymentType PaymentType { get; set; }
+        public virtual PaymentType PaymentType { get; set; }
 
-        //public virtual Status Status { get; set; }
+        public virtual Status Status { get; set; }
     }
 }

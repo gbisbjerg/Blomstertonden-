@@ -43,5 +43,10 @@ namespace Blomstertonden
         {
             framePage.FrameContent = new CreateOrder(framePage);
         }
+
+        private void ListView_ContextCanceled(UIElement sender, RoutedEventArgs args)
+        {
+
+        }
     }
 }
