@@ -45,17 +45,17 @@ namespace GenericsLibrary
             {
                 TKey newKey = NextKey();
                 obj.Key = newKey;
+                await _dataSource.Create(obj);
             }
-            await _dataSource.Create(obj);
-            T dbObj = await Read(obj.Key);
-            _data.Add(dbObj.Key, dbObj);
+            _data.Add(obj.Key, obj);
+          
         }
-        public virtual async Task Create(TData data)
+        public virtual async Task<TKey> Create(TData data)
         {
             T obj = _factory.Convert(data);
-            await _dataSource.Create(obj);
-            T dbObj = await Read(obj.Key);
-            _data.Add(dbObj.Key, dbObj);
+            obj.Key = await _dataSource.Create(obj);
+            _data.Add(obj.Key, obj);
+            return obj.Key;
         }
         public async Task<T> Read(TKey key)
         {

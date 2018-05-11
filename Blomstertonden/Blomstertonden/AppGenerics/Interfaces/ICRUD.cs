@@ -6,7 +6,7 @@ namespace GenericsLibrary
     //For Catelogs
     public interface ICRUD<T, TData, TKey>
     {
-        Task Create(TData data);
+        Task<TKey> Create(TData data);
         Task<T> Read(TKey key);
         Task Update(TData data);
         Task Delete(TKey key);
