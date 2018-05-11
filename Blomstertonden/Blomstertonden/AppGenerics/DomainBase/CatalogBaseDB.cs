@@ -66,8 +66,7 @@ namespace GenericsLibrary
             T obj = _factory.Convert(data);
             await _dataSource.Update(obj);
             _data.Remove(obj.Key);
-            T dbObj = await Read(obj.Key);
-            _data.Add(dbObj.Key, dbObj);
+            _data.Add(obj.Key, obj);
         }
         public virtual async Task Delete(TKey key)
         {
