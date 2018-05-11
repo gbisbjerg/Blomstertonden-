@@ -19,7 +19,7 @@ namespace WebService3.Controllers
         // GET: api/PaymentTypes
         public IQueryable<PaymentType> GetPaymentTypes()
         {
-            return db.PaymentTypes;
+            return db.PaymentTypes.Include(x => x.Orders);
         }
 
         // GET: api/PaymentTypes/5

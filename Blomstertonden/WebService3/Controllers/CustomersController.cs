@@ -19,7 +19,7 @@ namespace WebService3.Controllers
         // GET: api/Customers
         public IQueryable<Customer> GetCustomers()
         {
-            return db.Customers;
+            return db.Customers.Include(x => x.Orders);
         }
 
         // GET: api/Customers/5

@@ -11,7 +11,6 @@ namespace Blomstertonden
     {
         public CustomerMDVM() : base(new CustomerVMFactory(), CustomerCatalog.Instance)
         {
-            _createCommand = new CustomerCreateCmd(_catalog, this);
             _deleteCommand = new CustomerDeleteCmd(_catalog, this);
             _updateCommand = new CustomerUpdateCmd(_catalog, this);
         }
@@ -21,7 +20,6 @@ namespace Blomstertonden
             OnPropertyChanged(nameof(Name));
             OnPropertyChanged(nameof(Phone));
             OnPropertyChanged(nameof(Stamps));
-            _createCommand.RaiseCanExecuteChanged();
             _deleteCommand.RaiseCanExecuteChanged();
             _updateCommand.RaiseCanExecuteChanged();
         }
