@@ -23,9 +23,9 @@ namespace GenericsLibrary
         {
             return _viewModel.IsItemSelected;
         }
-        public override void Execute()
+        public override async void Execute()
         {
-            _catalog.Delete(_viewModel.ItemViewModelSelected.Obj.Key);
+            await _catalog.Delete(_viewModel.ItemViewModelSelected.Obj.Key);
             ExecuteEvent();
         }
     }
