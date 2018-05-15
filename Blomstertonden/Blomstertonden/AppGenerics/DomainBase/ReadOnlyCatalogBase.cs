@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using GenericsLibrary;
 
-namespace Blomstertonden.AppGenerics.DomainBase
+namespace Blomstertonden
 {
     public class ReadOnlyCatalogBase<T, TKey>
         where T : IKey<TKey>
