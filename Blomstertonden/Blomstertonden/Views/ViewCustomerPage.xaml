@@ -44,19 +44,20 @@
                     <ColumnDefinition Width="475*"/>
                     <ColumnDefinition Width="75*"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Text="KUNDELISTE:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" Height="20"/>
-                <TextBlock Text="Navn:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="1"/>
-                <TextBlock Text="Stamps:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="1" Margin="235,0,0,0" Height="23"/>
+                <TextBlock Text="KUNDELISTE:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" Height="20"/>
+                <TextBlock Text="Navn:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="1" Margin="10, 0, 0, 0"/>
+                <TextBlock Text="Klip:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="1" Margin="295,0,0,0" Height="23"/>
                 
                 <!--end customer list-->
+                
                 <ListView Background="LightGray" Grid.Row="2" Grid.Column="1" ItemsSource="{Binding ItemViewModelCollection}" SelectedItem="{Binding ItemViewModelSelected, Mode=TwoWay}" BorderBrush="Black" BorderThickness="1">
                     <ListView.ItemTemplate>
                         <DataTemplate x:DataType="local:CustomerIVM">
-                            <StackPanel Width="700" Orientation="Horizontal" Height="51" BorderThickness="0,0,0,2" BorderBrush="Blue">
+                            <StackPanel Width="700" Orientation="Horizontal" Height="51" BorderThickness="0,0,0,2" BorderBrush="Blue" >
                                 <!--Name-->
-                                <TextBlock Text="{Binding Name}"/>
+                                <TextBlock Text="{Binding Name}" Width="250" TextAlignment="Left" VerticalAlignment="Center" FontSize="12" />
                                 <!--Phone-->
-                                <TextBlock HorizontalAlignment="Right" Text="{Binding Stamp}"/>
+                                <TextBlock Text="{Binding Stamp}" Width="50" TextAlignment="Right" VerticalAlignment="Center" FontSize="12"/>
                             </StackPanel>
                         </DataTemplate>
                     </ListView.ItemTemplate>
