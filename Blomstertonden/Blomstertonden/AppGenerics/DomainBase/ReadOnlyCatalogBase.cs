@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using GenericsLibrary;
 
-namespace Blomstertonden.AppGenerics.DomainBase
+namespace Blomstertonden
 {
     public class ReadOnlyCatalogBase<T, TKey>
         where T : IKey<TKey>
@@ -17,6 +17,11 @@ namespace Blomstertonden.AppGenerics.DomainBase
             _data = new Dictionary<TKey, T>();
             _dataSource = new DBSource<T, TKey>(serverURL, apiId);
              Load();
+        }
+
+        public Dictionary<TKey,T> All
+        {
+            get => _data;
         }
 
         public async void Load()

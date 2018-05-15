@@ -3,14 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Blomstertonden.AppGenerics.DomainBase;
 
-namespace Blomstertonden.DomainModels.Catalogs
+
+namespace Blomstertonden
 {
-    class StatusCatalog : ReadOnlyCatalogBase<Status, int>
+    public class StatusCatalog : ReadOnlyCatalogBase<Status, int>
     {
+        private static StatusCatalog _instance;
         public StatusCatalog() : base(AppConfig.ServerURL, "Status")
         {
+        }
+
+        public static StatusCatalog Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = new StatusCatalog();
+                }
+                return _instance;
+            }
         }
     }
 }

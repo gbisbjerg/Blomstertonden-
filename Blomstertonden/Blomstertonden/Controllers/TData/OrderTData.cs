@@ -27,8 +27,6 @@ namespace Blomstertonden
         [StringLength(500)]
         public string CardMessage { get; set; }
 
-        public Customer Customer { get; set; }
-
         public int FK_Customer { get; set; }
 
         public int? FK_PaymentType { get; set; }
@@ -37,12 +35,5 @@ namespace Blomstertonden
 
         public int FK_Status { get; set; }
 
-        public virtual City City { get; set; }
-
-        //public virtual Customer Customer { get; set; }
-
-        public virtual PaymentType PaymentType { get; set; }
-
-        public virtual Status Status { get; set; }
     }
 }

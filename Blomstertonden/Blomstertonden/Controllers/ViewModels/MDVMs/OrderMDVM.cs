@@ -28,31 +28,45 @@ namespace Blomstertonden
             OnPropertyChanged(nameof(TotalPrice));
 
         }
+        public Dictionary<int,Status> StatusList { get => StatusCatalog.Instance.All; } 
 
+        public Customer Customer
+        {
+            get
+            {
+                if (ItemViewModelSelected.Obj.Customer != null)
+                {
+                    return ItemViewModelSelected.Obj.Customer;
+                }
+                else
+                {
+                    return new Customer();
+                }
+            }
+        }
         //All properties for binding to the given view
         public int Id
         {
-            get => ItemViewModelSelected.Obj.Id;
-            set => OrderCatalog.Instance.DataPackage.Key = value;
+            get => _catalog.DataPackage.Key =  ItemViewModelSelected.Obj.Id;
         }
         public string Name
         {
-            get => ItemViewModelSelected.Obj.Customer.Name;
+            get => _customerCatalog.DataPackage.Name = Customer.Name;
             set => CustomerCatalog.Instance.DataPackage.Name = value;
         }
         public int Phone
         {
-            get => ItemViewModelSelected.Obj.Customer.Phone;
+            get => _customerCatalog.DataPackage.Phone = Customer.Phone;
             set => CustomerCatalog.Instance.DataPackage.Phone = value;
         }
         public string Descrition
         {
-            get => ItemViewModelSelected.Obj.Description;
+            get => _catalog.DataPackage.Description =  ItemViewModelSelected.Obj.Description;
             set => OrderCatalog.Instance.DataPackage.Description = value;
         }
         public int TotalPrice
         {
-            get => ItemViewModelSelected.Obj.TotalPrice;
+            get => _catalog.DataPackage.TotalPrice = ItemViewModelSelected.Obj.TotalPrice;
             set => OrderCatalog.Instance.DataPackage.TotalPrice = value;
         }
 

@@ -20,6 +20,8 @@ namespace Blomstertonden
             OnPropertyChanged(nameof(Name));
             OnPropertyChanged(nameof(Phone));
             OnPropertyChanged(nameof(Stamps));
+            _catalog.DataPackage.Key = ItemViewModelSelected.Obj.Key;
+
             _deleteCommand.RaiseCanExecuteChanged();
             _updateCommand.RaiseCanExecuteChanged();
         }
@@ -41,5 +43,6 @@ namespace Blomstertonden
             get => _catalog.DataPackage.Stamps = ItemViewModelSelected.Obj.Stamps;
             set => _catalog.DataPackage.Stamps = value;
         }
+
     }
 }
