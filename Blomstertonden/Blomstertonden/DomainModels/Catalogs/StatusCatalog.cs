@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Blomstertonden
+namespace Blomstertonden.DomainModels.Catalogs
 {
-    public class StatusCatalog : ReadOnlyCatalogBase<Status, int>
+    class StatusCatalog : ReadOnlyCatalogBase<Status, int>
     {
         public StatusCatalog() : base(AppConfig.ServerURL, "Status")
         {
