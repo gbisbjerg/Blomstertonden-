@@ -10,9 +10,12 @@ namespace Blomstertonden
     public class OrderCatalog : AppCatalogBase<Order, OrderTData, int>
     {
         private static OrderCatalog _instance;
+        private StatusCatalog _statusCatalog;
+
         public OrderCatalog(OrderFactory factory, string apiId) : base(factory, apiId)
         {
-          Load();
+            _statusCatalog = StatusCatalog.Instance;
+            Load();
         }
         public static OrderCatalog Instance
         {

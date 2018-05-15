@@ -19,6 +19,8 @@ namespace Blomstertonden
         {
              
             _catalog.DataPackage.FK_Customer = await _customerCatalog.Create(_customerCatalog.DataPackage);
+            _catalog.DataPackage.FK_Status = 1;
+            _catalog.DataPackage.Date = DateTime.Now;
             await _catalog.Create(_catalog.DataPackage);
 
             base.Execute();

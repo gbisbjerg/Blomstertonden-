@@ -34,5 +34,6 @@ namespace Blomstertonden
         public int? FK_City { get; set; }
 
         public int FK_Status { get; set; }
+
     }
 }

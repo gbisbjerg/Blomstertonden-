@@ -19,6 +19,11 @@ namespace Blomstertonden
              Load();
         }
 
+        public Dictionary<TKey,T> All
+        {
+            get => _data;
+        }
+
         public async void Load()
         {
             List<T> data = await _dataSource.Load();
