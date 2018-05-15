@@ -15,7 +15,7 @@ namespace Blomstertonden
             _customerCatalog = CustomerCatalog.Instance;
         }
 
-        public async override void Execute()
+        public override async void Execute()
         {
              
             _catalog.DataPackage.FK_Customer = await _customerCatalog.Create(_customerCatalog.DataPackage);
