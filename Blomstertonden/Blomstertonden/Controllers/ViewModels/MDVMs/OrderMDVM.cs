@@ -33,26 +33,27 @@ namespace Blomstertonden
         public int Id
         {
             get => ItemViewModelSelected.Obj.Id;
+            set => OrderCatalog.Instance.DataPackage.Key = value;
         }
         public string Name
         {
             get => ItemViewModelSelected.Obj.Customer.Name;
-            set => _customerCatalog.DataPackage.Name = value;
+            set => CustomerCatalog.Instance.DataPackage.Name = value;
         }
         public int Phone
         {
             get => ItemViewModelSelected.Obj.Customer.Phone;
-            set => _customerCatalog.DataPackage.Phone = value;
+            set => CustomerCatalog.Instance.DataPackage.Phone = value;
         }
         public string Descrition
         {
             get => ItemViewModelSelected.Obj.Description;
-            set => _catalog.DataPackage.Description = value;
+            set => OrderCatalog.Instance.DataPackage.Description = value;
         }
         public int TotalPrice
         {
             get => ItemViewModelSelected.Obj.TotalPrice;
-            set => _catalog.DataPackage.TotalPrice = value;
+            set => OrderCatalog.Instance.DataPackage.TotalPrice = value;
         }
 
     }
