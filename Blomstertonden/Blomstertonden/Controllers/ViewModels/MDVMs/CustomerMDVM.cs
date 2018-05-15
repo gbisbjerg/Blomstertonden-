@@ -11,7 +11,6 @@ namespace Blomstertonden
     {
         public CustomerMDVM() : base(new CustomerVMFactory(), CustomerCatalog.Instance)
         {
-            _createCommand = new CustomerCreateCmd(_catalog, this);
             _deleteCommand = new CustomerDeleteCmd(_catalog, this);
             _updateCommand = new CustomerUpdateCmd(_catalog, this);
         }
@@ -21,27 +20,26 @@ namespace Blomstertonden
             OnPropertyChanged(nameof(Name));
             OnPropertyChanged(nameof(Phone));
             OnPropertyChanged(nameof(Stamps));
-            _createCommand.RaiseCanExecuteChanged();
             _deleteCommand.RaiseCanExecuteChanged();
             _updateCommand.RaiseCanExecuteChanged();
         }
         //All properties for binding to the given view
         public string Name
         {
-            get => ItemViewModelSelected.Obj.Name;
-            set => CustomerCatalog.Instance.DataPackage.Name = value;
+            get => _catalog.DataPackage.Name = ItemViewModelSelected.Obj.Name;
+            set => _catalog.DataPackage.Name = value;
         }
 
         public int Phone
         {
-            get => ItemViewModelSelected.Obj.Phone;
-            set => CustomerCatalog.Instance.DataPackage.Phone = value;
+            get => _catalog.DataPackage.Phone = ItemViewModelSelected.Obj.Phone;
+            set => _catalog.DataPackage.Phone = value;
         }
 
         public int Stamps
         {
-            get => ItemViewModelSelected.Obj.Stamps;
-            set => CustomerCatalog.Instance.DataPackage.Stamps = value;
+            get => _catalog.DataPackage.Stamps = ItemViewModelSelected.Obj.Stamps;
+            set => _catalog.DataPackage.Stamps = value;
         }
     }
 }

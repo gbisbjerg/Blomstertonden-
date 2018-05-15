@@ -19,7 +19,7 @@ namespace WebService3.Controllers
         // GET: api/Users
         public IQueryable<User> GetUsers()
         {
-            return db.Users;
+            return db.Users.Include(x => x.Role);
         }
 
         // GET: api/Users/5

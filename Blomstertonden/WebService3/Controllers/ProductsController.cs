@@ -19,7 +19,7 @@ namespace WebService3.Controllers
         // GET: api/Products
         public IQueryable<Product> GetProducts()
         {
-            return db.Products;
+            return db.Products.Include(x => x.Category).Include(x => x.OrderedProducts);
         }
 
         // GET: api/Products/5

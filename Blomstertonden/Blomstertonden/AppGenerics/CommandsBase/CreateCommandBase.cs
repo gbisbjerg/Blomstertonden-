@@ -20,10 +20,10 @@ namespace GenericsLibrary
         {
             return true;
         }
-        public override void Execute()
+        public override async void Execute()
         {
             //_catalog.Create(_viewModel.DataPackage);
-            _catalog.Create(_catalog.DataPackage);
+            await _catalog.Create(_catalog.DataPackage);
             ExecuteEvent();
         }
     }

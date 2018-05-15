@@ -19,7 +19,7 @@ namespace WebService3.Controllers
         // GET: api/Status
         public IQueryable<Status> GetStatus()
         {
-            return db.Status;
+            return db.Status.Include(x => x.Orders);
         }
 
         // GET: api/Status/5

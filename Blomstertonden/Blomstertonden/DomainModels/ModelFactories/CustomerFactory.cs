@@ -11,7 +11,14 @@ namespace Blomstertonden
     {
         public Customer Convert(CustomerTData data)
         {
-            throw new NotImplementedException();
+            Customer obj = new Customer
+            {
+                Id = data.Key,
+                Name = data.Name,
+                Phone = data.Phone,
+                Stamps = data.Stamps
+            };
+            return obj;
         }
     }
 }

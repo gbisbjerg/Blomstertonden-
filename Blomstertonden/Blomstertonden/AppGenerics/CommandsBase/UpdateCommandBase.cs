@@ -22,10 +22,10 @@ namespace GenericsLibrary
         {
             return _viewModel.IsItemSelected;
         }
-        public override void Execute()
+        public override async void Execute()
         {
             //_catalog.Update(_viewModel.DataPackage);
-            _catalog.Update(_catalog.DataPackage);
+            await _catalog.Update(_catalog.DataPackage);
             ExecuteEvent();
         }
     }
