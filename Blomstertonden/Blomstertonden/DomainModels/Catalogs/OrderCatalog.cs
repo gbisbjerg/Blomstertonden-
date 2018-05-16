@@ -11,10 +11,12 @@ namespace Blomstertonden
     {
         private static OrderCatalog _instance;
         private StatusCatalog _statusCatalog;
+        private PaymentTypeCatalog _paymentTypeCatalog;
 
         private OrderCatalog(OrderFactory factory, string apiId) : base(factory, apiId)
         {
             _statusCatalog = StatusCatalog.Instance;
+            _paymentTypeCatalog = PaymentTypeCatalog.Instance;
             Load();
         }
         public static OrderCatalog Instance
@@ -29,5 +31,7 @@ namespace Blomstertonden
             }
         }
 
+        public PaymentTypeCatalog PaymentTypeCatalog { get => _paymentTypeCatalog; set => _paymentTypeCatalog = value; }
+        public StatusCatalog StatusCatalog { get => _statusCatalog; set => _statusCatalog = value; }
     }
 }

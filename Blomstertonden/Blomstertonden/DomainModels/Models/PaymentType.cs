@@ -1,3 +1,4 @@
+using GenericsLibrary;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -8,7 +9,7 @@ namespace Blomstertonden
 
 
     [Table("PaymentType")]
-    public partial class PaymentType
+    public partial class PaymentType : IKey<int>
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public PaymentType()
@@ -24,5 +25,12 @@ namespace Blomstertonden
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Orders { get; set; }
+
+        public int Key { get => Id; set => Id = value; }
+
+        public override string ToString()
+        {
+            return $"{Name}";
+        }
     }
 }

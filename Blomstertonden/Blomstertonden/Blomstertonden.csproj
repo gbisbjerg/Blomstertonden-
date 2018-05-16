@@ -116,6 +116,7 @@
     <Compile Include="Controllers\ViewModels\MDVMs\ProductMDVM.cs" />
     <Compile Include="Controllers\ViewModels\ViewModelFactories\CustomerVMFactory.cs" />
     <Compile Include="Controllers\ViewModels\ViewModelFactories\OrderVMFactory.cs" />
+    <Compile Include="DomainModels\Catalogs\PaymentTypeCatalog.cs" />
     <Compile Include="DomainModels\Catalogs\StatusCatalog.cs" />
     <Compile Include="DomainModels\Models\Category.cs" />
     <Compile Include="DomainModels\Models\City.cs" />

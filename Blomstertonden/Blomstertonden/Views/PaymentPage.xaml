@@ -81,6 +81,7 @@
                     <CheckBox Content="Deliver" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Right" Height="32" Width="120"/>-->
 
                 <!--Payment Method-->
+                <ComboBox SelectedValue="{Binding Fk_PaymentType,Mode=TwoWay}" ItemsSource="{Binding PaymentTypeList}" Grid.Row="9" Grid.RowSpan="2" Grid.Column="1" />
                 <Grid Grid.Row="10" Grid.Column="1">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*"/>
@@ -88,10 +89,10 @@
                         <ColumnDefinition Width="1*"/>
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
-                    <RadioButton Content="Kontant" Grid.Column="0" Height="32" FontSize="12"/>
+                    <!--<RadioButton IsChecked="{Binding}" Content="Kontant" Grid.Column="0" Height="32" FontSize="12"/>
                     <RadioButton Content="MobilePay" Grid.Column="1" Height="32" FontSize="12"/>
                     <RadioButton Content="CreditCard" Grid.Column="2" Height="32" FontSize="12"/>
-                    <RadioButton Content="Andet" Grid.Column="3" Height="32" FontSize="12"/>
+                    <RadioButton Content="Andet" Grid.Column="3" Height="32" FontSize="12"/>-->
                 </Grid>
                 <Button Content="Afbryd" HorizontalAlignment="Left" Grid.Row="11" Grid.Column="1" Click="BtnClickP1"/>
                 <Button Command="{Binding CreateCommand}" Content="Udfør ordre" HorizontalAlignment="Center"  Grid.Column="1" Grid.Row="11"/>

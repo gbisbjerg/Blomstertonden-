@@ -12,6 +12,7 @@ namespace Blomstertonden
         private Customer _customer;
         private CustomerCatalog _customerCatalog;
         private bool _isDelivering;
+
         public OrderMDVM() : base(new OrderVMFactory(), OrderCatalog.Instance)
         {
             _customerCatalog = CustomerCatalog.Instance;
@@ -88,11 +89,17 @@ namespace Blomstertonden
                 }
         }
 
-        //public void SearchCustomer()
-        //{
-        //    Name = "Testing123";
-        //    OnPropertyChanged(nameof(Name));
-        //}
+        public Dictionary<int, PaymentType> PaymentTypeList
+        {
+            get { return OrderCatalog.Instance.PaymentTypeCatalog.All; }
+        }
+        public int? FK_PaymentType
+        {
+            get { return _catalog.DataPackage.FK_PaymentType; }
+            set { _catalog.DataPackage.FK_PaymentType = value; }
+        }
+
+
 
     }
 }

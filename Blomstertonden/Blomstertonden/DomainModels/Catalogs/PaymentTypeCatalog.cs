@@ -7,20 +7,20 @@ using System.Threading.Tasks;
 
 namespace Blomstertonden
 {
-    public class StatusCatalog : ReadOnlyCatalogBase<Status, int>
+    public class PaymentTypeCatalog : ReadOnlyCatalogBase<PaymentType, int>
     {
-        private static StatusCatalog _instance;
-        private StatusCatalog() : base(AppConfig.ServerURL, "Status")
+        private static PaymentTypeCatalog _instance;
+        private PaymentTypeCatalog() : base(AppConfig.ServerURL, "PaymentTypes")
         {
         }
 
-        public static StatusCatalog Instance
+        public static PaymentTypeCatalog Instance
         {
             get
             {
                 if (_instance == null)
                 {
-                    _instance = new StatusCatalog();
+                    _instance = new PaymentTypeCatalog();
                 }
                 return _instance;
             }
