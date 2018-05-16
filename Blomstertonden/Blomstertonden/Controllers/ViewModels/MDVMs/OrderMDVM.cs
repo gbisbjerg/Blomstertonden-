@@ -26,7 +26,8 @@ namespace Blomstertonden
             OnPropertyChanged(nameof(Phone));
             OnPropertyChanged(nameof(Descrition));
             OnPropertyChanged(nameof(TotalPrice));
-
+            _deleteCommand.RaiseCanExecuteChanged();
+            _updateCommand.RaiseCanExecuteChanged();
         }
         public Dictionary<int,Status> StatusList { get => StatusCatalog.Instance.All; } 
 
@@ -34,7 +35,7 @@ namespace Blomstertonden
         {
             get
             {
-                if (ItemViewModelSelected.Obj.Customer != null)
+                if (ItemViewModelSelected.Obj.Customer !=  null)
                 {
                     return ItemViewModelSelected.Obj.Customer;
                 }

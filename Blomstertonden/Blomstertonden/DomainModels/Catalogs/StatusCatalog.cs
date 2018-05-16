@@ -10,7 +10,7 @@ namespace Blomstertonden
     public class StatusCatalog : ReadOnlyCatalogBase<Status, int>
     {
         private static StatusCatalog _instance;
-        public StatusCatalog() : base(AppConfig.ServerURL, "Status")
+        private StatusCatalog() : base(AppConfig.ServerURL, "Status")
         {
         }
 

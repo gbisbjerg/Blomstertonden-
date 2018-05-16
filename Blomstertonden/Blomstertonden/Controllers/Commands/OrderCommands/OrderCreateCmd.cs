@@ -10,7 +10,7 @@ namespace Blomstertonden
     class OrderCreateCmd : CreateCommandBase<OrderTData, Order, int>
     {
         private CustomerCatalog _customerCatalog;
-        public OrderCreateCmd(ICRUD<Order, OrderTData, int> catalog, MasterDetailsViewModelBase<OrderTData, Order, int> viewModel) : base(catalog, viewModel)
+        public OrderCreateCmd(ICRUD<Order, OrderTData, int> catalog, MasterDetailsViewModelBase<OrderTData, Order, int> viewModel) : base(OrderCatalog.Instance, viewModel)
         {
             _customerCatalog = CustomerCatalog.Instance;
         }
