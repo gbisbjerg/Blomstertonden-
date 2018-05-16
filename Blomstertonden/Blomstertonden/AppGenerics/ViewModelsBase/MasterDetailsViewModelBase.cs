@@ -81,6 +81,7 @@ namespace GenericsLibrary
             set
             {
                 IsItemSelected = true;
+
                 _itemViewModelSelected = value;
                 OnPropertyChanged();
                 SelectedItemEvent();

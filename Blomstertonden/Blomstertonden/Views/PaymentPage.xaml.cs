@@ -34,10 +34,10 @@ namespace Blomstertonden
         {
             framePage.FrameContent = new CreateOrder(framePage);
         }
-        private void BtnClickP2(object sender, RoutedEventArgs e)
-        {
-            framePage.FrameContent = new ViewOrdersPage();
-        }
+        //private void BtnClickP2(object sender, RoutedEventArgs e)
+        //{
+        //    framePage.FrameContent = new ViewOrdersPage();
+        //}
 
         private void BtnClickP3(object sender, RoutedEventArgs e)
         {

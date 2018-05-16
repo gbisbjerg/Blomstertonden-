@@ -53,19 +53,17 @@
                 <TextBlock Text="NAVN:" FontSize="12" Grid.Column="0" Grid.Row="1" Margin="10,10,0,0"/>
                 <TextBlock Text="KLIP:" FontWeight="Bold" FontSize="12" Grid.Column="2" Grid.Row="0" TextAlignment="Center" VerticalAlignment="Center"/>
                 <TextBox Text="{Binding Name, Mode=TwoWay}" Background="LightGray" BorderThickness="1,1,1,1" BorderBrush="Black" VerticalAlignment="Center" PlaceholderText="Indtast navn" FontSize="12" Height="20" Grid.Column="1" Grid.Row="1" Margin="10,0,10,0"/>
-                <TextBox Text="{Binding Stamps, Mode=TwoWay}" Background="LightGray" BorderThickness="1,1,1,1" BorderBrush="Black" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" PlaceholderText="0" FontSize="12" Height="20" Width="auto"  Grid.Column="2" Grid.Row="1" Margin="10,0,10,0" MinWidth="40"/>
+                <TextBox Text="{Binding Stamps, Mode=OneWay}" IsReadOnly="True" Background="LightGray" BorderThickness="1,1,1,1" BorderBrush="Black" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" PlaceholderText="0" FontSize="12" Height="20" Width="auto"  Grid.Column="2" Grid.Row="1" Margin="10,0,10,0" MinWidth="40"/>
                 <TextBlock Text="TELEFON:" FontSize="12" Grid.Column="0" Grid.Row="2" Margin="10,10,0,0"/>
                 <TextBox Text="{Binding Phone, Mode=TwoWay}" Background="LightGray" BorderThickness="1,1,1,1"  BorderBrush="Black" VerticalAlignment="Center" PlaceholderText="Indtast telefonnummer" FontSize="12" Height="20" Grid.Column="1" Grid.Row="2" Margin="10,0,10,0"/>
-                <Button Content="Søg" FontSize="12" BorderThickness="1,1,1,1"  BorderBrush="Black" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="2" Height="32" Margin="10,0,10,0" MinWidth="40"/>
+                <!--<Button Command="{Binding SearchCustomer}" Content="Søg" FontSize="12" BorderThickness="1,1,1,1"  BorderBrush="Black" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="2" Height="32" Margin="10,0,10,0" MinWidth="40"/>-->
                 <Border Grid.ColumnSpan="3" Grid.Row="3" BorderThickness="0,0,0,2"  BorderBrush="Black"/>
                 <!--End customer-->
 
                 <!--Start order-->
                 <TextBlock Text="ORDRE:" VerticalAlignment="Center" FontWeight="Bold" FontSize="12" Grid.Column="0" Grid.Row="4" Margin="10,0,0,0"/>
                 <TextBlock Text="BESKRIVELSE:" FontWeight="Bold" TextAlignment="Center" VerticalAlignment="Center" FontSize="12" Grid.Column="1" Grid.Row="4"/>
-                <TextBox Text="{Binding Description, Mode=TwoWay}" Background="LightGray" BorderThickness="1,1,1,1" BorderBrush="Black" Grid.Column="1" Grid.Row="5">
-                    <!--<TextBox Background="LightGray" TextWrapping="Wrap" BorderThickness="1,1,1,1" BorderBrush="Black" VerticalAlignment="Top" PlaceholderText="Beskrivelse af ordre" FontSize="12" Height="150" Grid.Column="1" Grid.Row="5" Margin="0,10"/>-->
-                </TextBox>
+                <TextBox  Text="{Binding Description, Mode=TwoWay}" VerticalAlignment="Stretch" Background="LightGray" TextWrapping="Wrap" BorderThickness="1,1,1,1" BorderBrush="Black" PlaceholderText="Beskrivelse af ordre" FontSize="12" Grid.Column="1" Grid.Row="5" Margin="0,10"/>
                 <TextBlock Text="PRIS:" FontWeight="bold" VerticalAlignment="Top" TextAlignment="Center" FontSize="12" Grid.Column="0" Grid.Row="7"/>
                 <Border Grid.ColumnSpan="3" Grid.Row="6" BorderThickness="0,0,0,2"  BorderBrush="Black"/>
                 <TextBlock Text="Produkt:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="7" HorizontalAlignment="Left"/>
@@ -109,23 +107,52 @@
 
                         <StackPanel>
                             <Button Content="Wine" FontSize="30px" Height="60px" HorizontalAlignment="Stretch" BorderThickness="0,0,0,2" BorderBrush="Black" Click="Button_Click" Background="#3F1E7832"/>
-                            <ListView Visibility="Collapsed" x:Name="ListView1" Background="White" HorizontalAlignment="Stretch" Height="auto" VerticalAlignment="Top" Width="Auto" BorderBrush="Black" BorderThickness="2">
+                            <!--<ListView  ItemsSource="{Binding ProductItemViewModelCollection}" SelectedItem="{Binding ProductItemViewModelSelected, Mode=TwoWay}" Visibility="Collapsed" x:Name="ListView1" Background="White" HorizontalAlignment="Stretch" Height="auto" VerticalAlignment="Top" Width="Auto" BorderBrush="Black" BorderThickness="2">
 
-                            </ListView>
+                                <ListView.ItemTemplate>
+                                    <DataTemplate x:DataType="local:ProductIVM">
+                                        <StackPanel Width="700" Orientation="Horizontal" Height="51" BorderThickness="0,0,0,2" BorderBrush="Blue">
+                                            --><!--Name--><!--
+                                            <TextBlock Text="{Binding Name}"/>
+                                            --><!--Price--><!--
+                                            <TextBlock Text="{Binding Price}"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                                
+                            </ListView>-->
                         </StackPanel>
 
                         <StackPanel>
                             <Button Content="Chocolate" FontSize="30px" Height="60px" HorizontalAlignment="Stretch" BorderThickness="0,0,0,2" BorderBrush="Black" Click="Button_Click_1" Background="#3F1E7832"/>
-                            <ListView x:Name="ListView2" Visibility="Collapsed" Background="White" HorizontalAlignment="Stretch" Height="auto" VerticalAlignment="Top" Width="Auto" BorderBrush="Black" BorderThickness="2">
-
-                            </ListView>
+                            <!--<ListView  ItemsSource="{Binding ProductItemViewModelCollection}" SelectedItem="{Binding ProductItemViewModelSelected, Mode=TwoWay}"  x:Name="ListView2" Visibility="Collapsed" Background="White" HorizontalAlignment="Stretch" Height="auto" VerticalAlignment="Top" Width="Auto" BorderBrush="Black" BorderThickness="2">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate x:DataType="local:ProductIVM">
+                                        <StackPanel Width="700" Orientation="Horizontal" Height="51" BorderThickness="0,0,0,2" BorderBrush="Blue">
+                                            --><!--Name--><!--
+                                            <TextBlock Text="{Binding Name}"/>
+                                            --><!--Price--><!--
+                                            <TextBlock Text="{Binding Price}"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>-->
                         </StackPanel>
 
                         <StackPanel>
                             <Button Content="Flowers" FontSize="30px" Height="60px" HorizontalAlignment="Stretch" BorderThickness="0,0,0,2" BorderBrush="Black" Click="Button_Click_2" Background="#3F1E7832"/>
-                            <ListView x:Name="ListView3" Visibility="Collapsed"  Background="White" HorizontalAlignment="Stretch" Height="auto" VerticalAlignment="Top" Width="Auto" BorderBrush="Black" BorderThickness="2">
-
-                            </ListView>
+                            <!--<ListView  ItemsSource="{Binding ProductItemViewModelCollection}" SelectedItem="{Binding ProductItemViewModelSelected, Mode=TwoWay}"  x:Name="ListView2" Visibility="Collapsed" Background="White" HorizontalAlignment="Stretch" Height="auto" VerticalAlignment="Top" Width="Auto" BorderBrush="Black" BorderThickness="2">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate x:DataType="local:ProductIVM">
+                                        <StackPanel Width="700" Orientation="Horizontal" Height="51" BorderThickness="0,0,0,2" BorderBrush="Blue">
+                                            --><!--Name--><!--
+                                            <TextBlock Text="{Binding Name}"/>
+                                            --><!--Price--><!--
+                                            <TextBlock Text="{Binding Price}"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>-->
                         </StackPanel>
 
                     </StackPanel>
