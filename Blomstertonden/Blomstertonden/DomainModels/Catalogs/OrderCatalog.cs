@@ -12,7 +12,7 @@ namespace Blomstertonden
         private static OrderCatalog _instance;
         private StatusCatalog _statusCatalog;
 
-        public OrderCatalog(OrderFactory factory, string apiId) : base(factory, apiId)
+        private OrderCatalog(OrderFactory factory, string apiId) : base(factory, apiId)
         {
             _statusCatalog = StatusCatalog.Instance;
             Load();
@@ -28,5 +28,6 @@ namespace Blomstertonden
                 return _instance;
             }
         }
+
     }
 }

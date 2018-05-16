@@ -18,7 +18,7 @@ namespace GenericsLibrary
         }
         public override bool CanExecute()
         {
-            return true;
+            return _viewModel.CanCreate;
         }
         public override async void Execute()
         {

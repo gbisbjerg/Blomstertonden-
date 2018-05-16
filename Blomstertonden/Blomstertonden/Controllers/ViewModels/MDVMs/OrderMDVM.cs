@@ -11,6 +11,7 @@ namespace Blomstertonden
     {
         private Customer _customer;
         private CustomerCatalog _customerCatalog;
+        private bool _isDelivering;
         public OrderMDVM() : base(new OrderVMFactory(), OrderCatalog.Instance)
         {
             _customerCatalog = CustomerCatalog.Instance;
@@ -24,8 +25,11 @@ namespace Blomstertonden
             OnPropertyChanged(nameof(Id));
             OnPropertyChanged(nameof(Name));
             OnPropertyChanged(nameof(Phone));
-            OnPropertyChanged(nameof(Descrition));
+            OnPropertyChanged(nameof(Description));
             OnPropertyChanged(nameof(TotalPrice));
+
+            _deleteCommand.RaiseCanExecuteChanged();
+            _updateCommand.RaiseCanExecuteChanged();
 
         }
         public Dictionary<int,Status> StatusList { get => StatusCatalog.Instance.All; } 
@@ -59,7 +63,7 @@ namespace Blomstertonden
             get => _customerCatalog.DataPackage.Phone = Customer.Phone;
             set => CustomerCatalog.Instance.DataPackage.Phone = value;
         }
-        public string Descrition
+        public string Description
         {
             get => _catalog.DataPackage.Description =  ItemViewModelSelected.Obj.Description;
             set => OrderCatalog.Instance.DataPackage.Description = value;
@@ -69,6 +73,26 @@ namespace Blomstertonden
             get => _catalog.DataPackage.TotalPrice = ItemViewModelSelected.Obj.TotalPrice;
             set => OrderCatalog.Instance.DataPackage.TotalPrice = value;
         }
+        public string CardMessage
+        {
+            get => _catalog.DataPackage.CardMessage = ItemViewModelSelected.Obj.CardMessage;
+            set => OrderCatalog.Instance.DataPackage.CardMessage = value;
+        }
+
+        public bool IsDelivering
+        {
+            get { return _isDelivering; }
+            set {
+                    _isDelivering = value;
+                    OnPropertyChanged();
+                }
+        }
+
+        //public void SearchCustomer()
+        //{
+        //    Name = "Testing123";
+        //    OnPropertyChanged(nameof(Name));
+        //}
 
     }
 }

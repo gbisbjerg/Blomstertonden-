@@ -17,11 +17,17 @@ namespace Blomstertonden
 
         public override async void Execute()
         {
-             
             _catalog.DataPackage.FK_Customer = await _customerCatalog.Create(_customerCatalog.DataPackage);
+            //delete when implemented through catalog
             _catalog.DataPackage.FK_Status = 1;
+            //
+
             _catalog.DataPackage.Date = DateTime.Now;
-            await _catalog.Create(_catalog.DataPackage);
+            
+            if (_catalog.DataPackage.FK_City == null)
+            {
+                _catalog.DataPackage.FK_City = -1;
+            }
 
             base.Execute();
         }

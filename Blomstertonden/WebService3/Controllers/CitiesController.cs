@@ -20,6 +20,7 @@ namespace WebService3.Controllers
         public IQueryable<City> GetCities()
         {
             return db.Cities.Include(x => x.Orders);
+            
         }
 
         // GET: api/Cities/5

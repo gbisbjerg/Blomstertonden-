@@ -12,7 +12,7 @@ namespace GenericsLibrary
     {
         protected Dictionary<TKey, T> _data;
         protected IFactory<TData, T> _factory;
-        protected IDBSource<T, TKey> _dataSource;
+        private IDBSource<T, TKey> _dataSource;
         protected TData _dataPackage;
 
         protected CatalogBaseDB(IFactory<TData, T> factory, string serverURL, string apiId)
@@ -30,6 +30,8 @@ namespace GenericsLibrary
         public List<T> All => _data.Values.ToList();
         public Dictionary<TKey, T> Data => _data;
 
+        public IDBSource<T, TKey> DataSource { get => _dataSource; set => _dataSource = value; }
+
         public async void Load()
         {
             List<T> data = await _dataSource.Load();
@@ -38,18 +40,18 @@ namespace GenericsLibrary
                 _data.Add(t.Key, t);
             }
         }
-        public virtual async Task Create(TData data, bool nextKey)
-        {
-            T obj = _factory.Convert(data);
-            if (nextKey)
-            {
-                TKey newKey = NextKey();
-                obj.Key = newKey;
-                await _dataSource.Create(obj);
-            }
-            _data.Add(obj.Key, obj);
+        //public virtual async Task Create(TData data, bool nextKey)
+        //{
+        //    T obj = _factory.Convert(data);
+        //    if (nextKey)
+        //    {
+        //        TKey newKey = NextKey();
+        //        obj.Key = newKey;
+        //        await _dataSource.Create(obj);
+        //    }
+        //    _data.Add(obj.Key, obj);
 
-        }
+        //}
         public virtual async Task<TKey> Create(TData data)
         {
             T obj = _factory.Convert(data);
