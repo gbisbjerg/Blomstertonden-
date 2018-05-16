@@ -24,8 +24,7 @@ namespace Blomstertonden.Controllers.Commands.OrderCommands
                 {
                     _vm.Name = i.Value.Name;
                     _vm.CustomerId = i.Key;
-                    _vm.St
-                    _
+                    _vm.Stamps = i.Value.Stamps;
                 }
             }
             

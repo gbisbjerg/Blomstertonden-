@@ -9,7 +9,6 @@ namespace Blomstertonden
 {
     public class OrderMDVM : MasterDetailsViewModelBase<OrderTData, Order, int>
     {
-        private Customer _customer;
         private CustomerCatalog _customerCatalog;
         private bool _isDelivering;
         public OrderMDVM() : base(new OrderVMFactory(), OrderCatalog.Instance)
@@ -30,9 +29,8 @@ namespace Blomstertonden
 
             _deleteCommand.RaiseCanExecuteChanged();
             _updateCommand.RaiseCanExecuteChanged();
-
         }
-        public Dictionary<int,Status> StatusList { get => StatusCatalog.Instance.All; } 
+        public Dictionary<int, Status> StatusList { get => StatusCatalog.Instance.All; }
 
         public Customer Customer
         {
@@ -51,48 +49,57 @@ namespace Blomstertonden
         //All properties for binding to the given view
         public int Id
         {
-            get => _catalog.DataPackage.Key =  ItemViewModelSelected.Obj.Id;
+            get => _catalog.DataPackage.Key = ItemViewModelSelected.Obj.Id;
+        }
+
+        public int CustomerId
+        {
+            get => _customerCatalog.DataPackage.Key;
+            set => _customerCatalog.DataPackage.Key = value;
         }
         public string Name
         {
             get => _customerCatalog.DataPackage.Name = Customer.Name;
-            set => CustomerCatalog.Instance.DataPackage.Name = value;
+            set => _customerCatalog.DataPackage.Name = value;
         }
         public int Phone
         {
             get => _customerCatalog.DataPackage.Phone = Customer.Phone;
-            set => CustomerCatalog.Instance.DataPackage.Phone = value;
+            set => _customerCatalog.DataPackage.Phone = value;
+        }
+
+        public int Stamps
+        {
+            get => _customerCatalog.DataPackage.Stamps = Customer.Stamps;
+            set => _customerCatalog.DataPackage.Stamps = value;
         }
         public string Description
         {
-            get => _catalog.DataPackage.Description =  ItemViewModelSelected.Obj.Description;
-            set => OrderCatalog.Instance.DataPackage.Description = value;
+            get => _catalog.DataPackage.Description = ItemViewModelSelected.Obj.Description;
+            set => _catalog.DataPackage.Description = value;
         }
         public int TotalPrice
         {
             get => _catalog.DataPackage.TotalPrice = ItemViewModelSelected.Obj.TotalPrice;
-            set => OrderCatalog.Instance.DataPackage.TotalPrice = value;
+            set => _catalog.DataPackage.TotalPrice = value;
         }
         public string CardMessage
         {
             get => _catalog.DataPackage.CardMessage = ItemViewModelSelected.Obj.CardMessage;
-            set => OrderCatalog.Instance.DataPackage.CardMessage = value;
+            set => _catalog.DataPackage.CardMessage = value;
         }
 
         public bool IsDelivering
         {
-            get { return _isDelivering; }
-            set {
-                    _isDelivering = value;
-                    OnPropertyChanged();
-                }
+            get => _isDelivering;
+            set
+            {
+                _isDelivering = value;
+                OnPropertyChanged();
+            }
         }
 
-        //public void SearchCustomer()
-        //{
-        //    Name = "Testing123";
-        //    OnPropertyChanged(nameof(Name));
-        //}
+
 
     }
 }
