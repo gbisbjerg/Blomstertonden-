@@ -11,7 +11,7 @@ namespace Blomstertonden
     {
         private static ProductCatalog _instance;
 
-        public ProductCatalog(ProductFactory factory, string apiId) : base(factory, apiId)
+        private ProductCatalog(ProductFactory factory, string apiId) : base(factory, apiId)
         {
             Load();
         }
