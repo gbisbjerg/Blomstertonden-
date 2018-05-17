@@ -106,6 +106,9 @@
     <Compile Include="Controllers\Commands\OrderCommands\OrderCreateCmd.cs" />
     <Compile Include="Controllers\Commands\OrderCommands\OrderDeleteCmd.cs" />
     <Compile Include="Controllers\Commands\OrderCommands\OrderUpdateCmd.cs" />
+    <Compile Include="Controllers\Commands\ProductCommands\ProductCreateCmd.cs" />
+    <Compile Include="Controllers\Commands\ProductCommands\ProductDeleteCmd.cs" />
+    <Compile Include="Controllers\Commands\ProductCommands\ProductUpdateCmd.cs" />
     <Compile Include="Controllers\TData\CustomerTData.cs" />
     <Compile Include="Controllers\TData\OrderTData.cs" />
     <Compile Include="Controllers\TData\ProductTData.cs" />
@@ -118,6 +121,7 @@
     <Compile Include="Controllers\ViewModels\MDVMs\ViewOrderMDVM.cs" />
     <Compile Include="Controllers\ViewModels\ViewModelFactories\CustomerVMFactory.cs" />
     <Compile Include="Controllers\ViewModels\ViewModelFactories\OrderVMFactory.cs" />
+    <Compile Include="DomainModels\Catalogs\CategoryCatalog.cs" />
     <Compile Include="DomainModels\Catalogs\PaymentTypeCatalog.cs" />
     <Compile Include="DomainModels\Catalogs\StatusCatalog.cs" />
     <Compile Include="DomainModels\Models\Category.cs" />

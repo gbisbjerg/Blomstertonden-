@@ -7,6 +7,18 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
+    <!--<Page.Resources>
+        <Style x:Key="commonStyle" TargetType="Control">
+            <Setter Property="FontSize" Value="24"/>
+        </Style>
+        <Style x:Key="asd" TargetType="ListViewItem">
+            <Setter Property="Background" Value="Green"/>
+        </Style>
+        <Style BasedOn="{StaticResource commonStyle}" TargetType="ListBox"/>
+        <Style BasedOn="{StaticResource commonStyle}" TargetType="ComboBox"/>
+    </Page.Resources>-->
+
+
     <Page.DataContext>
         <local:CustomerMDVM/>
     </Page.DataContext>
@@ -16,7 +28,7 @@
             <ColumnDefinition Width="750*"/>
             <ColumnDefinition Width="750*"/>
         </Grid.ColumnDefinitions>
-        
+
         <!--MainPage Left-->
         <Grid Grid.Column="0" Height="auto" Width="auto" Background="#0C1E7832">
             <Grid.RowDefinitions>
@@ -47,18 +59,22 @@
                 <TextBlock Text="KUNDELISTE:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" Height="20"/>
                 <TextBlock Text="Navn:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="1" Margin="10, 0, 0, 0"/>
                 <TextBlock Text="Klip:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="1" Margin="295,0,0,0" Height="23"/>
-                
+
                 <!--end customer list-->
-                
-                <ListView Background="LightGray" Grid.Row="2" Grid.Column="1" ItemsSource="{Binding ItemViewModelCollection}" SelectedItem="{Binding ItemViewModelSelected, Mode=TwoWay}" BorderBrush="Black" BorderThickness="1">
-                    <ListView.ItemTemplate>
-                        <DataTemplate x:DataType="local:CustomerIVM">
-                            <StackPanel Width="700" Orientation="Horizontal" Height="51" BorderThickness="0,0,0,2" BorderBrush="Blue" >
-                                <!--Name-->
-                                <TextBlock Text="{Binding Name}" Width="250" TextAlignment="Left" VerticalAlignment="Center" FontSize="12" />
-                                <!--Phone-->
-                                <TextBlock Text="{Binding Stamp}" Width="50" TextAlignment="Right" VerticalAlignment="Center" FontSize="12"/>
-                            </StackPanel>
+
+                <ListView Grid.Row="2" Grid.Column="1" ItemsSource="{Binding ItemViewModelCollection}" SelectedItem="{Binding ItemViewModelSelected, Mode=TwoWay}" BorderBrush="Black" BorderThickness="1" Background="LightGray">
+                    <ListView.ItemTemplate >
+
+                        <DataTemplate x:DataType="local:CustomerIVM" >
+                        
+                                <StackPanel Width="700" Orientation="Horizontal" Height="51" BorderThickness="0,0,0,2" BorderBrush="MediumSeaGreen" >
+                                    <!--Name-->
+
+                                    <TextBlock Text="{Binding Name}" Width="250" TextAlignment="Left" VerticalAlignment="Center" FontSize="12"/>
+                                    <!--Phone-->
+                                    <TextBlock Text="{Binding Stamp}" Width="50" TextAlignment="Right" VerticalAlignment="Center" FontSize="12"/>
+                                </StackPanel>
+                           
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
@@ -82,41 +98,42 @@
             <!--Right middle-->
             <Grid Background="White" Grid.Column="1" Grid.Row="1" Height="auto" Width="auto" BorderThickness="1,1,1,1"  BorderBrush="Black">
                 <!--Start customer-->
-                
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="15*"/>
-                        <RowDefinition Height="20*"/>
-                        <RowDefinition Height="20*"/>
-                        <RowDefinition Height="5*"/>
-                        <RowDefinition Height="10*"/>
-                        <RowDefinition Height="150*"/>
-                        <RowDefinition Height="10*"/>
-                        <RowDefinition Height="20*"/>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="15*"/>
+                    <RowDefinition Height="20*"/>
+                    <RowDefinition Height="20*"/>
+                    <RowDefinition Height="5*"/>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="150*"/>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="20*"/>
                 </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="75*"/>
-                        <ColumnDefinition Width="475*"/>
-                        <ColumnDefinition Width="75*"/>
-                    </Grid.ColumnDefinitions>
-                    <TextBlock Text="KUNDE:" FontWeight="Bold" FontSize="12" Grid.Column="0" Grid.Row="0" Margin="10,10,0,0"/>
-                    <TextBlock Text="NAVN:" FontSize="12" Grid.Column="0" Grid.Row="1" Margin="10,10,0,0"/>
-                    <TextBlock Text="KLIP:" FontWeight="Bold" FontSize="12" Grid.Column="2" Grid.Row="0" TextAlignment="Center" VerticalAlignment="Center"/>
-                    <TextBox Text="{Binding Name, Mode=TwoWay}" Background="LightGray" BorderThickness="1,1,1,1" BorderBrush="Black" VerticalAlignment="Center" PlaceholderText="Navn" FontSize="12" Height="20" Grid.Column="1" Grid.Row="1" Margin="10,0,10,0"/>
-                    <TextBox Text="{Binding Stamps}" Background="LightGray" BorderThickness="1,1,1,1" BorderBrush="Black" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" PlaceholderText="0" FontSize="12" Height="20" Width="auto"  Grid.Column="2" Grid.Row="1" Margin="10,0,10,0" MinWidth="40"/>
-                    <TextBlock Text="TELEFON:" FontSize="12" Grid.Column="0" Grid.Row="2" Margin="10,10,0,0"/>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="75*"/>
+                    <ColumnDefinition Width="475*"/>
+                    <ColumnDefinition Width="75*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="KUNDE:" FontWeight="Bold" FontSize="12" Grid.Column="0" Grid.Row="0" Margin="10,10,0,0"/>
+                <TextBlock Text="NAVN:" FontSize="12" Grid.Column="0" Grid.Row="1" Margin="10,10,0,0"/>
+                <TextBlock Text="KLIP:" FontWeight="Bold" FontSize="12" Grid.Column="2" Grid.Row="0" TextAlignment="Center" VerticalAlignment="Center"/>
+                <TextBox Text="{Binding Name, Mode=TwoWay}" Background="LightGray" BorderThickness="1,1,1,1" BorderBrush="Black" VerticalAlignment="Center" PlaceholderText="Navn"   FontSize="12" Height="20" Grid.Column="1" Grid.Row="1" Margin="10,0,10,0"/>
+                <TextBox Text="{Binding Stamps}" Background="LightGray" BorderThickness="1,1,1,1" BorderBrush="Black" PlaceholderText="0" FontSize="12" Height="20" Width="auto"  Grid.Column="2" Grid.Row="1" Margin="10,0,10,0" MinWidth="40"/>
+                <TextBlock Text="TELEFON:" FontSize="12" Grid.Column="0" Grid.Row="2" Margin="10,10,0,0"/>
                 <TextBox Text="{Binding Phone, Mode=TwoWay}"  Background="LightGray" BorderThickness="1,1,1,1"  BorderBrush="Black" VerticalAlignment="Center" PlaceholderText="Telefonnummer" FontSize="12" Height="20" Grid.Column="1" Grid.Row="2" Margin="10,0,10,0"/>
                 <Border Grid.ColumnSpan="3" Grid.Row="3" BorderThickness="0,0,0,2"  BorderBrush="Black"/>
-                    <!--End customer-->
-                
-                    <!--Start details-->
-                    <TextBlock Text="Ordrenr:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left"/>
-                    <TextBlock Text="Dato:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center"/>
-                    <TextBlock Text="Pris:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Right"/>
+                <!--End customer-->
+
+                <!--Start details-->
+                <TextBlock Text="Ordrenr:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left"/>
+                <TextBlock Text="Dato:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center"/>
+                <TextBlock Text="Pris:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Right"/>
                 <ListView Background="LightGray" BorderThickness="1,1,1,1" Height="auto" BorderBrush="Black" Grid.Column="1" Grid.Row="5">
                 </ListView>
+                <Button Command="{Binding DeletionCommand}" Grid.Row="7" Grid.Column="1" Content="Delete" HorizontalAlignment="Left"/>
                 <Button Command="{Binding UpdateCommand}" Grid.Row="7" Grid.Column="1" Content="Opdater" HorizontalAlignment="Right"/>
-                    <!--end details-->
-                </Grid>
+                <!--end details-->
+            </Grid>
         </Grid>
     </Grid>
 </Page>
