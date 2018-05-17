@@ -13,7 +13,7 @@ namespace Blomstertonden
         private CustomerCatalog _customerCatalog;
         private CustomerSearchCmd _customerSerarchCmd;
 
-        public ViewOrderMDVM(ViewModelFactoryBase<OrderTData, Order, int> factoryVM, ICRUD<Order, OrderTData, int> catalog) : base(factoryVM, catalog)
+        public ViewOrderMDVM() : base(new OrderVMFactory(), OrderCatalog.Instance)
         {
             _customerCatalog = CustomerCatalog.Instance;
             _deleteCommand = new OrderDeleteCmd(_catalog, this);

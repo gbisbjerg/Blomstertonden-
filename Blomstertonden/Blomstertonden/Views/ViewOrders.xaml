@@ -8,7 +8,7 @@
     mc:Ignorable="d">
 
     <Page.DataContext>
-        <local:OrderMDVM/>
+        <local:ViewOrderMDVM/>
     </Page.DataContext>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
