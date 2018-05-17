@@ -11,7 +11,17 @@ namespace Blomstertonden
     {
         public Product Convert(ProductTData data)
         {
-            throw new NotImplementedException();
+            Product obj = new Product()
+            {
+
+                Id = data.Key,
+                Name = data.Name,
+                Price = data.Price,
+                IsPromational = data.IsPromational,
+                FK_Category = data.FK_Category
+
+            };
+            return obj;
         }
     }
 }

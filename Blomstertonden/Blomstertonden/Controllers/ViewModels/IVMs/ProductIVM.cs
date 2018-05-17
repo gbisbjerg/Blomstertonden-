@@ -13,5 +13,17 @@ namespace Blomstertonden
         {
         }
         //properties for list view...
+        public string Name
+        {
+            get => Obj.Name;
+        }
+        public int Price
+        {
+            get => Obj.Price;
+        }
+        //public Boolean IsPromotional
+        //{
+        //    get => Obj.IsPromational;
+        //}     
     }
 }

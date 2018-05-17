@@ -10,5 +10,9 @@ namespace Blomstertonden
     public class ProductTData : IKey<int>
     {
         public int Key { get; set; }
+        public string Name { get; set; }
+        public int Price { get; set; }
+        public bool IsPromational { get; set; }
+        public int FK_Category { get; set; }
     }
 }
