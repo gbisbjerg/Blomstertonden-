@@ -17,7 +17,7 @@ namespace Blomstertonden
 
         public override async void Execute()
         {
-            if (_customerCatalog.DataPackage.Key != 0)
+            if (_customerCatalog.DataPackage.Key == 0)
             {
                 _catalog.DataPackage.FK_Customer = await _customerCatalog.Create(_customerCatalog.DataPackage);
             }
@@ -34,7 +34,7 @@ namespace Blomstertonden
             
             if (_catalog.DataPackage.FK_City == null)
             {
-                _catalog.DataPackage.FK_City = -1;
+                _catalog.DataPackage.FK_City = 0;
             }
 
             base.Execute();

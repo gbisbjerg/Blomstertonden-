@@ -25,5 +25,13 @@ namespace Blomstertonden
                 return _instance;
             }
         }
+
+        public List<Status> StatusList
+        {
+            get
+            {
+                return All.Values.ToList();
+            }
+        }
     }
 }
