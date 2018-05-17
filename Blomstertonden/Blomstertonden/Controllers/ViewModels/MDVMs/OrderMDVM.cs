@@ -11,6 +11,7 @@ namespace Blomstertonden
 {
     public class OrderMDVM : MasterDetailsViewModelBase<OrderTData, Order, int>
     {
+        //
         private CustomerCatalog _customerCatalog;
         private bool _isDelivering;
         private CustomerSearchCmd _customerSerarchCmd;
