@@ -36,6 +36,7 @@ namespace Blomstertonden
             OnPropertyChanged(nameof(TotalPrice));
             OnPropertyChanged(nameof(Street));
             OnPropertyChanged(nameof(CardMessage));
+            OnPropertyChanged(nameof(FK_Status));
 
             _deleteCommand.RaiseCanExecuteChanged();
             _updateCommand.RaiseCanExecuteChanged();
@@ -48,6 +49,7 @@ namespace Blomstertonden
             {
                 return ItemViewModelSelected.Obj.Customer;
             }
+           
         }
         //All properties for binding to the given view
 
@@ -144,6 +146,16 @@ namespace Blomstertonden
             get => _catalog.DataPackage.CardMessage = ItemViewModelSelected.Obj.CardMessage;
             set => _catalog.DataPackage.CardMessage = value;
         }
+        public int FK_Status
+        {
+            get => _catalog.DataPackage.FK_Status = ItemViewModelSelected.Obj.FK_Status - 1;
+            set => _catalog.DataPackage.FK_Status = value + 1;
+        }
+        public int? FK_PaymentType
+        {
+            get => _catalog.DataPackage.FK_PaymentType = ItemViewModelSelected.Obj.FK_PaymentType - 1;
+            set => _catalog.DataPackage.FK_PaymentType = value + 1;
+        }
         #endregion
 
         public CustomerSearchCmd CustomerSerarchCmd => _customerSerarchCmd;
@@ -165,20 +177,11 @@ namespace Blomstertonden
         {
             get { return OrderCatalog.Instance.PaymentTypeCatalog.PaymentTypeList; }
         }
-        public int? PaymentType
-        {
-            get { return OrderCatalog.Instance.DataPackage.FK_PaymentType; }
-            set { OrderCatalog.Instance.DataPackage.FK_PaymentType = value + 1; }
-        }
+
 
         public List<Status> OrderStatusList
         {
             get { return OrderCatalog.Instance.StatusCatalog.StatusList; }
-        }
-        public int OrderStatus
-        {
-            get { return OrderCatalog.Instance.DataPackage.FK_Status; }
-            set { OrderCatalog.Instance.DataPackage.FK_Status = value + 1; }
         }
         #endregion
     }
