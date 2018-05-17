@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using GenericsLibrary;
 
-namespace Blomstertonden.Controllers.Commands.OrderCommands
+namespace Blomstertonden
 {
     public class CustomerSearchCmd : CommandBase<OrderTData, Order, int>
     {
@@ -29,7 +29,6 @@ namespace Blomstertonden.Controllers.Commands.OrderCommands
             }
             
         }
-
         public override bool CanExecute()
         {
             return base.CanExecute();

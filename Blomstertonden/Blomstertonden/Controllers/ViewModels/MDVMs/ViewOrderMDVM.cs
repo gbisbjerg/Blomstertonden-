@@ -1,25 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Blomstertonden;
 using GenericsLibrary;
 
 namespace Blomstertonden
 {
-    public class OrderMDVM : MasterDetailsViewModelBase<OrderTData, Order, int>
+    public class ViewOrderMDVM : MasterDetailsViewModelBase<OrderTData, Order, int>
     {
-        //
         private CustomerCatalog _customerCatalog;
-        private bool _isDelivering;
         private CustomerSearchCmd _customerSerarchCmd;
 
-        public OrderMDVM() : base(new OrderVMFactory(), OrderCatalog.Instance)
+        public ViewOrderMDVM(ViewModelFactoryBase<OrderTData, Order, int> factoryVM, ICRUD<Order, OrderTData, int> catalog) : base(factoryVM, catalog)
         {
             _customerCatalog = CustomerCatalog.Instance;
-            _createCommand = new OrderCreateCmd(_catalog, this);
-            _customerSerarchCmd = new CustomerSearchCmd(this);
+            _deleteCommand = new OrderDeleteCmd(_catalog, this);
+            _updateCommand = new OrderUpdateCmd(_catalog, this);
         }
 
         public override void SelectedItemEvent()
@@ -33,88 +31,75 @@ namespace Blomstertonden
             OnPropertyChanged(nameof(TotalPrice));
             OnPropertyChanged(nameof(Street));
             OnPropertyChanged(nameof(CardMessage));
+
+            _deleteCommand.RaiseCanExecuteChanged();
+            _updateCommand.RaiseCanExecuteChanged();
         }
+
         public Dictionary<int, Status> StatusList { get => StatusCatalog.Instance.All; }
 
+        public Customer Customer
+        {
+            get
+            {
+                if (ItemViewModelSelected.Obj.Customer != null)
+                {
+                    return ItemViewModelSelected.Obj.Customer;
+                }
+                return new Customer();
+            }
+        }
         //All properties for binding to the given view
 
         #region Customer Bindings
         public int CustomerId
         {
-            get => _customerCatalog.DataPackage.Key;
-            set
-            {
-                _customerCatalog.DataPackage.Key = value; 
-                OnPropertyChanged();
-            }
+            get => _customerCatalog.DataPackage.Key = Customer.Id;
+            set => _customerCatalog.DataPackage.Key = value;
         }
 
         public string Name
         {
-            get => _customerCatalog.DataPackage.Name;
-            set
-            {
-                _customerCatalog.DataPackage.Name = value;
-                OnPropertyChanged();
-            }
+            get => _customerCatalog.DataPackage.Name = Customer.Name;
+            set => _customerCatalog.DataPackage.Name = value;
         }
         public int Phone
         {
-            get => _customerCatalog.DataPackage.Phone;
-            set
-            {
-                _customerCatalog.DataPackage.Phone = value;
-                OnPropertyChanged();
-            }
+            get => _customerCatalog.DataPackage.Phone = Customer.Phone;
+            set => _customerCatalog.DataPackage.Phone = value;
         }
 
         public int Stamps
         {
-            get => _customerCatalog.DataPackage.Stamps;
-            set
-            {
-                _customerCatalog.DataPackage.Stamps = value;
-                OnPropertyChanged();
-            }
+            get => _customerCatalog.DataPackage.Stamps = Customer.Stamps;
+            set => _customerCatalog.DataPackage.Stamps = value;
         }
         #endregion
 
         #region Order Bindings
-        public int Id => _catalog.DataPackage.Key;
+        public int Id => _catalog.DataPackage.Key = ItemViewModelSelected.Obj.Id;
 
         public string Description
         {
-            get => _catalog.DataPackage.Description;
+            get => _catalog.DataPackage.Description = ItemViewModelSelected.Obj.Description;
             set => _catalog.DataPackage.Description = value;
         }
         public string Street
         {
-            get => _catalog.DataPackage.Street;
+            get => _catalog.DataPackage.Street = ItemViewModelSelected.Obj.Street;
             set => _catalog.DataPackage.Street = value;
         }
         public int TotalPrice
         {
-            get => _catalog.DataPackage.TotalPrice;
+            get => _catalog.DataPackage.TotalPrice = ItemViewModelSelected.Obj.TotalPrice;
             set => _catalog.DataPackage.TotalPrice = value;
         }
         public string CardMessage
         {
-            get => _catalog.DataPackage.CardMessage;
+            get => _catalog.DataPackage.CardMessage = ItemViewModelSelected.Obj.CardMessage;
             set => _catalog.DataPackage.CardMessage = value;
         }
         #endregion
-
-        public CustomerSearchCmd CustomerSerarchCmd => _customerSerarchCmd;
-
-        public bool IsDelivering
-        {
-            get => _isDelivering;
-            set
-            {
-                _isDelivering = value;
-                OnPropertyChanged();
-            }
-        }
         #region ComboBox
         public List<PaymentType> PaymentTypeList
         {
