@@ -10,9 +10,11 @@ namespace Blomstertonden
     public class ProductCatalog : AppCatalogBase<Product, ProductTData, int>
     {
         private static ProductCatalog _instance;
+        private CategoryCatalog _categoryCatalog;
 
         private ProductCatalog(ProductFactory factory, string apiId) : base(factory, apiId)
         {
+            _categoryCatalog = CategoryCatalog.Instance;
             Load();
         }
 
@@ -27,5 +29,8 @@ namespace Blomstertonden
                 return _instance;
             }
         }
+
+        public CategoryCatalog CategoryCatalog
+        { get => _categoryCatalog; set => _categoryCatalog = value; }
     }
 }
