@@ -22,13 +22,19 @@ namespace Blomstertonden.Controllers.Commands.OrderCommands
             {
                 if (i.Value.Phone == _vm.Phone)
                 {
-                    _vm.Name = i.Value.Name;
                     _vm.CustomerId = i.Key;
+                    _vm.Name = i.Value.Name;
                     _vm.Stamps = i.Value.Stamps;
                 }
             }
             
         }
+
+        public override bool CanExecute()
+        {
+            return base.CanExecute();
+        }
+
         public override void ExecuteEvent()
         {
         }
