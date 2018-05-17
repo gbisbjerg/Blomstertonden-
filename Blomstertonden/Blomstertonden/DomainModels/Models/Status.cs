@@ -25,5 +25,10 @@ namespace Blomstertonden
         public virtual ICollection<Order> Orders { get; set; }
 
         public int Key { get=>Id; set=>Id=value; }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

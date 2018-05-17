@@ -31,6 +31,7 @@ namespace Blomstertonden
             }
         }
 
+
         public PaymentTypeCatalog PaymentTypeCatalog { get => _paymentTypeCatalog; set => _paymentTypeCatalog = value; }
         public StatusCatalog StatusCatalog { get => _statusCatalog; set => _statusCatalog = value; }
     }

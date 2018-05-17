@@ -66,12 +66,12 @@
                 <CheckBox IsChecked="{Binding IsDelivering , Mode=TwoWay}" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Right"/>
                 <!--<TextBlock Text="Navn:" FontSize="12" Grid.Column="0" Grid.Row="6" Margin="10,10,0,0"/>
                 <TextBox Background="LightGray" BorderThickness="1,1,1,1" BorderBrush="Black" VerticalAlignment="Center" PlaceholderText="Indtast navn" FontSize="12" Height="20" Grid.Column="1" Grid.Row="6" Margin="10,0,10,0"/>-->
-                <TextBlock Text="Adresse:" FontSize="12" Grid.Column="0" Grid.Row="7" Margin="10,10,0,0"/>
-                <TextBox IsEnabled="{Binding IsDelivering}"  Background="LightGray" BorderThickness="1,1,1,1" BorderBrush="Black" VerticalAlignment="Center" PlaceholderText="Indtast adresse" FontSize="12" Height="20" Grid.Column="1" Grid.Row="7" Margin="10,0,10,0"/>
-                <TextBlock Text="Postnr:" FontSize="12" Grid.Column="0" Grid.Row="8" Margin="10,10,0,0"/>
-                <TextBox IsEnabled="{Binding IsDelivering}" Background="LightGray" BorderThickness="1,1,1,1" BorderBrush="Black" Width="125" HorizontalAlignment="Left"  PlaceholderText="Indtast postnummer" FontSize="12" Height="20" Grid.Column="1" Grid.Row="8" Margin="10,0,10,0"/>
-                <TextBlock Text="By:" FontSize="12" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="8" Margin="100,10,0,0"/>
-                <TextBox IsEnabled="false" Text="Needs to auto fill" Background="LightGray" BorderThickness="1,1,1,1" BorderBrush="Black" Width="125" HorizontalAlignment="Right"  PlaceholderText="Indtast by" FontSize="12" Height="20" Grid.Column="1" Grid.Row="8" Margin="10,0,10,0"/>
+                <TextBlock Text="Adresse:" FontSize="12" Grid.Column="0" Grid.Row="6" Margin="10,10,0,0"/>
+                <TextBox Text="{Binding Street, Mode=TwoWay}" IsEnabled="{Binding IsDelivering}"  Background="LightGray" BorderThickness="1,1,1,1" BorderBrush="Black" VerticalAlignment="Center" PlaceholderText="Indtast adresse" FontSize="12" Height="20" Grid.Column="1" Grid.Row="6" Margin="10,0,10,0"/>
+                <TextBlock Text="Postnr:" FontSize="12" Grid.Column="0" Grid.Row="7" Margin="10,10,0,0"/>
+                <TextBox IsEnabled="{Binding IsDelivering}" Background="LightGray" BorderThickness="1,1,1,1" BorderBrush="Black" Width="125" HorizontalAlignment="Left"  PlaceholderText="Indtast postnummer" FontSize="12" Height="20" Grid.Column="1" Grid.Row="7" Margin="10,0,10,0"/>
+                <TextBlock Text="By:" FontSize="12" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="7" Margin="100,10,0,0"/>
+                <TextBox IsEnabled="false" Text="Needs to auto fill" Background="LightGray" BorderThickness="1,1,1,1" BorderBrush="Black" Width="125" HorizontalAlignment="Right"  PlaceholderText="Indtast by" FontSize="12" Height="20" Grid.Column="1" Grid.Row="7" Margin="10,0,10,0"/>
                 <!--<TextBlock Text="Telefon:" FontSize="12" Grid.Column="0" Grid.Row="9" Margin="10,10,0,0"/>-->
                 <!--<TextBox Text="{Binding Phone, Mode=TwoWay}" Background="LightGray" BorderThickness="1,1,1,1" BorderBrush="Black" Width="125" HorizontalAlignment="Left"  PlaceholderText="Indtast telefon" FontSize="12" Height="20" Grid.Column="1" Grid.Row="9" Margin="10,0,10,0"/>-->
                 <!--<TextBlock Margin="0,0,10,0" VerticalAlignment="Center" Height="27" Grid.Column="0" Grid.Row="0" Text="Street" FontSize="20" HorizontalAlignment="Right"/>
@@ -79,9 +79,11 @@
                     <TextBlock Margin="0,0,10,0" VerticalAlignment="Center" Height="27" Grid.Column="0" Grid.Row="1" Text="Zipcode" FontSize="20" HorizontalAlignment="Right"/>
                     <TextBox VerticalAlignment="Center" Height="32" Grid.Column="1" Grid.Row="1" BorderThickness="2" BorderBrush="Black" Text=""/>
                     <CheckBox Content="Deliver" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Right" Height="32" Width="120"/>-->
-
                 <!--Payment Method-->
-                <ComboBox SelectedValue="{Binding Fk_PaymentType,Mode=TwoWay}" ItemsSource="{Binding PaymentTypeList}" Grid.Row="9" Grid.RowSpan="2" Grid.Column="1" />
+
+
+                <ComboBox  SelectedIndex="{Binding PaymentType,Mode=TwoWay}" ItemsSource="{Binding PaymentTypeList}" HorizontalAlignment="Right" Grid.Row="8" Grid.RowSpan="2" Grid.Column="1" IsDropDownOpen="True" />
+                
                 <Grid Grid.Row="10" Grid.Column="1">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*"/>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,6 +28,7 @@ namespace Blomstertonden
             OnPropertyChanged(nameof(Phone));
             OnPropertyChanged(nameof(Description));
             OnPropertyChanged(nameof(TotalPrice));
+            OnPropertyChanged(nameof(Street));
 
             _deleteCommand.RaiseCanExecuteChanged();
             _updateCommand.RaiseCanExecuteChanged();
@@ -79,6 +81,11 @@ namespace Blomstertonden
             get => _catalog.DataPackage.Description = ItemViewModelSelected.Obj.Description;
             set => _catalog.DataPackage.Description = value;
         }
+        public string Street
+        {
+            get => _catalog.DataPackage.Street = ItemViewModelSelected.Obj.Street;
+            set => _catalog.DataPackage.Street = value;
+        }
         public int TotalPrice
         {
             get => _catalog.DataPackage.TotalPrice = ItemViewModelSelected.Obj.TotalPrice;
@@ -100,17 +107,28 @@ namespace Blomstertonden
             }
         }
 
-        public Dictionary<int, PaymentType> PaymentTypeList
+
+
+        #region ComboBox
+        public List<PaymentType> PaymentTypeList
         {
-            get { return OrderCatalog.Instance.PaymentTypeCatalog.All; }
+            get { return OrderCatalog.Instance.PaymentTypeCatalog.PaymentTypeList; }
         }
-        public int? FK_PaymentType
+        public int? PaymentType
         {
-            get { return _catalog.DataPackage.FK_PaymentType; }
-            set { _catalog.DataPackage.FK_PaymentType = value; }
+            get { return OrderCatalog.Instance.DataPackage.FK_PaymentType; }
+            set { OrderCatalog.Instance.DataPackage.FK_PaymentType = value + 1; }
         }
 
-
-
+        public List<Status> OrderStatusList
+        {
+            get { return OrderCatalog.Instance.StatusCatalog.StatusList; }
+        }
+        public int OrderStatus
+        {
+            get { return OrderCatalog.Instance.DataPackage.FK_Status; }
+            set { OrderCatalog.Instance.DataPackage.FK_Status = value + 1; }
+        }
+        #endregion
     }
 }
