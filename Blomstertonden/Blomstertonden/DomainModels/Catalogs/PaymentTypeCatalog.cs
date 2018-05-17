@@ -9,6 +9,8 @@ namespace Blomstertonden
 {
     public class PaymentTypeCatalog : ReadOnlyCatalogBase<PaymentType, int>
     {
+        public List<String> _paymentTypeList;
+
         private static PaymentTypeCatalog _instance;
         private PaymentTypeCatalog() : base(AppConfig.ServerURL, "PaymentTypes")
         {
@@ -25,5 +27,14 @@ namespace Blomstertonden
                 return _instance;
             }
         }
+
+        public List<PaymentType> PaymentTypeList
+        {
+            get
+            {
+                return All.Values.ToList();
+            }
+        }
+
     }
 }
