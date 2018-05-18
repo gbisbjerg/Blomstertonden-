@@ -12,6 +12,5 @@ namespace Blomstertonden
         public OrderDeleteCmd(ICRUD<Order, OrderTData, int> catalog, MasterDetailsViewModelBase<OrderTData, Order, int> viewModel) : base(catalog, viewModel)
         {
         }
-
     }
 }
