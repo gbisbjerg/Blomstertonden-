@@ -14,7 +14,7 @@ namespace WebService3.Controllers
 {
     public class UsersController : ApiController
     {
-        private BlomsterTondenDBContext db = new BlomsterTondenDBContext();
+        private BlomsterTondenDBContxext db = new BlomsterTondenDBContxext();
 
         // GET: api/Users
         public IQueryable<User> GetUsers()

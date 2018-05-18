@@ -14,7 +14,7 @@ namespace WebService3.Controllers
 {
     public class CitiesController : ApiController
     {
-        private BlomsterTondenDBContext db = new BlomsterTondenDBContext();
+        private BlomsterTondenDBContxext db = new BlomsterTondenDBContxext();
 
         // GET: api/Cities
         public IQueryable<City> GetCities()

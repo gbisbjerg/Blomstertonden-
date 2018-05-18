@@ -14,7 +14,7 @@ namespace WebService3.Controllers
 {
     public class CategoriesController : ApiController
     {
-        private BlomsterTondenDBContext db = new BlomsterTondenDBContext();
+        private BlomsterTondenDBContxext db = new BlomsterTondenDBContxext();
 
         // GET: api/Categories
         public IQueryable<Category> GetCategories()

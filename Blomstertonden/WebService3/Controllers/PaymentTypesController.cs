@@ -14,7 +14,7 @@ namespace WebService3.Controllers
 {
     public class PaymentTypesController : ApiController
     {
-        private BlomsterTondenDBContext db = new BlomsterTondenDBContext();
+        private BlomsterTondenDBContxext db = new BlomsterTondenDBContxext();
 
         // GET: api/PaymentTypes
         public IQueryable<PaymentType> GetPaymentTypes()
