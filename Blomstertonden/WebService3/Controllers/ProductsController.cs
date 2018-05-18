@@ -14,7 +14,7 @@ namespace WebService3.Controllers
 {
     public class ProductsController : ApiController
     {
-        private BlomsterTondenDBContxext db = new BlomsterTondenDBContxext();
+        private BlomsterTondenDBContext db = new BlomsterTondenDBContext();
 
         // GET: api/Products
         public IQueryable<Product> GetProducts()
@@ -26,7 +26,14 @@ namespace WebService3.Controllers
         [ResponseType(typeof(Product))]
         public IHttpActionResult GetProduct(int id)
         {
-            Product product = db.Products.Find(id);
+            Product product = null;
+            foreach (Product p in GetProducts())
+            {
+                if (p.Id == id)
+                {
+                    product = p;
+                }
+            }
             if (product == null)
             {
                 return NotFound();

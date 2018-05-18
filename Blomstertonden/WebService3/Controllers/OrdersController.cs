@@ -14,7 +14,7 @@ namespace WebService3.Controllers
 {
     public class OrdersController : ApiController
     {
-        private BlomsterTondenDBContxext db = new BlomsterTondenDBContxext();
+        private BlomsterTondenDBContext db = new BlomsterTondenDBContext();
         
         // GET: api/Orders
         public IQueryable<Order> GetOrders()
@@ -34,13 +34,10 @@ namespace WebService3.Controllers
                     order = o;
                 }
             }
-            
             if (order == null)
             {
                 return NotFound();
             }
-
-            Customer customer = order.Customer = db.Customers.Find(order.FK_Customer);
             return Ok(order);
         }
 

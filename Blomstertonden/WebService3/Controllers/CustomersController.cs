@@ -14,7 +14,7 @@ namespace WebService3.Controllers
 {
     public class CustomersController : ApiController
     {
-        private BlomsterTondenDBContxext db = new BlomsterTondenDBContxext();
+        private BlomsterTondenDBContext db = new BlomsterTondenDBContext();
 
         // GET: api/Customers
         public IQueryable<Customer> GetCustomers()
@@ -26,12 +26,18 @@ namespace WebService3.Controllers
         [ResponseType(typeof(Customer))]
         public IHttpActionResult GetCustomer(int id)
         {
-            Customer customer = db.Customers.Find(id);
+            Customer customer = null;
+            foreach (Customer c in GetCustomers())
+            {
+                if (c.Id == id)
+                {
+                    customer = c;
+                }
+            }
             if (customer == null)
             {
                 return NotFound();
             }
-
             return Ok(customer);
         }
 

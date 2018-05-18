@@ -5,25 +5,23 @@ namespace WebService3
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
 
-    public partial class BlomsterTondenDBContxext : DbContext
+    public partial class BlomsterTondenDBContext : DbContext
     {
-        public BlomsterTondenDBContxext()
-            : base("name=BlomsterTondenDBContxext")
+        public BlomsterTondenDBContext()
+            : base("name=BlomsterTondenDBContext")
         {
-            Configuration.LazyLoadingEnabled = false;
-            Configuration.ProxyCreationEnabled = false;
         }
 
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<City> Cities { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
+        public virtual DbSet<OrderedProduct> OrderedProducts { get; set; }
         public virtual DbSet<PaymentType> PaymentTypes { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<Status> Status { get; set; }
         public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<OrderedProduct> OrderedProducts { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

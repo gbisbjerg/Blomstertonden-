@@ -14,7 +14,7 @@ namespace WebService3.Controllers
 {
     public class RolesController : ApiController
     {
-        private BlomsterTondenDBContxext db = new BlomsterTondenDBContxext();
+        private BlomsterTondenDBContext db = new BlomsterTondenDBContext();
 
         // GET: api/Roles
         public IQueryable<Role> GetRoles()

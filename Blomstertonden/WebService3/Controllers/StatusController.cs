@@ -14,7 +14,7 @@ namespace WebService3.Controllers
 {
     public class StatusController : ApiController
     {
-        private BlomsterTondenDBContxext db = new BlomsterTondenDBContxext();
+        private BlomsterTondenDBContext db = new BlomsterTondenDBContext();
 
         // GET: api/Status
         public IQueryable<Status> GetStatus()

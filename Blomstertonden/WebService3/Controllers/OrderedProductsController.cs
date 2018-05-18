@@ -12,45 +12,44 @@ using WebService3;
 
 namespace WebService3.Controllers
 {
-    public class CitiesController : ApiController
+    public class OrderedProductsController : ApiController
     {
         private BlomsterTondenDBContext db = new BlomsterTondenDBContext();
 
-        // GET: api/Cities
-        public IQueryable<City> GetCities()
+        // GET: api/OrderedProducts
+        public IQueryable<OrderedProduct> GetOrderedProducts()
         {
-            return db.Cities.Include(x => x.Orders);
-            
+            return db.OrderedProducts.Include(x => x.Order).Include(x => x.Product);
         }
 
-        // GET: api/Cities/5
-        [ResponseType(typeof(City))]
-        public IHttpActionResult GetCity(int id)
+        // GET: api/OrderedProducts/5
+        [ResponseType(typeof(OrderedProduct))]
+        public IHttpActionResult GetOrderedProduct(int id)
         {
-            City city = db.Cities.Find(id);
-            if (city == null)
+            OrderedProduct orderedProduct = db.OrderedProducts.Find(id);
+            if (orderedProduct == null)
             {
                 return NotFound();
             }
 
-            return Ok(city);
+            return Ok(orderedProduct);
         }
 
-        // PUT: api/Cities/5
+        // PUT: api/OrderedProducts/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutCity(int id, City city)
+        public IHttpActionResult PutOrderedProduct(int id, OrderedProduct orderedProduct)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != city.PostalCode)
+            if (id != orderedProduct.FK_Order)
             {
                 return BadRequest();
             }
 
-            db.Entry(city).State = EntityState.Modified;
+            db.Entry(orderedProduct).State = EntityState.Modified;
 
             try
             {
@@ -58,7 +57,7 @@ namespace WebService3.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!CityExists(id))
+                if (!OrderedProductExists(id))
                 {
                     return NotFound();
                 }
@@ -71,16 +70,16 @@ namespace WebService3.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Cities
-        [ResponseType(typeof(City))]
-        public IHttpActionResult PostCity(City city)
+        // POST: api/OrderedProducts
+        [ResponseType(typeof(OrderedProduct))]
+        public IHttpActionResult PostOrderedProduct(OrderedProduct orderedProduct)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Cities.Add(city);
+            db.OrderedProducts.Add(orderedProduct);
 
             try
             {
@@ -88,7 +87,7 @@ namespace WebService3.Controllers
             }
             catch (DbUpdateException)
             {
-                if (CityExists(city.PostalCode))
+                if (OrderedProductExists(orderedProduct.FK_Order))
                 {
                     return Conflict();
                 }
@@ -98,23 +97,23 @@ namespace WebService3.Controllers
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = city.PostalCode }, city);
+            return CreatedAtRoute("DefaultApi", new { id = orderedProduct.FK_Order }, orderedProduct);
         }
 
-        // DELETE: api/Cities/5
-        [ResponseType(typeof(City))]
-        public IHttpActionResult DeleteCity(int id)
+        // DELETE: api/OrderedProducts/5
+        [ResponseType(typeof(OrderedProduct))]
+        public IHttpActionResult DeleteOrderedProduct(int id)
         {
-            City city = db.Cities.Find(id);
-            if (city == null)
+            OrderedProduct orderedProduct = db.OrderedProducts.Find(id);
+            if (orderedProduct == null)
             {
                 return NotFound();
             }
 
-            db.Cities.Remove(city);
+            db.OrderedProducts.Remove(orderedProduct);
             db.SaveChanges();
 
-            return Ok(city);
+            return Ok(orderedProduct);
         }
 
         protected override void Dispose(bool disposing)
@@ -126,9 +125,9 @@ namespace WebService3.Controllers
             base.Dispose(disposing);
         }
 
-        private bool CityExists(int id)
+        private bool OrderedProductExists(int id)
         {
-            return db.Cities.Count(e => e.PostalCode == id) > 0;
+            return db.OrderedProducts.Count(e => e.FK_Order == id) > 0;
         }
     }
 }
