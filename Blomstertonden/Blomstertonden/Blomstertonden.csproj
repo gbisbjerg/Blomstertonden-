@@ -100,6 +100,7 @@
     <Compile Include="AppBase\Startup.cs" />
     <Compile Include="AppGenerics\DomainBase\ReadOnlyCatalogBase.cs" />
     <Compile Include="AppGenerics\Interfaces\IData.cs" />
+    <Compile Include="AppGenerics\Interfaces\ILocalData.cs" />
     <Compile Include="Controllers\Commands\CustomerCommands\CustomerDeleteCmd.cs" />
     <Compile Include="Controllers\Commands\CustomerCommands\CustomerUpdateCmd.cs" />
     <Compile Include="Controllers\Commands\OrderCommands\CustomerSearchCmd.cs" />

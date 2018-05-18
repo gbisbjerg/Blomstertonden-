@@ -8,6 +8,7 @@ using GenericsLibrary;
 namespace Blomstertonden
 {
     class OrderCreateCmd : CreateCommandBase<OrderTData, Order, int>
+        
     {
         private CustomerCatalog _customerCatalog;
         public OrderCreateCmd(ICRUD<Order, OrderTData, int> catalog, MasterDetailsViewModelBase<OrderTData, Order, int> viewModel) : base(OrderCatalog.Instance, viewModel)
@@ -37,7 +38,16 @@ namespace Blomstertonden
                 _catalog.DataPackage.FK_City = 0;
             }
 
-            base.Execute();
+            int Orderkey =  await _catalog.Create(_catalog.DataPackage);
+
+            if (_customerCatalog.DataPackage.Key == 0)
+            {
+                await _customerCatalog.LocalCreate(_catalog.DataPackage.FK_Customer);
+            }
+            await _catalog.LocalCreate(Orderkey);
+            //await PRODUCTS
+
+            ExecuteEvent();
         }
     }
 }
