@@ -31,6 +31,18 @@ namespace Blomstertonden
             OnPropertyChanged(nameof(TotalPrice));
             OnPropertyChanged(nameof(Street));
             OnPropertyChanged(nameof(CardMessage));
+            OnPropertyChanged(nameof(OrderStatus));
+            OnPropertyChanged(nameof(PaymentType));
+            OnPropertyChanged(nameof(Date));
+
+            _catalog.DataPackage.FK_Customer = Customer.Key;
+            _catalog.DataPackage.FK_City = ItemViewModelSelected.Obj.FK_City;
+
+            _catalog.DataPackage.FK_PaymentType = 1;
+            _catalog.DataPackage.Street = "hi";
+            _catalog.DataPackage.DeliveryDate = DateTime.Now;
+
+
 
             _deleteCommand.RaiseCanExecuteChanged();
             _updateCommand.RaiseCanExecuteChanged();
@@ -54,7 +66,7 @@ namespace Blomstertonden
         #region Customer Bindings
         public int CustomerId
         {
-            get => _customerCatalog.DataPackage.Key = Customer.Id;
+            get => _customerCatalog.DataPackage.Key = Customer.Key;
             set => _customerCatalog.DataPackage.Key = value;
         }
 
@@ -77,12 +89,17 @@ namespace Blomstertonden
         #endregion
 
         #region Order Bindings
-        public int Id => _catalog.DataPackage.Key = ItemViewModelSelected.Obj.Id;
+        public int Id => _catalog.DataPackage.Key = ItemViewModelSelected.Obj.Key;
 
         public string Description
         {
             get => _catalog.DataPackage.Description = ItemViewModelSelected.Obj.Description;
             set => _catalog.DataPackage.Description = value;
+        }
+        public DateTime Date
+        {
+            get => _catalog.DataPackage.Date = ItemViewModelSelected.Obj.Date;
+            set => _catalog.DataPackage.Date = value;
         }
         public string Street
         {
@@ -107,8 +124,8 @@ namespace Blomstertonden
         }
         public int? PaymentType
         {
-            get { return OrderCatalog.Instance.DataPackage.FK_PaymentType; }
-            set { OrderCatalog.Instance.DataPackage.FK_PaymentType = value + 1; }
+            get { return _catalog.DataPackage.FK_PaymentType = ItemViewModelSelected.Obj.FK_PaymentType; }
+            set { _catalog.DataPackage.FK_PaymentType = value + 1; }
         }
 
         public List<Status> OrderStatusList
@@ -117,8 +134,8 @@ namespace Blomstertonden
         }
         public int OrderStatus
         {
-            get { return OrderCatalog.Instance.DataPackage.FK_Status; }
-            set { OrderCatalog.Instance.DataPackage.FK_Status = value + 1; }
+            get { return _catalog.DataPackage.FK_Status = ItemViewModelSelected.Obj.FK_Status; }
+            set { _catalog.DataPackage.FK_Status = value + 1; }
         }
         #endregion
     }

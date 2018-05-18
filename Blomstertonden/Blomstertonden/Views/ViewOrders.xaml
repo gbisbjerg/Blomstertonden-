@@ -147,10 +147,10 @@
                 <TextBlock Text="By:" FontWeight="Bold" FontSize="14" Grid.Column="0" Grid.Row="14" Margin="10,0,0,0"/>
                 <TextBox Text="Søborg" FontSize="12" Grid.Column="1" Grid.Row="14" BorderThickness="0,0,0,0"/>
                 <TextBlock Text="Telefon:" FontWeight="Bold" FontSize="12" Grid.Column="0" Grid.Row="15" Margin="10,0,0,0"/>
-                <TextBox Text="43342145" FontSize="12" Grid.Column="1" Grid.Row="15" BorderThickness="0,0,0,0"/>
+                <TextBox Text="{Binding Date}" FontSize="12" Grid.Column="1" Grid.Row="15" BorderThickness="0,0,0,0"/>
 
                 <Button Content="Update" Command="{Binding UpdateCommand}" IsEnabled="{Binding IsItemSelected}" Grid.Column="2" Grid.Row="13"/>
-                <ComboBox SelectedIndex="{Binding FK_Status,Mode=TwoWay}" ItemsSource="{Binding OrderStatusList}" Grid.Column="2" Grid.Row="14" />
+                <ComboBox SelectedIndex="{Binding OrderStatus,Mode=TwoWay}" ItemsSource="{Binding OrderStatusList}" Grid.Column="2" Grid.Row="14" />
                 <Button Content="Delete" Command="{Binding DeletionCommand}" IsEnabled="{Binding IsItemSelected}" Grid.Column="2" Grid.Row="15"/>
                 
             </Grid>

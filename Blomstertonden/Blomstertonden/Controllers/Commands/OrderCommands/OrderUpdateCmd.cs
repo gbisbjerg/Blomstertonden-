@@ -11,6 +11,7 @@ namespace Blomstertonden
     {
         public OrderUpdateCmd(ICRUD<Order, OrderTData, int> catalog, MasterDetailsViewModelBase<OrderTData, Order, int> viewModel) : base(catalog, viewModel)
         {
+
         }
     }
 }
