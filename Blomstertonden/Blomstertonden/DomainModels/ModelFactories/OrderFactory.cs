@@ -13,6 +13,7 @@ namespace Blomstertonden
         {
             Order obj = new Order
             {
+                Id = data.Key,
                 Description = data.Description,
                 Date = data.Date,
                 DeliveryDate = data.DeliveryDate,
