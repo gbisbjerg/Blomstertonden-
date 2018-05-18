@@ -11,7 +11,6 @@ namespace Blomstertonden
     public class ViewOrderMDVM : MasterDetailsViewModelBase<OrderTData, Order, int>
     {
         private CustomerCatalog _customerCatalog;
-        private CustomerSearchCmd _customerSerarchCmd;
 
         public ViewOrderMDVM() : base(new OrderVMFactory(), OrderCatalog.Instance)
         {

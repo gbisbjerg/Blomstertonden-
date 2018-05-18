@@ -26,6 +26,7 @@ namespace Blomstertonden
                     _vm.Name = i.Value.Name;
                     _vm.Stamps = i.Value.Stamps;
                 }
+                else { throw new NotImplementedException();}
             }
             
         }

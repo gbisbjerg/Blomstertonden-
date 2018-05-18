@@ -45,6 +45,10 @@ namespace GenericsLibrary
         {
             return await InvokeAPIWithReturnValueAsync<T>(() => _httpClient.GetAsync(BuildRequestURI(APIMethod.Read, key)));
         }
+        //public async Task<T> Read(TKey key, TKey key2)
+        //{
+        //    return await InvokeAPIWithReturnValueAsync<T>(() => _httpClient.GetAsync(BuildRequestURI())
+        //}
         public async Task Update(T obj)
         {
             await InvokeAPINoReturnValueAsync(() => _httpClient.PutAsJsonAsync(BuildRequestURI(APIMethod.Update, obj.Key), obj));
@@ -61,6 +65,7 @@ namespace GenericsLibrary
             HttpResponseMessage response = await InvokeAPIAsync(apiMethod);
             return await response.Content.ReadAsAsync<U>();
         }
+
         private async Task InvokeAPINoReturnValueAsync(Func<Task<HttpResponseMessage>> apiMethod)
         {
             await InvokeAPIAsync(apiMethod);

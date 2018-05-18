@@ -72,8 +72,8 @@ namespace GenericsLibrary
         }
         public virtual async Task Delete(TKey key)
         {
-            await _dataSource.Delete(key);
-            _data.Remove(key);
+           await _dataSource.Delete(key);
+           _data.Remove(key);
         }
         public abstract TKey NextKey();
 
