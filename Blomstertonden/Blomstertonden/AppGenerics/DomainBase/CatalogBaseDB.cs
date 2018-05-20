@@ -56,7 +56,7 @@ namespace GenericsLibrary
         {
             T obj = _factory.Convert(data);
             obj.Key = await _dataSource.Create(obj);
-            _data.Add(obj.Key, await Read(obj.Key));
+            //_data.Add(obj.Key, await Read(obj.Key));
             return obj.Key;
         }
         public async Task<T> Read(TKey key)
@@ -68,7 +68,7 @@ namespace GenericsLibrary
             T obj = _factory.Convert(data);
             await _dataSource.Update(obj);
             _data.Remove(obj.Key);
-            _data.Add(obj.Key, await Read(obj.Key));
+            //_data.Add(obj.Key, await Read(obj.Key));
         }
         public virtual async Task Delete(TKey key)
         {
@@ -77,5 +77,10 @@ namespace GenericsLibrary
         }
         public abstract TKey NextKey();
 
+
+        public async Task LocalCreate(TKey key)
+        {
+            Data.Add(key,await Read(key));
+        }
     }
 }

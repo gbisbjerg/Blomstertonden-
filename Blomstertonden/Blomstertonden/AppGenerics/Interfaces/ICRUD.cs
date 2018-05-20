@@ -13,5 +13,7 @@ namespace GenericsLibrary
 
         List<T> All { get; }
         TData DataPackage { get; set; }
+
+        Task LocalCreate(TKey key);
     }
 }
