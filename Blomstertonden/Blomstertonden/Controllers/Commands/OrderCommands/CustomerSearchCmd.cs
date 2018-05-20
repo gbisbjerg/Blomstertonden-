@@ -18,6 +18,7 @@ namespace Blomstertonden
         public override void Execute()
         {
             Customer obj = new Customer();
+            bool found = false;
             foreach (KeyValuePair<int, Customer> i in CustomerCatalog.Instance.Data)
             {
                 if (i.Value.Phone == _vm.Phone)
@@ -25,8 +26,12 @@ namespace Blomstertonden
                     _vm.CustomerId = i.Key;
                     _vm.Name = i.Value.Name;
                     _vm.Stamps = i.Value.Stamps;
-                }
-                else { throw new NotImplementedException();}
+
+                    found = true;
+                }            }
+            if (!found)
+            {
+                throw new NotImplementedException();
             }
             
         }

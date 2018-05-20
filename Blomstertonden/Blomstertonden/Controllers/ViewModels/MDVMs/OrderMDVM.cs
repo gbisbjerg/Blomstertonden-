@@ -122,7 +122,7 @@ namespace Blomstertonden
         }
         public int? PaymentType
         {
-            get { return OrderCatalog.Instance.DataPackage.FK_PaymentType; }
+            get { return OrderCatalog.Instance.DataPackage.FK_PaymentType - 1; }
             set { OrderCatalog.Instance.DataPackage.FK_PaymentType = value + 1; }
         }
 
@@ -132,7 +132,7 @@ namespace Blomstertonden
         }
         public int OrderStatus
         {
-            get { return OrderCatalog.Instance.DataPackage.FK_Status; }
+            get { return OrderCatalog.Instance.DataPackage.FK_Status - 1; }
             set { OrderCatalog.Instance.DataPackage.FK_Status = value + 1; }
         }
         #endregion
