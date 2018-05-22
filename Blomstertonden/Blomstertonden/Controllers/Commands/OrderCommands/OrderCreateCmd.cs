@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,10 +13,13 @@ namespace Blomstertonden
     {
         private CustomerCatalog _customerCatalog;
         private OrderedProductCatalog _orderedProductCatalog;
-        public OrderCreateCmd(ICRUD<Order, OrderTData, int> catalog, MasterDetailsViewModelBase<OrderTData, Order, int> viewModel) : base(OrderCatalog.Instance, viewModel)
+        private OrderMDVM _vm;
+
+        public OrderCreateCmd(ICRUD<Order, OrderTData, int> catalog, OrderMDVM viewModel) : base(OrderCatalog.Instance, viewModel)
         {
             _customerCatalog = CustomerCatalog.Instance;
             _orderedProductCatalog = OrderedProductCatalog.Instance;
+            _vm = viewModel;
         }
 
         public override async void Execute()
@@ -48,17 +52,7 @@ namespace Blomstertonden
                 await _orderedProductCatalog.Create(opTData);
             }
 
-
-            if (_customerCatalog.DataPackage.Key == 0)
-            {
-                await _customerCatalog.LocalCreate(_catalog.DataPackage.FK_Customer);
-            }
-            await _catalog.LocalCreate(Orderkey);
-           
-            //Local products await 
-
-
-
+            _vm.AddedProducts = new ObservableCollection<Product>();
             ExecuteEvent();
         }
     }

@@ -35,10 +35,11 @@ namespace Blomstertonden
 
         public void Execute(object parameter)
         {
+            _orderMDVM.AddedProducts.Add(_orderMDVM.LastProduct);
             _orderedProductCatalog.OPTDataList.Add(_orderedProductCatalog.DataPackage);
             _orderedProductCatalog.DataPackage = new OrderedProductTData();
 
-            _orderMDVM.ProductItemViewModelSelected = null;
+            _orderMDVM.ProductItemViewModelSelected = new Product();
             _orderMDVM.IsItemSelected = false;
             _orderMDVM.RefreshProductItemViewModelCollection();
         }

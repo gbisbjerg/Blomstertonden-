@@ -70,9 +70,9 @@
                 <TextBlock Text="Antal:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="7" HorizontalAlignment="Center"/>
                 <TextBlock Text="Pris:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="7" HorizontalAlignment="Right"/>
 
-                <ListView ItemsSource="{Binding Order_Products}" BorderThickness="1,1,1,1" BorderBrush="Black" Grid.Column="1" Grid.Row="8">
+                <ListView ItemsSource="{Binding AddedProducts}" BorderThickness="1,1,1,1" BorderBrush="Black" Grid.Column="1" Grid.Row="8">
                     <ListView.ItemTemplate>
-                        <DataTemplate x:DataType="local:OrderedProductTData">
+                        <DataTemplate x:DataType="local:Product">
                             <StackPanel Width="200px" Orientation="Horizontal" Height="51" BorderThickness="0,0,0,2" BorderBrush="Blue">
                                 <!--Name-->
                                 <TextBlock Text="{Binding Name}"/>
