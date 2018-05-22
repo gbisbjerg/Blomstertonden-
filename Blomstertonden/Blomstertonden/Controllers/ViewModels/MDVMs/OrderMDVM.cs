@@ -12,12 +12,20 @@ namespace Blomstertonden
     {
         //
         private CustomerCatalog _customerCatalog;
+        private ProductCatalog _productCatalog;
+        private ProductVMFactory _productVMFactory;
         private bool _isDelivering;
         private CustomerSearchCmd _customerSerarchCmd;
+        private Product _productItemViewModelSelected;
+        private AddProductToOrder _addProductCmd;
 
         public OrderMDVM() : base(new OrderVMFactory(), OrderCatalog.Instance)
         {
             _customerCatalog = CustomerCatalog.Instance;
+            _productCatalog = ProductCatalog.Instance;
+            _productVMFactory = new ProductVMFactory();
+
+            _addProductCmd = new AddProductToOrder(this);
             _createCommand = new OrderCreateCmd(_catalog, this);
             _customerSerarchCmd = new CustomerSearchCmd(this);
         }
@@ -33,8 +41,53 @@ namespace Blomstertonden
             OnPropertyChanged(nameof(TotalPrice));
             OnPropertyChanged(nameof(Street));
             OnPropertyChanged(nameof(CardMessage));
+            //Dont know if we need to stuff above
+
+            _addProductCmd.RaiseCanExecuteChanged();
+            //OnPropertyChanged(nameof(ProductItemViewModelSelected));
+
+            OnPropertyChanged(nameof(Order_Products));
         }
         public Dictionary<int, Status> StatusList { get => StatusCatalog.Instance.All; }
+
+        #region Product List
+        public void RefreshProductItemViewModelCollection()
+        {
+            OnPropertyChanged(nameof(Order_Products));
+        }
+
+        public AddProductToOrder AddProductCommand
+        {
+            get { return _addProductCmd; }
+        }
+        public Product _lastProduct;
+        public Product LastProduct
+        {
+            get { return _lastProduct; }
+        }
+
+        public Product ProductItemViewModelSelected
+        {
+            get
+            {
+                return _productItemViewModelSelected;
+            }
+            set
+            {
+                IsItemSelected = true;
+                _lastProduct = value;
+                _productItemViewModelSelected = null;
+                OnPropertyChanged();
+
+                _productItemViewModelSelected = value;
+                SelectedItemEvent();
+            }
+        }
+
+        public List<Product> ProductFlowerList { get => _productCatalog.getProducts("Flowers"); }
+        public List<Product> ProductWineList { get => _productCatalog.getProducts("Wine"); }
+        public List<Product> ProductChocolateList { get => _productCatalog.getProducts("Chocolate"); }
+        #endregion
 
         //All properties for binding to the given view
 
@@ -80,6 +133,7 @@ namespace Blomstertonden
         #endregion
 
         #region Order Bindings
+        public List<Product> Order_Products { get => _catalog.DataPackage.Order_Products; }
         public int Id => _catalog.DataPackage.Key;
 
         public string Description
@@ -132,9 +186,10 @@ namespace Blomstertonden
         }
         public int OrderStatus
         {
-            get { return OrderCatalog.Instance.DataPackage.FK_Status - 1; }
+            get { return OrderCatalog.Instance.DataPackage.FK_Status - 1 ; }
             set { OrderCatalog.Instance.DataPackage.FK_Status = value + 1; }
         }
+       
         #endregion
     }
 }

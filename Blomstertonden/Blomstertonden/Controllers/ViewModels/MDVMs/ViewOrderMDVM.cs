@@ -51,13 +51,26 @@ namespace Blomstertonden
         {
             get
             {
-                if (ItemViewModelSelected.Obj.Customer != null)
+                if (ItemViewModelSelected.Obj.FK_Customer != 0)
                 {
-                    return ItemViewModelSelected.Obj.Customer;
+                    return CustomerFetch(ItemViewModelSelected.Obj.FK_Customer);
                 }
                 return new Customer();
             }
         }
+
+        public Customer CustomerFetch(int FK_Customer)
+        {
+            foreach (Customer c in _customerCatalog.Data.Values)
+            {
+                if (c.Key == FK_Customer)
+                {
+                    return c;
+                }
+            }
+            return new Customer();
+        }
+
         //All properties for binding to the given view
 
         #region Customer Bindings

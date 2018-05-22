@@ -52,6 +52,12 @@ namespace GenericsLibrary
                 OnPropertyChanged(nameof(CanCreate));
             }
         }
+
+        public ICRUD<T, TData, TKey> Catalog
+        {
+            get { return _catalog; }
+        }
+
         public virtual bool CanCreate
         {
             get
