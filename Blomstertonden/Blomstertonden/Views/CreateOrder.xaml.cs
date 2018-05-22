@@ -49,17 +49,17 @@ namespace Blomstertonden
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            //ListViewVisiblity(ListView1);
+            ListViewVisiblity(ListView1);
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            //ListViewVisiblity(ListView2);
+            ListViewVisiblity(ListView2);
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            //ListViewVisiblity(ListView3);
+            ListViewVisiblity(ListView3);
         }
         #endregion
     }

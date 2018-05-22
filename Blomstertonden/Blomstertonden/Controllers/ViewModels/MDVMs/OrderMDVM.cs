@@ -4,7 +4,6 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Blomstertonden.Controllers.Commands.OrderCommands;
 using GenericsLibrary;
 
 namespace Blomstertonden
@@ -13,14 +12,20 @@ namespace Blomstertonden
     {
         //
         private CustomerCatalog _customerCatalog;
+        private ProductCatalog _productCatalog;
+        private ProductVMFactory _productVMFactory;
         private bool _isDelivering;
         private CustomerSearchCmd _customerSerarchCmd;
+        private Product _productItemViewModelSelected;
+        private AddProductToOrder _addProductCmd;
 
         public OrderMDVM() : base(new OrderVMFactory(), OrderCatalog.Instance)
         {
             _customerCatalog = CustomerCatalog.Instance;
-            _deleteCommand = new OrderDeleteCmd(_catalog, this);
-            _updateCommand = new OrderUpdateCmd(_catalog, this);
+            _productCatalog = ProductCatalog.Instance;
+            _productVMFactory = new ProductVMFactory();
+
+            _addProductCmd = new AddProductToOrder(this);
             _createCommand = new OrderCreateCmd(_catalog, this);
             _customerSerarchCmd = new CustomerSearchCmd(this);
         }
@@ -36,32 +41,60 @@ namespace Blomstertonden
             OnPropertyChanged(nameof(TotalPrice));
             OnPropertyChanged(nameof(Street));
             OnPropertyChanged(nameof(CardMessage));
+            //Dont know if we need to stuff above
 
-            _deleteCommand.RaiseCanExecuteChanged();
-            _updateCommand.RaiseCanExecuteChanged();
+            _addProductCmd.RaiseCanExecuteChanged();
+            //OnPropertyChanged(nameof(ProductItemViewModelSelected));
+
+            OnPropertyChanged(nameof(Order_Products));
         }
         public Dictionary<int, Status> StatusList { get => StatusCatalog.Instance.All; }
 
-        public Customer Customer
+        #region Product List
+        public void RefreshProductItemViewModelCollection()
+        {
+            OnPropertyChanged(nameof(Order_Products));
+        }
+
+        public AddProductToOrder AddProductCommand
+        {
+            get { return _addProductCmd; }
+        }
+        public Product _lastProduct;
+        public Product LastProduct
+        {
+            get { return _lastProduct; }
+        }
+
+        public Product ProductItemViewModelSelected
         {
             get
             {
-                return ItemViewModelSelected.Obj.Customer;
+                return _productItemViewModelSelected;
+            }
+            set
+            {
+                IsItemSelected = true;
+                _lastProduct = value;
+                _productItemViewModelSelected = null;
+                OnPropertyChanged();
+
+                _productItemViewModelSelected = value;
+                SelectedItemEvent();
             }
         }
+
+        public List<Product> ProductFlowerList { get => _productCatalog.getProducts("Flowers"); }
+        public List<Product> ProductWineList { get => _productCatalog.getProducts("Wine"); }
+        public List<Product> ProductChocolateList { get => _productCatalog.getProducts("Chocolate"); }
+        #endregion
+
         //All properties for binding to the given view
 
         #region Customer Bindings
         public int CustomerId
         {
-            get
-            {
-                if (Customer != null)
-                {
-                    return _customerCatalog.DataPackage.Key = Customer.Id;
-                }
-                return _customerCatalog.DataPackage.Key;
-            } 
+            get => _customerCatalog.DataPackage.Key;
             set
             {
                 _customerCatalog.DataPackage.Key = value; 
@@ -71,14 +104,7 @@ namespace Blomstertonden
 
         public string Name
         {
-            get
-            {
-                if (Customer != null)
-                {
-                    return _customerCatalog.DataPackage.Name = Customer.Name;
-                }
-                return _customerCatalog.DataPackage.Name;
-            } 
+            get => _customerCatalog.DataPackage.Name;
             set
             {
                 _customerCatalog.DataPackage.Name = value;
@@ -87,13 +113,7 @@ namespace Blomstertonden
         }
         public int Phone
         {
-            get {
-                if (Customer != null )
-                {
-                    return _customerCatalog.DataPackage.Phone = Customer.Phone;
-                }
-                return _customerCatalog.DataPackage.Phone;
-            } 
+            get => _customerCatalog.DataPackage.Phone;
             set
             {
                 _customerCatalog.DataPackage.Phone = value;
@@ -103,14 +123,7 @@ namespace Blomstertonden
 
         public int Stamps
         {
-            get
-            {
-                if (Customer != null)
-                {
-                    return _customerCatalog.DataPackage.Stamps = Customer.Stamps;
-                }
-                return _customerCatalog.DataPackage.Stamps;
-            } 
+            get => _customerCatalog.DataPackage.Stamps;
             set
             {
                 _customerCatalog.DataPackage.Stamps = value;
@@ -120,28 +133,27 @@ namespace Blomstertonden
         #endregion
 
         #region Order Bindings
-        public int Id
-        {
-            get => _catalog.DataPackage.Key = ItemViewModelSelected.Obj.Id;
-        }
+        public List<Product> Order_Products { get => _catalog.DataPackage.Order_Products; }
+        public int Id => _catalog.DataPackage.Key;
+
         public string Description
         {
-            get => _catalog.DataPackage.Description = ItemViewModelSelected.Obj.Description;
+            get => _catalog.DataPackage.Description;
             set => _catalog.DataPackage.Description = value;
         }
         public string Street
         {
-            get => _catalog.DataPackage.Street = ItemViewModelSelected.Obj.Street;
+            get => _catalog.DataPackage.Street;
             set => _catalog.DataPackage.Street = value;
         }
         public int TotalPrice
         {
-            get => _catalog.DataPackage.TotalPrice = ItemViewModelSelected.Obj.TotalPrice;
+            get => _catalog.DataPackage.TotalPrice;
             set => _catalog.DataPackage.TotalPrice = value;
         }
         public string CardMessage
         {
-            get => _catalog.DataPackage.CardMessage = ItemViewModelSelected.Obj.CardMessage;
+            get => _catalog.DataPackage.CardMessage;
             set => _catalog.DataPackage.CardMessage = value;
         }
         #endregion
@@ -157,9 +169,6 @@ namespace Blomstertonden
                 OnPropertyChanged();
             }
         }
-
-
-
         #region ComboBox
         public List<PaymentType> PaymentTypeList
         {
@@ -167,7 +176,7 @@ namespace Blomstertonden
         }
         public int? PaymentType
         {
-            get { return OrderCatalog.Instance.DataPackage.FK_PaymentType; }
+            get { return OrderCatalog.Instance.DataPackage.FK_PaymentType - 1; }
             set { OrderCatalog.Instance.DataPackage.FK_PaymentType = value + 1; }
         }
 
@@ -177,9 +186,10 @@ namespace Blomstertonden
         }
         public int OrderStatus
         {
-            get { return OrderCatalog.Instance.DataPackage.FK_Status; }
+            get { return OrderCatalog.Instance.DataPackage.FK_Status - 1 ; }
             set { OrderCatalog.Instance.DataPackage.FK_Status = value + 1; }
         }
+       
         #endregion
     }
 }

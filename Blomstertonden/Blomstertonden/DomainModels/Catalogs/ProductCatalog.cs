@@ -32,5 +32,18 @@ namespace Blomstertonden
 
         public CategoryCatalog CategoryCatalog
         { get => _categoryCatalog; set => _categoryCatalog = value; }
+
+        public List<Product> getProducts(string _catagory)
+        {
+            List<Product> products = new List<Product>();
+            foreach (Product p in Data.Values)
+            {
+                if (p.Category.Name == _catagory)
+                {
+                    products.Add(p);
+                }
+            }
+            return products;
+        }
     }
 }

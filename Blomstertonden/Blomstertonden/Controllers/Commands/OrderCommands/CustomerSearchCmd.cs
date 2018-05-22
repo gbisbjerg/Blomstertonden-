@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using GenericsLibrary;
 
-namespace Blomstertonden.Controllers.Commands.OrderCommands
+namespace Blomstertonden
 {
     public class CustomerSearchCmd : CommandBase<OrderTData, Order, int>
     {
@@ -18,6 +18,7 @@ namespace Blomstertonden.Controllers.Commands.OrderCommands
         public override void Execute()
         {
             Customer obj = new Customer();
+            bool found = false;
             foreach (KeyValuePair<int, Customer> i in CustomerCatalog.Instance.Data)
             {
                 if (i.Value.Phone == _vm.Phone)
@@ -25,11 +26,15 @@ namespace Blomstertonden.Controllers.Commands.OrderCommands
                     _vm.CustomerId = i.Key;
                     _vm.Name = i.Value.Name;
                     _vm.Stamps = i.Value.Stamps;
-                }
+
+                    found = true;
+                }            }
+            if (!found)
+            {
+                throw new NotImplementedException();
             }
             
         }
-
         public override bool CanExecute()
         {
             return base.CanExecute();

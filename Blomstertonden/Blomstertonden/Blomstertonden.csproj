@@ -100,12 +100,14 @@
     <Compile Include="AppBase\Startup.cs" />
     <Compile Include="AppGenerics\DomainBase\ReadOnlyCatalogBase.cs" />
     <Compile Include="AppGenerics\Interfaces\IData.cs" />
+    <Compile Include="AppGenerics\Interfaces\ILocalData.cs" />
     <Compile Include="Controllers\Commands\CustomerCommands\CustomerDeleteCmd.cs" />
     <Compile Include="Controllers\Commands\CustomerCommands\CustomerUpdateCmd.cs" />
     <Compile Include="Controllers\Commands\OrderCommands\CustomerSearchCmd.cs" />
     <Compile Include="Controllers\Commands\OrderCommands\OrderCreateCmd.cs" />
     <Compile Include="Controllers\Commands\OrderCommands\OrderDeleteCmd.cs" />
     <Compile Include="Controllers\Commands\OrderCommands\OrderUpdateCmd.cs" />
+    <Compile Include="Controllers\Commands\ProductCommands\AddProductToOrder.cs" />
     <Compile Include="Controllers\Commands\ProductCommands\ProductCreateCmd.cs" />
     <Compile Include="Controllers\Commands\ProductCommands\ProductDeleteCmd.cs" />
     <Compile Include="Controllers\Commands\ProductCommands\ProductUpdateCmd.cs" />
@@ -118,8 +120,10 @@
     <Compile Include="Controllers\ViewModels\MDVMs\CustomerMDVM.cs" />
     <Compile Include="Controllers\ViewModels\MDVMs\OrderMDVM.cs" />
     <Compile Include="Controllers\ViewModels\MDVMs\ProductMDVM.cs" />
+    <Compile Include="Controllers\ViewModels\MDVMs\ViewOrderMDVM.cs" />
     <Compile Include="Controllers\ViewModels\ViewModelFactories\CustomerVMFactory.cs" />
     <Compile Include="Controllers\ViewModels\ViewModelFactories\OrderVMFactory.cs" />
+    <Compile Include="Controllers\ViewModels\ViewModelFactories\ProductVMFactory.cs" />
     <Compile Include="DomainModels\Catalogs\CategoryCatalog.cs" />
     <Compile Include="DomainModels\Catalogs\PaymentTypeCatalog.cs" />
     <Compile Include="DomainModels\Catalogs\StatusCatalog.cs" />
