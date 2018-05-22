@@ -41,8 +41,6 @@ namespace Blomstertonden
             _catalog.DataPackage.Street = "hi";
             _catalog.DataPackage.DeliveryDate = DateTime.Now;
 
-
-
             _deleteCommand.RaiseCanExecuteChanged();
             _updateCommand.RaiseCanExecuteChanged();
         }
@@ -99,7 +97,6 @@ namespace Blomstertonden
             set => _customerCatalog.DataPackage.Stamps = value;
         }
         #endregion
-
         #region Order Bindings
         public int Id => _catalog.DataPackage.Key = ItemViewModelSelected.Obj.Key;
 
