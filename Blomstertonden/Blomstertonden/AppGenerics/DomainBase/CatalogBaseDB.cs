@@ -77,7 +77,6 @@ namespace GenericsLibrary
         }
         public abstract TKey NextKey();
 
-
         public async Task LocalCreate(TKey key)
         {
             Data.Add(key,await Read(key));
