@@ -33,15 +33,11 @@ namespace Blomstertonden
         public override void SelectedItemEvent()
         {
             OnPropertyChanged(nameof(Quantity));
-
             if (_lastProduct != null)
             {
                 _orderedProductCatalog.DataPackage.FK_Product = _lastProduct.Key;
             }
-
             _addProductCmd.RaiseCanExecuteChanged();
-            //OnPropertyChanged(nameof(ProductItemViewModelSelected));
-
             OnPropertyChanged(nameof(Order_Products));
         }
 
