@@ -103,6 +103,8 @@
                     <RowDefinition Height="10*"/>
                     <RowDefinition Height="10*"/>
                     <RowDefinition Height="10*"/>
+                    <RowDefinition Height="20*"/>
+                    <RowDefinition Height="10*"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="150*"/>
@@ -149,8 +151,8 @@
                 <TextBlock Text="Telefon:" FontWeight="Bold" FontSize="12" Grid.Column="0" Grid.Row="15" Margin="10,0,0,0"/>
                 <TextBox Text="43342145" FontSize="12" Grid.Column="1" Grid.Row="15" BorderThickness="0,0,0,0"/>
 
-                <ComboBox SelectedIndex="{Binding OrderStatus,Mode=TwoWay}" ItemsSource="{Binding OrderStatusList}" Grid.Column="2" Grid.Row="14" />
-                <Button Content="Delete" Command="{Binding DeletionCommand}" IsEnabled="{Binding IsItemSelected}" Grid.Column="2" Grid.Row="15"/>
+                <ComboBox SelectedIndex="{Binding OrderStatus,Mode=TwoWay}" ItemsSource="{Binding OrderStatusList}" Grid.Column="1" Grid.Row="16" />
+                <Button Content="Slet" Command="{Binding DeletionCommand}" IsEnabled="{Binding IsItemSelected}" Grid.Column="2" Grid.Row="16"/>
                 
             </Grid>
         </Grid>
