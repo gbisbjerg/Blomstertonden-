@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,6 @@ namespace Blomstertonden
 {
     public class OrderMDVM : MasterDetailsViewModelBase<OrderTData, Order, int>
     {
-        //
         private CustomerCatalog _customerCatalog;
         private ProductCatalog _productCatalog;
         private OrderedProductCatalog _orderedProductCatalog;
@@ -18,6 +18,8 @@ namespace Blomstertonden
         private CustomerSearchCmd _customerSerarchCmd;
         private Product _productItemViewModelSelected;
         private AddProductToOrder _addProductCmd;
+
+        private static ObservableCollection<Product> _addedProducts = new ObservableCollection<Product>();
 
         public OrderMDVM() : base(new OrderVMFactory(), OrderCatalog.Instance)
         {
@@ -34,34 +36,26 @@ namespace Blomstertonden
         {
             OnPropertyChanged(nameof(Quantity));
 
-            if (_lastProduct != null)
-            {
-                _orderedProductCatalog.DataPackage.FK_Product = _lastProduct.Key;
-            }
-
+            _orderedProductCatalog.DataPackage.FK_Product = LastProduct.Key;
             _addProductCmd.RaiseCanExecuteChanged();
-            //OnPropertyChanged(nameof(ProductItemViewModelSelected));
-
-            OnPropertyChanged(nameof(Order_Products));
         }
 
 
-        public Dictionary<int, Status> StatusList { get => StatusCatalog.Instance.All; }
-
-        #region Product List
+        #region OrderedProduct
         public void RefreshProductItemViewModelCollection()
         {
-            OnPropertyChanged(nameof(Order_Products));
+            OnPropertyChanged(nameof(AddedProducts));
         }
 
         public AddProductToOrder AddProductCommand
         {
             get { return _addProductCmd; }
         }
-        public Product _lastProduct = new Product();
+
         public Product LastProduct
         {
-            get { return _lastProduct; }
+            get;
+            set;
         }
 
         public Product ProductItemViewModelSelected
@@ -73,7 +67,7 @@ namespace Blomstertonden
             set
             {
                 IsItemSelected = true;
-                _lastProduct = value;
+                LastProduct = value;
                 _productItemViewModelSelected = null;
                 OnPropertyChanged();
                 _productItemViewModelSelected = value;
@@ -130,10 +124,14 @@ namespace Blomstertonden
         #endregion
 
         #region Order Bindings
-        public List<OrderedProductTData> Order_Products
+        public Dictionary<int, Status> StatusList { get => StatusCatalog.Instance.All; }
+
+        public ObservableCollection<Product> AddedProducts
         {
-            get => _orderedProductCatalog.OPTDataList;
+            get => _addedProducts;
+            set => _addedProducts = value;
         }
+        
         public int Id => _catalog.DataPackage.Key;
 
         public string Description

@@ -56,7 +56,7 @@ namespace GenericsLibrary
         {
             T obj = _factory.Convert(data);
             obj.Key = await _dataSource.Create(obj);
-            //_data.Add(obj.Key, await Read(obj.Key));
+            _data.Add(obj.Key, await Read(obj.Key));
             return obj.Key;
         }
         public async Task<T> Read(TKey key)
