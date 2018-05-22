@@ -11,17 +11,6 @@ namespace Blomstertonden
 {
     public class OrderTData : IKey<int>
     {
-        public List<Product> _orderProducts;
-        public OrderTData()
-        {
-            _orderProducts = new List<Product>();
-            Product p1 = new Product();
-            p1.Name = "Testing";
-            p1.Price = 600;
-
-            _orderProducts.Add(p1);
-        }
-
         public int Key { get; set; }
 
         public string Description { get; set; }
@@ -45,11 +34,5 @@ namespace Blomstertonden
         public int? FK_City { get; set; }
 
         public int FK_Status { get; set; }
-
-        public List<Product> Order_Products
-        {
-            get { return _orderProducts; }
-            set { _orderProducts = value; }
-        }
     }
 }

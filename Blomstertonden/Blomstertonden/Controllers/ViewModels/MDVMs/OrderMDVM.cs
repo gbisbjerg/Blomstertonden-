@@ -13,7 +13,7 @@ namespace Blomstertonden
         //
         private CustomerCatalog _customerCatalog;
         private ProductCatalog _productCatalog;
-        private ProductVMFactory _productVMFactory;
+        private OrderedProductCatalog _orderedProductCatalog;
         private bool _isDelivering;
         private CustomerSearchCmd _customerSerarchCmd;
         private Product _productItemViewModelSelected;
@@ -23,7 +23,7 @@ namespace Blomstertonden
         {
             _customerCatalog = CustomerCatalog.Instance;
             _productCatalog = ProductCatalog.Instance;
-            _productVMFactory = new ProductVMFactory();
+            _orderedProductCatalog = OrderedProductCatalog.Instance;
 
             _addProductCmd = new AddProductToOrder(this);
             _createCommand = new OrderCreateCmd(_catalog, this);
@@ -32,22 +32,20 @@ namespace Blomstertonden
 
         public override void SelectedItemEvent()
         {
-            OnPropertyChanged(nameof(Id));
-            OnPropertyChanged(nameof(CustomerId));
-            OnPropertyChanged(nameof(Name));
-            OnPropertyChanged(nameof(Phone));
-            OnPropertyChanged(nameof(Stamps));
-            OnPropertyChanged(nameof(Description));
-            OnPropertyChanged(nameof(TotalPrice));
-            OnPropertyChanged(nameof(Street));
-            OnPropertyChanged(nameof(CardMessage));
-            //Dont know if we need to stuff above
+            OnPropertyChanged(nameof(Quantity));
+
+            if (_lastProduct != null)
+            {
+                _orderedProductCatalog.DataPackage.FK_Product = _lastProduct.Key;
+            }
 
             _addProductCmd.RaiseCanExecuteChanged();
             //OnPropertyChanged(nameof(ProductItemViewModelSelected));
 
             OnPropertyChanged(nameof(Order_Products));
         }
+
+
         public Dictionary<int, Status> StatusList { get => StatusCatalog.Instance.All; }
 
         #region Product List
@@ -60,7 +58,7 @@ namespace Blomstertonden
         {
             get { return _addProductCmd; }
         }
-        public Product _lastProduct;
+        public Product _lastProduct = new Product();
         public Product LastProduct
         {
             get { return _lastProduct; }
@@ -78,7 +76,6 @@ namespace Blomstertonden
                 _lastProduct = value;
                 _productItemViewModelSelected = null;
                 OnPropertyChanged();
-
                 _productItemViewModelSelected = value;
                 SelectedItemEvent();
             }
@@ -97,7 +94,7 @@ namespace Blomstertonden
             get => _customerCatalog.DataPackage.Key;
             set
             {
-                _customerCatalog.DataPackage.Key = value; 
+                _customerCatalog.DataPackage.Key = value;
                 OnPropertyChanged();
             }
         }
@@ -133,7 +130,10 @@ namespace Blomstertonden
         #endregion
 
         #region Order Bindings
-        public List<Product> Order_Products { get => _catalog.DataPackage.Order_Products; }
+        public List<OrderedProductTData> Order_Products
+        {
+            get => _orderedProductCatalog.OPTDataList;
+        }
         public int Id => _catalog.DataPackage.Key;
 
         public string Description
@@ -157,6 +157,16 @@ namespace Blomstertonden
             set => _catalog.DataPackage.CardMessage = value;
         }
         #endregion
+
+        #region OrderedProduct
+        public int Quantity
+        {
+            get => _orderedProductCatalog.DataPackage.Quantity;
+            set => _orderedProductCatalog.DataPackage.Quantity = value;
+        }
+        #endregion
+
+
 
         public CustomerSearchCmd CustomerSerarchCmd => _customerSerarchCmd;
 

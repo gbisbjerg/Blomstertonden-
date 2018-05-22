@@ -11,9 +11,11 @@ namespace Blomstertonden
         
     {
         private CustomerCatalog _customerCatalog;
+        private OrderedProductCatalog _orderedProductCatalog;
         public OrderCreateCmd(ICRUD<Order, OrderTData, int> catalog, MasterDetailsViewModelBase<OrderTData, Order, int> viewModel) : base(OrderCatalog.Instance, viewModel)
         {
             _customerCatalog = CustomerCatalog.Instance;
+            _orderedProductCatalog = OrderedProductCatalog.Instance;
         }
 
         public override async void Execute()
@@ -40,12 +42,22 @@ namespace Blomstertonden
 
             int Orderkey =  await _catalog.Create(_catalog.DataPackage);
 
+            foreach (OrderedProductTData opTData in _orderedProductCatalog.OPTDataList)
+            {
+                opTData.FK_Order = Orderkey;
+                await _orderedProductCatalog.Create(opTData);
+            }
+
+
             if (_customerCatalog.DataPackage.Key == 0)
             {
                 await _customerCatalog.LocalCreate(_catalog.DataPackage.FK_Customer);
             }
             await _catalog.LocalCreate(Orderkey);
-            //await PRODUCTS
+           
+            //Local products await 
+
+
 
             ExecuteEvent();
         }

@@ -1,22 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace Blomstertonden
 {
-    public class AddProductToOrder : ICommand
-
+    public class AddProductToOrder : ICommand, INotifyPropertyChanged
     {
+        OrderedProductCatalog _orderedProductCatalog;
         private OrderMDVM _orderMDVM;
         public AddProductToOrder (OrderMDVM orderMDVM)
         {
+            _orderedProductCatalog = OrderedProductCatalog.Instance;
             _orderMDVM = orderMDVM;
         }
 
         public event EventHandler CanExecuteChanged;
+        public event PropertyChangedEventHandler PropertyChanged;
+
         public void RaiseCanExecuteChanged()
         {
             CanExecuteChanged?.Invoke(this, EventArgs.Empty);
@@ -30,10 +35,16 @@ namespace Blomstertonden
 
         public void Execute(object parameter)
         {
-            _orderMDVM.Catalog.DataPackage.Order_Products.Add(_orderMDVM.LastProduct);
+            _orderedProductCatalog.OPTDataList.Add(_orderedProductCatalog.DataPackage);
+            _orderedProductCatalog.DataPackage = new OrderedProductTData();
+
             _orderMDVM.ProductItemViewModelSelected = null;
             _orderMDVM.IsItemSelected = false;
             _orderMDVM.RefreshProductItemViewModelCollection();
+        }
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
