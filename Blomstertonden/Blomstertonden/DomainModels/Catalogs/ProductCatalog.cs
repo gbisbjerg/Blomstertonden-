@@ -46,5 +46,14 @@ namespace Blomstertonden
             return products;
         }
 
+        public Category GetCategory(int key)
+        {
+            Category value = new Category();
+            if (_categoryCatalog.All.TryGetValue(key, out value))
+            {
+                return value;
+            }
+            return new Category();
+        }
     }
 }
