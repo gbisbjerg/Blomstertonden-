@@ -76,6 +76,8 @@
                             <StackPanel Width="200px" Orientation="Horizontal" Height="51" BorderThickness="0,0,0,2" BorderBrush="Blue">
                                 <!--Name-->
                                 <TextBlock Text="{Binding Name}"/>
+                                <!--Quantity-->
+                                <!--<TextBlock Text="{Binding Quantity}"/>-->                                
                                 <!--Price-->
                                 <TextBlock Text="{Binding Price}"/>
                             </StackPanel>
@@ -168,6 +170,9 @@
 
                     </StackPanel>
                 </ScrollViewer>
+
+                <TextBlock Text="Quantity" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left"/>
+                <TextBox  Grid.Row="1" Grid.Column="0" Text="{Binding Quantity,Mode=TwoWay}" HorizontalAlignment="Right"/>
 
                 <Button Command="{Binding AddProductCommand}"  IsEnabled="{Binding IsItemSelected}" Grid.Row="1" Grid.Column="1" Content="Add Item" HorizontalAlignment="Left"/>
 
