@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using GenericsLibrary;
 
 namespace Blomstertonden
@@ -18,6 +19,7 @@ namespace Blomstertonden
         private CustomerSearchCmd _customerSerarchCmd;
         private Product _productItemViewModelSelected;
         private AddProductToOrder _addProductCmd;
+        private ClearDataPackagesCmd _clear;
 
         private static ObservableCollection<OrderedProductTData> _addedProducts = new ObservableCollection<OrderedProductTData>();
 
@@ -27,6 +29,7 @@ namespace Blomstertonden
             _productCatalog = ProductCatalog.Instance;
             _orderedProductCatalog = OrderedProductCatalog.Instance;
 
+            _clear = new ClearDataPackagesCmd();
             _addProductCmd = new AddProductToOrder(this);
             _createCommand = new OrderCreateCmd(_catalog, this);
             _customerSerarchCmd = new CustomerSearchCmd(this);
@@ -220,7 +223,10 @@ namespace Blomstertonden
             get { return OrderCatalog.Instance.DataPackage.FK_Status - 1 ; }
             set { OrderCatalog.Instance.DataPackage.FK_Status = value + 1; }
         }
-       
+
         #endregion
+
+
+        public ICommand Clear { get => _clear; }
     }
 }

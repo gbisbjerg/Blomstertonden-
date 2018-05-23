@@ -97,10 +97,12 @@
     </Compile>
     <Compile Include="AppBase\AppCatalogBase.cs" />
     <Compile Include="AppBase\AppConfig.cs" />
+    <Compile Include="AppBase\FrameVM.cs" />
     <Compile Include="AppBase\Startup.cs" />
     <Compile Include="AppGenerics\DomainBase\ReadOnlyCatalogBase.cs" />
     <Compile Include="AppGenerics\Interfaces\IData.cs" />
     <Compile Include="AppGenerics\Interfaces\ILocalData.cs" />
+    <Compile Include="Controllers\Commands\ClearDataPackagesCmd.cs" />
     <Compile Include="Controllers\Commands\CustomerCommands\CustomerDeleteCmd.cs" />
     <Compile Include="Controllers\Commands\CustomerCommands\CustomerUpdateCmd.cs" />
     <Compile Include="Controllers\Commands\OrderCommands\CustomerSearchCmd.cs" />
@@ -196,9 +198,6 @@
     <Compile Include="Views\ViewOrders.xaml.cs">
       <DependentUpon>ViewOrders.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ViewProducts.xaml.cs">
-      <DependentUpon>ViewProducts.xaml</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -258,10 +257,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ViewOrders.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\ViewProducts.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

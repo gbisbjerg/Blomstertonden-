@@ -7,6 +7,10 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
+    <Page.DataContext>
+        <local:FrameVM/>
+    </Page.DataContext>
+
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="50px"/>
@@ -49,11 +53,11 @@
         <!--Left Dropdown menu-->
         <Grid Grid.Row="2" Grid.RowSpan="2" Grid.Column="0" Height="auto" Width="auto" Background="#3F787878" BorderBrush="Black" BorderThickness="0,0,1,0">
             <StackPanel>
-                <Button x:Name="Home" FontFamily="Segoe MDL2 Assets" Content="&#xE80F;" Width="50" Height="50" Background="Transparent" BorderBrush="#33282828" BorderThickness="0,0,0,1" Click="BtnClickP1"/>
-                <Button x:Name="AllOrders" FontFamily="Segoe MDL2 Assets" Content="&#xE7C3;" Width="50" Height="50" Background="Transparent" BorderBrush="#33282828" BorderThickness="0,0,0,1" Click="BtnClickP2"/>
-                <Button x:Name="AllCustomers" FontFamily="Segoe MDL2 Assets" Content="&#xE77B;" Width="50" Height="50" Background="Transparent" BorderBrush="#33282828" BorderThickness="0,0,0,1" Click="BtnClickP3"/>
-                <Button x:Name="Delivery" FontFamily="Segoe MDL2 Assets" Content="&#xE806;" Width="50" Height="50" Background="Transparent" BorderBrush="#33282828" BorderThickness="0,0,0,1" Click="BtnClickP4" />
-                <Button x:Name="Summary" FontFamily="Segoe MDL2 Assets" Content="&#xE9D9;" Width="50" Height="50" Background="Transparent" BorderBrush="#33282828" BorderThickness="0,0,0,1" Click="BtnClickP5" />
+                <Button Command="{Binding Clear }" x:Name="Home" FontFamily="Segoe MDL2 Assets" Content="&#xE80F;" Width="50" Height="50" Background="Transparent" BorderBrush="#33282828" BorderThickness="0,0,0,1" Click="BtnClickP1"/>
+                <Button Command="{Binding Clear }" x:Name="AllOrders" FontFamily="Segoe MDL2 Assets" Content="&#xE7C3;" Width="50" Height="50" Background="Transparent" BorderBrush="#33282828" BorderThickness="0,0,0,1" Click="BtnClickP2"/>
+                <Button Command="{Binding Clear }" x:Name="AllCustomers" FontFamily="Segoe MDL2 Assets" Content="&#xE77B;" Width="50" Height="50" Background="Transparent" BorderBrush="#33282828" BorderThickness="0,0,0,1" Click="BtnClickP3"/>
+                <Button Command="{Binding Clear }" x:Name="Delivery" FontFamily="Segoe MDL2 Assets" Content="&#xE806;" Width="50" Height="50" Background="Transparent" BorderBrush="#33282828" BorderThickness="0,0,0,1" Click="BtnClickP4" />
+                <Button Command="{Binding Clear }" x:Name="Summary" FontFamily="Segoe MDL2 Assets" Content="&#xE9D9;" Width="50" Height="50" Background="Transparent" BorderBrush="#33282828" BorderThickness="0,0,0,1" Click="BtnClickP5" />
             </StackPanel>
         </Grid>
 
