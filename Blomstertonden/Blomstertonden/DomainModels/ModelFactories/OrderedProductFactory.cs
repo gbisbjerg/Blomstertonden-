@@ -7,11 +7,18 @@ using GenericsLibrary;
 
 namespace Blomstertonden
 {
-    class OrderedProductFactory : IFactory<OrderedProductTData, OrderedProduct>
+    public class OrderedProductFactory : IFactory<OrderedProductTData, OrderedProduct>
     {
         public OrderedProduct Convert(OrderedProductTData data)
         {
-            throw new NotImplementedException();
+            OrderedProduct obj = new OrderedProduct
+            {
+                Key = data.Key,
+                FK_Order = data.FK_Order,
+                FK_Product = data.FK_Product,
+                Quantity = data.Quantity
+            };
+            return obj;
         }
     }
 }

@@ -11,21 +11,13 @@ namespace WebService3
     {
         [Key]
         [Column(Order = 0)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int Id { get; set; }
         public int FK_Order { get; set; }
 
-        [Key]
-        [Column(Order = 1)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int FK_Product { get; set; }
-
-        [Key]
-        [Column(Order = 2)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Quantity { get; set; }
 
-        public virtual Order Order { get; set; }
-
         public virtual Product Product { get; set; }
+        public virtual Order Order { get; set; }
     }
 }
