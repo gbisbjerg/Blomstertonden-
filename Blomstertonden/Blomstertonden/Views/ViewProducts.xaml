@@ -32,7 +32,7 @@
             </Grid.ColumnDefinitions>
             <!--Left Middle-->
             <Grid Grid.Row="1" Grid.Column="1" Height="auto" Width="auto" Background="White" BorderBrush="Black" BorderThickness="1">
-                <!--Start customer list-->
+                <!--Start customer listhh-->
                 <Grid.RowDefinitions>
                     <RowDefinition Height="25*"/>
                     <RowDefinition Height="15*"/>
