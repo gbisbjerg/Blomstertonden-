@@ -9,12 +9,13 @@ namespace Blomstertonden
 {
     public class ProductMDVM : MasterDetailsViewModelBase<ProductTData, Product, int>
     {
-        private CategoryCatalog _categoryCatalog;
-        public ProductMDVM(ViewModelFactoryBase<ProductTData, Product, int> factoryVM) : base(factoryVM, ProductCatalog.Instance)
+        private CategoryCatalog _categoryCatalog = CategoryCatalog.Instance;
+        public ProductMDVM() : base(new ProductVMFactory(), ProductCatalog.Instance)
         {
             //commands see CustomerMDVM for an example
             _deleteCommand = new ProductDeleteCmd(_catalog, this);
             _updateCommand = new ProductUpdateCmd(_catalog, this);
+
         }
 
         public override void SelectedItemEvent()
@@ -22,6 +23,7 @@ namespace Blomstertonden
             OnPropertyChanged(nameof(Name));
             OnPropertyChanged(nameof(Price));
             OnPropertyChanged(nameof(IsPromotional));
+            OnPropertyChanged(nameof(CategoryName));
             _catalog.DataPackage.Key = ItemViewModelSelected.Obj.Key;
 
             _deleteCommand.RaiseCanExecuteChanged();
@@ -44,6 +46,17 @@ namespace Blomstertonden
         {
             get => _catalog.DataPackage.IsPromational = ItemViewModelSelected.Obj.IsPromational;
             set => _catalog.DataPackage.IsPromational = value;
+        }
+
+        public int FK_Category
+        {
+            get => _catalog.DataPackage.FK_Category = ItemViewModelSelected.Obj.FK_Category;
+            set => _catalog.DataPackage.FK_Category = value;
+        }
+
+        public string CategoryName
+        {
+            get => ProductCatalog.Instance.GetCategory(FK_Category).Name;
         }
     }
 }

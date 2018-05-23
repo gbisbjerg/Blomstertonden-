@@ -9,8 +9,10 @@ namespace Blomstertonden
 {
     public class ProductIVM : ItemViewModelBase<Product, int>
     {
+        private Category FK_Obj;
         public ProductIVM(Product obj) : base(obj)
         {
+            FK_Obj = ProductCatalog.Instance.GetCategory(Obj.FK_Category);
         }
         //properties for list view...
         public string Name
@@ -20,6 +22,11 @@ namespace Blomstertonden
         public int Price
         {
             get => Obj.Price;
+        }
+
+        public string CategoryName
+        {
+            get => FK_Obj.Name;
         }
         //public Boolean IsPromotional
         //{

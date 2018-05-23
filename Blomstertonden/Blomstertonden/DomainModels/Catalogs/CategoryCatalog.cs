@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Blomstertonden
 {
-    public class CategoryCatalog : ReadOnlyCatalogBase<Status, int>
+    public class CategoryCatalog : ReadOnlyCatalogBase<Category, int>
     {
         private static CategoryCatalog _instance;
         private CategoryCatalog() : base(AppConfig.ServerURL, "Categories")
