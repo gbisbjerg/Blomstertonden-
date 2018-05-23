@@ -7,9 +7,14 @@ using GenericsLibrary;
 
 namespace Blomstertonden
 {
-    public class OrderedProductTData : IKey<Tuple<int, int>>
+    public class OrderedProductTData : IKey<int>
     {
-        public Tuple<int, int> Key { get =>  new Tuple<int, int>(FK_Order,FK_Product); set => Key = value; }
+        private Tuple<int, int> _composite;
+        public OrderedProductTData()
+        {
+            _composite = new Tuple<int, int>(FK_Order, FK_Product);
+        }
+        public int Key { get; set; }
 
         public int FK_Order { get; set; }
 

@@ -26,7 +26,7 @@ namespace WebService3
         public virtual DbSet<OrderedProduct> OrderedProducts { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
+        {                
             modelBuilder.Entity<Category>()
                 .HasMany(e => e.Products)
                 .WithRequired(e => e.Category)

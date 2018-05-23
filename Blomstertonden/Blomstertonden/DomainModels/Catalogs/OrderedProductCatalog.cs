@@ -7,7 +7,7 @@ using GenericsLibrary;
 
 namespace Blomstertonden
 {
-    public class OrderedProductCatalog : AppCatalogBase<OrderedProduct, OrderedProductTData, Tuple<int, int> >
+    public class OrderedProductCatalog : AppCatalogBase<OrderedProduct, OrderedProductTData, int>
     {
         public List<OrderedProductTData> _orderedProductTDataList;
 
