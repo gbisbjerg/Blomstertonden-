@@ -148,13 +148,13 @@
                 <TextBlock Text="Ordrenummer:" FontSize="12" FontWeight="Bold" Grid.Column="0" Grid.Row="1" Margin="10,0,0,0"/>
                 <TextBox Text="Dont have anything to bind to" FontSize="12" Grid.Column="1" Grid.Row="1" BorderThickness="0,0,0,0"/>
                 <TextBlock Text="Navn:" FontSize="12" FontWeight="Bold" Grid.Column="0" Grid.Row="2" Margin="10,0,0,0"/>
-                <!--<TextBox Text="{Binding Customer.Name}" FontSize="12" Grid.Column="1" Grid.Row="2" BorderThickness="0,0,0,0"/>-->
+                <TextBox Text="{Binding Name}" FontSize="12" Grid.Column="1" Grid.Row="2" BorderThickness="0,0,0,0"/>
                 <TextBlock Text="Telefon:" FontSize="12" FontWeight="Bold" Grid.Column="0" Grid.Row="3" Margin="10,0,0,0"/>
-                <!--<TextBox Text="{Binding Customer.Phone}" FontSize="12" Grid.Column="1" Grid.Row="3" BorderThickness="0,0,0,0"/>-->
+                <TextBox Text="{Binding Phone}" FontSize="12" Grid.Column="1" Grid.Row="3" BorderThickness="0,0,0,0"/>
                 <TextBlock Text="Beskrivelse:" FontSize="12" FontWeight="Bold" Grid.Column="0" Grid.Row="4" Margin="10,0,0,0"/>
-                <!--<TextBox Text="{Binding Description}" FontSize="12" Grid.Column="1" Grid.Row="4" BorderThickness="1" BorderBrush="Black"/>-->
+                <TextBox Text="{Binding Description}" FontSize="12" Grid.Column="1" Grid.Row="4" BorderThickness="1" BorderBrush="Black"/>
                 <TextBlock Text="Korttekst:" FontSize="12" FontWeight="Bold" Grid.Column="0" Grid.Row="6" Margin="10,0,0,0"/>
-                <!--<TextBox Text="{Binding CardMessage}" FontSize="12" Grid.Column="1" Grid.Row="6" BorderThickness="1" BorderBrush="Black"/>-->
+                <TextBox Text="{Binding CardMessage}" FontSize="12" Grid.Column="1" Grid.Row="6" BorderThickness="1" BorderBrush="Black"/>
                 <TextBlock Text="Pris:" FontSize="12" FontWeight="Bold" Grid.Column="0" Grid.Row="8" Margin="10,0,0,0"/>
 
 
@@ -169,7 +169,7 @@
                     <TextBox Text="1500 kr." TextAlignment="Right" FontSize="12" Grid.Column="3" BorderThickness="0,0,0,0"/>
                 </Grid>
                 <TextBlock Text="Total pris:" FontSize="12" FontWeight="Bold" Grid.Column="0" Grid.Row="9" Margin="10,0,0,0"/>
-                <!--<TextBox Text="{Binding TotalPrice}" FontSize="12" TextAlignment="Right" Grid.Column="1" Grid.Row="9" BorderThickness="0,0,0,0"/>-->
+                <TextBox Text="{Binding TotalPrice}" FontSize="12" TextAlignment="Right" Grid.Column="1" Grid.Row="9" BorderThickness="0,0,0,0"/>
                 <TextBlock Text="Levering:" FontWeight="Bold" FontSize="12" Grid.Column="0" Grid.Row="10" Margin="10,0,0,0"/>
                 <TextBlock Text="Navn:" FontWeight="Bold" FontSize="12" Grid.Column="0" Grid.Row="11" Margin="10,0,0,0"/>
                 <TextBox Text="Else Olsen" FontSize="12" Grid.Column="1" Grid.Row="11" BorderThickness="0,0,0,0"/>

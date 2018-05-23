@@ -19,7 +19,7 @@ namespace Blomstertonden
         private Product _productItemViewModelSelected;
         private AddProductToOrder _addProductCmd;
 
-        private static ObservableCollection<Product> _addedProducts = new ObservableCollection<Product>();
+        private static ObservableCollection<OrderedProductTData> _addedProducts = new ObservableCollection<OrderedProductTData>();
 
         public OrderMDVM() : base(new OrderVMFactory(), OrderCatalog.Instance)
         {
@@ -36,7 +36,11 @@ namespace Blomstertonden
         {
             OnPropertyChanged(nameof(Quantity));
 
+
+            _orderedProductCatalog.DataPackage.Name = LastProduct.Name;
+            _orderedProductCatalog.DataPackage.Price = LastProduct.Price;
             _orderedProductCatalog.DataPackage.FK_Product = LastProduct.Key;
+
             _addProductCmd.RaiseCanExecuteChanged();
         }
 
@@ -45,6 +49,7 @@ namespace Blomstertonden
         public void RefreshProductItemViewModelCollection()
         {
             OnPropertyChanged(nameof(AddedProducts));
+            OnPropertyChanged(nameof(TotalPrice));
         }
 
         public AddProductToOrder AddProductCommand
@@ -126,10 +131,10 @@ namespace Blomstertonden
         #region Order Bindings
         public Dictionary<int, Status> StatusList { get => StatusCatalog.Instance.All; }
 
-        public ObservableCollection<Product> AddedProducts
+        public ObservableCollection<OrderedProductTData> AddedProducts
         {
-            get => _addedProducts;
-            set => _addedProducts = value;
+            get => _addedProducts = new ObservableCollection<OrderedProductTData>( _orderedProductCatalog.OPTDataList);
+            set => _addedProducts = value; 
         }
         
         public int Id => _catalog.DataPackage.Key;
@@ -146,13 +151,31 @@ namespace Blomstertonden
         }
         public int TotalPrice
         {
-            get => _catalog.DataPackage.TotalPrice;
+            //get => _catalog.DataPackage.TotalPrice;
+            get => _catalog.DataPackage.TotalPrice = CalcTotalPrice();
             set => _catalog.DataPackage.TotalPrice = value;
         }
+
+        public int CalcTotalPrice()
+        {
+            int total = 0;
+            foreach (OrderedProductTData opTData in _orderedProductCatalog.OPTDataList)
+            {
+                Product product;
+                _productCatalog.Data.TryGetValue(opTData.FK_Product, out product);
+                total += product.Price * opTData.Quantity;
+            }
+            return total;
+        }
+
+
         public string CardMessage
         {
             get => _catalog.DataPackage.CardMessage;
-            set => _catalog.DataPackage.CardMessage = value;
+            set
+            { _catalog.DataPackage.CardMessage = value;
+              OnPropertyChanged();
+            }
         }
         #endregion
 
