@@ -48,7 +48,7 @@
                 <TextBlock Text="PRODUKTER:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" Height="20"  VerticalAlignment="Center"/>
                 <TextBlock Text="Kategori:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="1" Margin="10, 0, 0, 0"/>
                 <TextBlock Text="Navn:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" Height="23"/>
-                <TextBlock Text="Pris:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right" Height="23"/>
+                <TextBlock Text="Pris:  " FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right" Height="23"/>
 
                 <ListView Grid.Row="2" Grid.Column="1" ItemsSource="{Binding ItemViewModelCollection}" SelectedItem="{Binding ItemViewModelSelected, Mode=TwoWay}" BorderBrush="Black" BorderThickness="1" Background="LightGray">
                     <ListView.ItemTemplate >
