@@ -19,7 +19,7 @@ namespace Blomstertonden
         private Product _productItemViewModelSelected;
         private AddProductToOrder _addProductCmd;
 
-        private static ObservableCollection<Product> _addedProducts = new ObservableCollection<Product>();
+        private static ObservableCollection<OrderedProductTData> _addedProducts = new ObservableCollection<OrderedProductTData>();
 
         public OrderMDVM() : base(new OrderVMFactory(), OrderCatalog.Instance)
         {
@@ -36,7 +36,11 @@ namespace Blomstertonden
         {
             OnPropertyChanged(nameof(Quantity));
 
+
+            _orderedProductCatalog.DataPackage.Name = LastProduct.Name;
+            _orderedProductCatalog.DataPackage.Price = LastProduct.Price;
             _orderedProductCatalog.DataPackage.FK_Product = LastProduct.Key;
+
             _addProductCmd.RaiseCanExecuteChanged();
         }
 
@@ -127,9 +131,9 @@ namespace Blomstertonden
         #region Order Bindings
         public Dictionary<int, Status> StatusList { get => StatusCatalog.Instance.All; }
 
-        public ObservableCollection<Product> AddedProducts
+        public ObservableCollection<OrderedProductTData> AddedProducts
         {
-            get => _addedProducts;
+            get => _addedProducts = new ObservableCollection<OrderedProductTData>( _orderedProductCatalog.OPTDataList);
             set => _addedProducts = value; 
         }
         

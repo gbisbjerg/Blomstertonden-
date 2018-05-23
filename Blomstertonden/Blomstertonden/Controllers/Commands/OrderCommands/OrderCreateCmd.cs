@@ -52,7 +52,7 @@ namespace Blomstertonden
                 await _orderedProductCatalog.Create(opTData);
             }
 
-            _vm.AddedProducts = new ObservableCollection<Product>();
+            _vm.AddedProducts = new ObservableCollection<OrderedProductTData>();
             ExecuteEvent();
         }
     }

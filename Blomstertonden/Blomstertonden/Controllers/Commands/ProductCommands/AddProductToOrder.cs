@@ -29,19 +29,15 @@ namespace Blomstertonden
 
         public bool CanExecute(object parameter)
         {
-            //return true;
             return _orderMDVM.IsItemSelected;
         }
 
         public void Execute(object parameter)
         {
-            //remove when quanitity is implimented
             if (_orderedProductCatalog.DataPackage.Quantity <= 0)
             {
                 _orderedProductCatalog.DataPackage.Quantity = 1;
             }
-            
-            _orderMDVM.AddedProducts.Add(_orderMDVM.LastProduct);
             _orderedProductCatalog.OPTDataList.Add(_orderedProductCatalog.DataPackage);
             _orderedProductCatalog.DataPackage = new OrderedProductTData();
 
