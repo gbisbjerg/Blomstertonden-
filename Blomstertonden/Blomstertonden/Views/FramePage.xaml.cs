@@ -67,7 +67,7 @@ namespace Blomstertonden
 
         private void BtnClickP6(object sender, RoutedEventArgs e)
         {
-            Frame1.Content = new ViewProducts();
+            Frame1.Content = new ViewProductsPage();
         }
         #endregion
 

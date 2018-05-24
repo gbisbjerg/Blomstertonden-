@@ -80,7 +80,7 @@
                                 <TextBlock  Width="50px"  Text="{Binding Quantity}"/>                                
                                 <!--Price-->
                                 <TextBlock Width="50px" Text="{Binding TotalPrice}"/>
-                                <Button Command="{Binding Clear}" x:Name="btn" FontFamily="Segoe MDL2 Assets" Content="&#xE107;" Width="50" Height="50" Background="Transparent" Grid.Column="1" Grid.Row="9"/>
+                                <Button  Command="{Binding Clear}"  x:Name="btn" FontFamily="Segoe MDL2 Assets" Content="&#xE107;" Width="50" Height="50" Background="Transparent" Grid.Column="1" Grid.Row="9"/>
 
                             </StackPanel>
                         </DataTemplate>

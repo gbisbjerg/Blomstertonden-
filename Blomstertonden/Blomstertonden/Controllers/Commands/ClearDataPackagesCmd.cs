@@ -35,6 +35,7 @@ namespace Blomstertonden
             _customerCatalog.DataPackage = new CustomerTData();
             _orderCatalog.DataPackage = new OrderTData();
             _productCatalog.DataPackage = new ProductTData();
+
             _orderedProductCatalog.DataPackage = new OrderedProductTData();
             _orderedProductCatalog.OPTDataList = new List<OrderedProductTData>();
         }

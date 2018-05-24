@@ -18,7 +18,6 @@ namespace Blomstertonden
         public async override void Execute()
         {
             await _catalog.Update(_catalog.DataPackage);
-            await _catalog.LocalCreate(_catalog.DataPackage.Key);
 
             //foreach (Order o in _catalog.All[_catalog.DataPackage.Key].Orders )
             //{

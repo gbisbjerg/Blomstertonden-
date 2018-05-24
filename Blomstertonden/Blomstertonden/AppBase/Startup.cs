@@ -13,6 +13,10 @@ namespace Blomstertonden
             CustomerCatalog customerCatalog = CustomerCatalog.Instance;
             OrderCatalog orderCatalog = OrderCatalog.Instance;
             ProductCatalog productCatalog = ProductCatalog.Instance;
+            CategoryCatalog categoryCatalog = CategoryCatalog.Instance;
+            OrderedProductCatalog orderedProductCatalog = OrderedProductCatalog.Instance;
+            PaymentTypeCatalog paymentType = PaymentTypeCatalog.Instance;
+            StatusCatalog statusCatalog = StatusCatalog.Instance;
         }
     }
 }

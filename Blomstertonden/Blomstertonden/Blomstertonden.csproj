@@ -108,6 +108,7 @@
     <Compile Include="Controllers\Commands\OrderCommands\CustomerSearchCmd.cs" />
     <Compile Include="Controllers\Commands\OrderCommands\OrderCreateCmd.cs" />
     <Compile Include="Controllers\Commands\OrderCommands\OrderDeleteCmd.cs" />
+    <Compile Include="Controllers\Commands\OrderCommands\OrderProductDeleteCmd.cs" />
     <Compile Include="Controllers\Commands\OrderCommands\OrderUpdateCmd.cs" />
     <Compile Include="Controllers\Commands\ProductCommands\AddProductToOrder.cs" />
     <Compile Include="Controllers\Commands\ProductCommands\ProductCreateCmd.cs" />
@@ -198,8 +199,8 @@
     <Compile Include="Views\ViewOrders.xaml.cs">
       <DependentUpon>ViewOrders.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ViewProducts.xaml.cs">
-      <DependentUpon>ViewProducts.xaml</DependentUpon>
+    <Compile Include="Views\ViewProductsPage.xaml.cs">
+      <DependentUpon>ViewProductsPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -263,9 +264,9 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\ViewProducts.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="Views\ViewProductsPage.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
