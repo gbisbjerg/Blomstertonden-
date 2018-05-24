@@ -20,8 +20,8 @@ namespace Blomstertonden
             _customerCatalog.DataPackage.Key = _catalog.DataPackage.FK_Customer;
             await _customerCatalog.Update(_customerCatalog.DataPackage);
 
-            await _customerCatalog.LocalCreate(_customerCatalog.DataPackage.Key);
-            await _catalog.LocalCreate(_catalog.DataPackage.Key);
+            //await _customerCatalog.LocalCreate(_customerCatalog.DataPackage.Key);
+            //await _catalog.LocalCreate(_catalog.DataPackage.Key);
 
 
             ExecuteEvent();

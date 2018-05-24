@@ -165,8 +165,21 @@
                         <ColumnDefinition Width="1*"/>
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
-                    <TextBox Text="Kistepynt" FontSize="12" Grid.Column="0" BorderThickness="0,0,0,0"/>
-                    <TextBox Text="1500 kr." TextAlignment="Right" FontSize="12" Grid.Column="3" BorderThickness="0,0,0,0"/>
+                    
+                    <ListView ItemsSource="{Binding AddedProducts}" Background="LightGray" BorderThickness="1,1,1,1" BorderBrush="Black" Grid.Column="0" Grid.ColumnSpan="4">
+                        <ListView.ItemTemplate>
+                            <DataTemplate x:DataType="local:OrderedProductTData">
+                                <StackPanel Width="300px" Orientation="Horizontal" Height="51" BorderThickness="0,0,0,2" BorderBrush="Blue">
+                                    <!--Name-->
+                                    <TextBlock Width="70px" Text="{Binding Name}"/>
+                                    <!--Quantity-->
+                                    <TextBlock  Width="50px"  Text="{Binding Quantity}"/>
+                                    <!--Price-->
+                                    <TextBlock Width="50px" Text="{Binding TotalPrice}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
                 </Grid>
                 <TextBlock Text="Total pris:" FontSize="12" FontWeight="Bold" Grid.Column="0" Grid.Row="9" Margin="10,0,0,0"/>
                 <TextBox Text="{Binding TotalPrice}" FontSize="12" TextAlignment="Right" Grid.Column="1" Grid.Row="9" BorderThickness="0,0,0,0"/>

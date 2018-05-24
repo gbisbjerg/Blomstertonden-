@@ -83,9 +83,9 @@ namespace Blomstertonden
             }
         }
 
-        public List<Product> ProductFlowerList { get => _productCatalog.getProducts("Flowers"); }
-        public List<Product> ProductWineList { get => _productCatalog.getProducts("Wine"); }
-        public List<Product> ProductChocolateList { get => _productCatalog.getProducts("Chocolate"); }
+        public List<Product> ProductFlowerList { get => _productCatalog.getProducts("Begravelse"); }
+        public List<Product> ProductWineList { get => _productCatalog.getProducts("Buketter"); }
+        public List<Product> ProductChocolateList { get => _productCatalog.getProducts("Bod"); }
         #endregion
 
         //All properties for binding to the given view
@@ -210,7 +210,7 @@ namespace Blomstertonden
         }
         public int? PaymentType
         {
-            get { return OrderCatalog.Instance.DataPackage.FK_PaymentType - 1; }
+            get { return OrderCatalog.Instance.DataPackage.FK_PaymentType + 1; }
             set { OrderCatalog.Instance.DataPackage.FK_PaymentType = value + 1; }
         }
 
@@ -220,7 +220,7 @@ namespace Blomstertonden
         }
         public int OrderStatus
         {
-            get { return OrderCatalog.Instance.DataPackage.FK_Status - 1 ; }
+            get { return OrderCatalog.Instance.DataPackage.FK_Status + 1 ; }
             set { OrderCatalog.Instance.DataPackage.FK_Status = value + 1; }
         }
 
