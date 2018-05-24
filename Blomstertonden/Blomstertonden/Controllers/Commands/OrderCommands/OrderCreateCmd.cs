@@ -31,6 +31,7 @@ namespace Blomstertonden
             else
             {
                 _catalog.DataPackage.FK_Customer = _customerCatalog.DataPackage.Key;
+                //here
             }
   
             //delete when implemented through catalog

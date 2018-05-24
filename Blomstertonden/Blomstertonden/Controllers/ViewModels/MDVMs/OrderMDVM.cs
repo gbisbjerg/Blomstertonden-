@@ -210,7 +210,7 @@ namespace Blomstertonden
         }
         public int? PaymentType
         {
-            get { return OrderCatalog.Instance.DataPackage.FK_PaymentType - 1; }
+            get { return OrderCatalog.Instance.DataPackage.FK_PaymentType + 1; }
             set { OrderCatalog.Instance.DataPackage.FK_PaymentType = value + 1; }
         }
 
@@ -220,7 +220,7 @@ namespace Blomstertonden
         }
         public int OrderStatus
         {
-            get { return OrderCatalog.Instance.DataPackage.FK_Status - 1 ; }
+            get { return OrderCatalog.Instance.DataPackage.FK_Status + 1 ; }
             set { OrderCatalog.Instance.DataPackage.FK_Status = value + 1; }
         }
 
