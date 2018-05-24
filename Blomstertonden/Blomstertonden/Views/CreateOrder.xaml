@@ -120,7 +120,7 @@
                     <StackPanel MinWidth="250"  Height="auto" Width="auto" VerticalAlignment="Top">
 
                         <StackPanel>
-                            <Button Content="Flowers" FontSize="30px" Height="60px" HorizontalAlignment="Stretch" BorderThickness="0,0,0,2" BorderBrush="Black" Click="Button_Click" Background="#3F1E7832"/>
+                            <Button Content="Blomster" FontSize="30px" Height="60px" HorizontalAlignment="Stretch" BorderThickness="0,0,0,2" BorderBrush="Black" Click="Button_Click" Background="#3F1E7832"/>
                             <ListView  ItemsSource="{Binding ProductFlowerList}" SelectedItem="{Binding ProductItemViewModelSelected, Mode=TwoWay}" Visibility="Collapsed" x:Name="ListView1" Background="White" HorizontalAlignment="Stretch" Height="auto" VerticalAlignment="Top" Width="Auto" BorderBrush="Black" BorderThickness="2">
 
                                 <ListView.ItemTemplate>
@@ -138,7 +138,7 @@
                         </StackPanel>
 
                         <StackPanel>
-                            <Button Content="Wine" FontSize="30px" Height="60px" HorizontalAlignment="Stretch" BorderThickness="0,0,0,2" BorderBrush="Black" Click="Button_Click_1" Background="#3F1E7832"/>
+                            <Button Content="Buketter" FontSize="30px" Height="60px" HorizontalAlignment="Stretch" BorderThickness="0,0,0,2" BorderBrush="Black" Click="Button_Click_1" Background="#3F1E7832"/>
                             <ListView  ItemsSource="{Binding ProductWineList}" SelectedItem="{Binding ProductItemViewModelSelected, Mode=TwoWay}"  x:Name="ListView2" Visibility="Collapsed" Background="White" HorizontalAlignment="Stretch" Height="auto" VerticalAlignment="Top" Width="Auto" BorderBrush="Black" BorderThickness="2">
                                 <ListView.ItemTemplate>
                                     <DataTemplate x:DataType="local:Product">
@@ -154,7 +154,7 @@
                         </StackPanel>
 
                         <StackPanel>
-                            <Button Content="Chocolate" FontSize="30px" Height="60px" HorizontalAlignment="Stretch" BorderThickness="0,0,0,2" BorderBrush="Black" Click="Button_Click_2" Background="#3F1E7832"/>
+                            <Button Content="Begravelse" FontSize="30px" Height="60px" HorizontalAlignment="Stretch" BorderThickness="0,0,0,2" BorderBrush="Black" Click="Button_Click_2" Background="#3F1E7832"/>
                             <ListView ItemsSource="{Binding ProductChocolateList}" SelectedItem="{Binding ProductItemViewModelSelected, Mode=TwoWay}"  x:Name="ListView3" Visibility="Collapsed" Background="White" HorizontalAlignment="Stretch" Height="auto" VerticalAlignment="Top" Width="Auto" BorderBrush="Black" BorderThickness="2">
                                 <ListView.ItemTemplate>
                                     <DataTemplate x:DataType="local:Product">
