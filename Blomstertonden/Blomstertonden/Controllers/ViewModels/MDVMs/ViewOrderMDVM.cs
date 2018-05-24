@@ -133,7 +133,7 @@ namespace Blomstertonden
         }
         public int? PaymentType
         {
-            get { return _catalog.DataPackage.FK_PaymentType = ItemViewModelSelected.Obj.FK_PaymentType; }
+            get { return _catalog.DataPackage.FK_PaymentType = ItemViewModelSelected.Obj.FK_PaymentType - 1; }
             set { _catalog.DataPackage.FK_PaymentType = value + 1; }
         }
 
@@ -143,7 +143,7 @@ namespace Blomstertonden
         }
         public int OrderStatus
         {
-            get { return _catalog.DataPackage.FK_Status = ItemViewModelSelected.Obj.FK_Status; }
+            get { return _catalog.DataPackage.FK_Status = ItemViewModelSelected.Obj.FK_Status - 1; }
             set { _catalog.DataPackage.FK_Status = value + 1; }
         }
         #endregion
