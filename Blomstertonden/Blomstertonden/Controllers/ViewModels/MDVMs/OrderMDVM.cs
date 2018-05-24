@@ -83,9 +83,9 @@ namespace Blomstertonden
             }
         }
 
-        public List<Product> ProductFlowerList { get => _productCatalog.getProducts("Flowers"); }
-        public List<Product> ProductWineList { get => _productCatalog.getProducts("Wine"); }
-        public List<Product> ProductChocolateList { get => _productCatalog.getProducts("Chocolate"); }
+        public List<Product> ProductFlowerList { get => _productCatalog.getProducts("Begravelse"); }
+        public List<Product> ProductWineList { get => _productCatalog.getProducts("Buketter"); }
+        public List<Product> ProductChocolateList { get => _productCatalog.getProducts("Bod"); }
         #endregion
 
         //All properties for binding to the given view
