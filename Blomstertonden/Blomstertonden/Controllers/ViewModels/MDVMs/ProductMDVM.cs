@@ -9,12 +9,13 @@ namespace Blomstertonden
 {
     public class ProductMDVM : MasterDetailsViewModelBase<ProductTData, Product, int>
     {
-        private CategoryCatalog _categoryCatalog = CategoryCatalog.Instance;
+        private ProductCatalog _productCatalog = ProductCatalog.Instance;
         public ProductMDVM() : base(new ProductVMFactory(), ProductCatalog.Instance)
         {
             //commands see CustomerMDVM for an example
             _deleteCommand = new ProductDeleteCmd(_catalog, this);
             _updateCommand = new ProductUpdateCmd(_catalog, this);
+            _createCommand = new ProductCreateCmd(_catalog, this);
 
         }
 
@@ -28,6 +29,7 @@ namespace Blomstertonden
 
             _deleteCommand.RaiseCanExecuteChanged();
             _updateCommand.RaiseCanExecuteChanged();
+            _createCommand.RaiseCanExecuteChanged();
         }
         //All properties for binding to the given view
         public string Name
@@ -57,6 +59,17 @@ namespace Blomstertonden
         public string CategoryName
         {
             get => ProductCatalog.Instance.GetCategory(FK_Category).Name;
+        }
+
+        public List<Category> ProductCategoryList
+        {
+            get { return CategoryCatalog.Instance.CategoryList; }
+        }
+
+        public int ProductCategory
+        {
+            get { return ProductCatalog.Instance.DataPackage.FK_Category -1; }
+            set { ProductCatalog.Instance.DataPackage.FK_Category = value +1; }
         }
     }
 }

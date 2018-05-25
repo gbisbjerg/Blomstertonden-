@@ -82,9 +82,18 @@ namespace Blomstertonden
             }
         }
 
-        public List<Product> ProductFlowerList { get => _productCatalog.getProducts("Begravelse"); }
-        public List<Product> ProductWineList { get => _productCatalog.getProducts("Buketter"); }
-        public List<Product> ProductChocolateList { get => _productCatalog.getProducts("Bod"); }
+        public List<Product> ProductBuketList { get => _productCatalog.getProducts("Buket"); }
+        public List<Product> ProductBrugskunstList { get => _productCatalog.getProducts("Brugskunst"); }
+        public List<Product> ProductSpecialiteterList { get => _productCatalog.getProducts("Specialiteter"); }
+        //public List<Product> ProductSaesonList { get => _productCatalog.getProducts("Sæson"); }
+        //public List<Product> ProductAloeVeraList { get => _productCatalog.getProducts("AloeVera"); }
+        //public List<Product> ProductEuroFloristList { get => _productCatalog.getProducts("EuroFlorist"); }
+        //public List<Product> ProductDiverseList { get => _productCatalog.getProducts("Diverse"); }
+        //public List<Product> ProductLeveringList { get => _productCatalog.getProducts("Levering"); }
+        //public List<Product> ProductBegravelseList { get => _productCatalog.getProducts("Begravelse"); }
+        //public List<Product> ProductPotteplanteList { get => _productCatalog.getProducts("Potteplante"); }
+        //public List<Product> ProductBidList { get => _productCatalog.getProducts("Bod"); }
+
         #endregion
 
         //All properties for binding to the given view

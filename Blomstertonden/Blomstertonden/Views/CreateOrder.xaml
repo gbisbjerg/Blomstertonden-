@@ -132,7 +132,7 @@
                                 <ListView.ItemTemplate>
                                     <DataTemplate x:DataType="local:Product">
                                         <StackPanel Width="700" Orientation="Horizontal" Height="51" BorderThickness="0,0,0,2" BorderBrush="Blue">
-                                            <!--Name-->
+                                            <!--Nameddddd-->
                                             <TextBlock Text="{Binding Name}"/>
                                             <!--Price-->
                                             <TextBlock Text="{Binding Price}"/>

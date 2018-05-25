@@ -15,18 +15,23 @@ namespace Blomstertonden
             _productCatalog = ProductCatalog.Instance;
         }
 
-        //public override async void Execute()
-        //{
-        //    if (_productCatalog.DataPackage.Key != 0)
-        //    {
-        //        _catalog.DataPackage.FK_Category = await _productCatalog.Create(_productCatalog.DataPackage);
-        //    }
-        //    else
-        //    {
-        //        _catalog.DataPackage.FK_Category = _productCatalog.DataPackage.Key;
-        //    }
+        public override bool CanExecute()
+        {
+            return true;
+        }
 
-        //    base.Execute();
-        //}
+        public override async void Execute()
+        {
+    //        if (_productCatalog.DataPackage.Key != 0)
+    //        {
+    //            _catalog.DataPackage.FK_Category = await _productCatalog.Create(_productCatalog.DataPackage);
+    //}
+    //        else
+    //        {
+    //            _catalog.DataPackage.FK_Category = _productCatalog.DataPackage.Key;
+    //        }
+
+            base.Execute();
+        }
     }
 }

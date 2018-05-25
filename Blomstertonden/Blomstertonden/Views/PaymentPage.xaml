@@ -57,7 +57,7 @@
                 <!--Card Information-->
                 <TextBlock Text="ORDRE INFO:" FontWeight="Bold" TextAlignment="Center" FontSize="12" Grid.ColumnSpan="2" Grid.Row="0" Margin="10,10,0,0"/>
                 <TextBlock Text="Besked på kort:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="1" Margin="10,10,0,0"/>
-                <TextBox Text="{Binding CardMessage, Mode=TwoWay}"  Background="LightGray" BorderThickness="1,1,1,1" BorderBrush="Black" Grid.Column="1" Grid.Row="2">
+                <TextBox Text="{Binding CardMessage, Mode=TwoWay}" FontSize="12" Background="LightGray" BorderThickness="1,1,1,1" BorderBrush="Black" Grid.Column="1" Grid.Row="2">
                 </TextBox>
                 <!-- end card information-->
                 
@@ -82,12 +82,8 @@
                 <!--Payment Method-->
 
 
-                <ComboBox  SelectedIndex="{Binding FK_PaymentType,Mode=TwoWay}" ItemsSource="{Binding PaymentTypeList}" HorizontalAlignment="Right" Grid.Row="8" Grid.RowSpan="2" Grid.Column="1" IsDropDownOpen="True" />
-
-                <StackPanel Orientation="Horizontal" Margin="10, 0, 0, 10" Grid.Row="9" Grid.RowSpan="2" Grid.Column="1">
-                    <CalendarDatePicker Date="{Binding DeliveryDate, Mode=TwoWay}" Margin="100, 0, 0, 0" Header="Leveringsdato" Width="125" x:Name="arrivalCalendarDatePicker" DateFormat="{}{day.integer}/{month.integer}-{year.full}"/>
-                </StackPanel>
-
+                <ComboBox FontSize="12" SelectedIndex="{Binding FK_PaymentType,Mode=TwoWay}" ItemsSource="{Binding PaymentTypeList}" HorizontalAlignment="Right" Grid.Row="8" Grid.RowSpan="2" Grid.Column="1" IsDropDownOpen="True" Margin="0, 10, 10, 0"/>
+                
                 <Grid Grid.Row="10" Grid.Column="1">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*"/>
@@ -127,11 +123,11 @@
                     <RowDefinition Height="10*"/>
                     <RowDefinition Height="10*"/>
                     <RowDefinition Height="10*"/>
+                    <RowDefinition Height="20*"/>
+                    <RowDefinition Height="5*"/>
+                    <RowDefinition Height="20*"/>
+                    <RowDefinition Height="5*"/>
                     <RowDefinition Height="40*"/>
-                    <RowDefinition Height="5*"/>
-                    <RowDefinition Height="20*"/>
-                    <RowDefinition Height="5*"/>
-                    <RowDefinition Height="20*"/>
                     <RowDefinition Height="10*"/>
                     <RowDefinition Height="10*"/>
                     <RowDefinition Height="10*"/>
@@ -173,22 +169,22 @@
                     <ListView ItemsSource="{Binding AddedProducts}" Background="LightGray" BorderThickness="1,1,1,1" BorderBrush="Black" Grid.Column="0" Grid.ColumnSpan="4">
                         <ListView.ItemTemplate>
                             <DataTemplate x:DataType="local:OrderedProductTData">
-                                <StackPanel Width="300px" Orientation="Horizontal" Height="51" BorderThickness="0,0,0,2" BorderBrush="Blue">
+                                <StackPanel Width="300px" Orientation="Horizontal" Height="20" BorderThickness="0,0,0,2" BorderBrush="MediumSeaGreen">
                                     <!--Name-->
-                                    <TextBlock Width="70px" Text="{Binding Name}"/>
+                                    <TextBlock Width="200px" Text="{Binding Name}" FontSize="12"/>
                                     <!--Quantity-->
-                                    <TextBlock  Width="50px"  Text="{Binding Quantity}"/>
+                                    <TextBlock  Width="75"  Text="{Binding Quantity}" FontSize="12"/>
                                     <!--Price-->
-                                    <TextBlock Width="50px" Text="{Binding TotalPrice}"/>
+                                    <TextBlock Width="100px" Text="{Binding TotalPrice}" FontSize="12"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
                 </Grid>
                 <TextBlock Text="Total pris:" FontSize="12" FontWeight="Bold" Grid.Column="0" Grid.Row="9" Margin="10,0,0,0"/>
-                <TextBox Text="{Binding TotalPrice}" FontSize="12" TextAlignment="Right" Grid.Column="1" Grid.Row="9" BorderThickness="0,0,0,0"/>
+                <TextBox Text="{Binding TotalPrice}" FontSize="12" TextAlignment="Right" Grid.Column="1" Grid.Row="9" BorderThickness="0,0,0,0" Margin="0,0,22,0"/>
                 <TextBlock Text="Levering:" FontWeight="Bold" FontSize="12" Grid.Column="0" Grid.Row="10" Margin="10,0,0,0"/>
-                <TextBlock Text="Navn:" FontWeight="Bold" FontSize="12" Grid.Column="0" Grid.Row="11" Margin="10,0,0,0"/>
+                <TextBlock Text="Kunde navn:" FontWeight="Bold" FontSize="12" Grid.Column="0" Grid.Row="11" Margin="10,0,0,0"/>
                 <TextBox Text="Else Olsen" FontSize="12" Grid.Column="1" Grid.Row="11" BorderThickness="0,0,0,0"/>
                 <TextBlock Text="Adresse:" FontWeight="Bold" FontSize="12" Grid.Column="0" Grid.Row="12" Margin="10,0,0,0"/>
                 <TextBox Text="Søborg Hovedgade 125" FontSize="12" Grid.Column="1" Grid.Row="12" BorderThickness="0,0,0,0"/>
@@ -196,8 +192,8 @@
                 <TextBox Text="2860" FontSize="12" Grid.Column="1" Grid.Row="13" BorderThickness="0,0,0,0"/>
                 <TextBlock Text="By:" FontWeight="Bold" FontSize="14" Grid.Column="0" Grid.Row="14" Margin="10,0,0,0"/>
                 <TextBox Text="Søborg" FontSize="12" Grid.Column="1" Grid.Row="14" BorderThickness="0,0,0,0"/>
-                <TextBlock Text="Telefon:" FontWeight="Bold" FontSize="12" Grid.Column="0" Grid.Row="15" Margin="10,0,0,0"/>
-                <TextBox Text="12354789" FontSize="12" Grid.Column="1" Grid.Row="15" BorderThickness="0,0,0,0"/>
+                <TextBlock Text="Bestilt:" FontWeight="Bold" FontSize="12" Grid.Column="0" Grid.Row="15" Margin="10,0,0,0"/>
+                <!--<TextBox Text="{Binding }" FontSize="12" Grid.Column="1" Grid.Row="15" BorderThickness="0,0,0,0"/>-->
                 <Button Content="Udskriv" HorizontalAlignment="Right" FontSize="12" Grid.Column="1" Grid.Row="15"/>
             </Grid>
             

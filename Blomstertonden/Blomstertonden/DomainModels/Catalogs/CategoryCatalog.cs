@@ -26,6 +26,11 @@ namespace Blomstertonden
             }
         }
 
+        public List<Category> CategoryList
+        {
+            get { return All.Values.ToList(); }
+        }
+
         public Category getCategory(int fk_category)
         {
             Category category;
