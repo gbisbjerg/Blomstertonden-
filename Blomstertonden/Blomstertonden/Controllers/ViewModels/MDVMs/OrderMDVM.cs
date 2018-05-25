@@ -39,7 +39,6 @@ namespace Blomstertonden
         {
             OnPropertyChanged(nameof(Quantity));
 
-
             _orderedProductCatalog.DataPackage.Name = LastProduct.Name;
             _orderedProductCatalog.DataPackage.Price = LastProduct.Price;
             _orderedProductCatalog.DataPackage.FK_Product = LastProduct.Key;
@@ -180,6 +179,12 @@ namespace Blomstertonden
               OnPropertyChanged();
             }
         }
+
+        public DateTime? DeliveryDate
+        {
+            get => _catalog.DataPackage.DeliveryDate;
+            set => _catalog.DataPackage.DeliveryDate = value;
+        }
         #endregion
 
         #region OrderedProduct
@@ -210,7 +215,7 @@ namespace Blomstertonden
         }
         public int? PaymentType
         {
-            get { return OrderCatalog.Instance.DataPackage.FK_PaymentType + 1; }
+            get { return OrderCatalog.Instance.DataPackage.FK_PaymentType - 1; }
             set { OrderCatalog.Instance.DataPackage.FK_PaymentType = value + 1; }
         }
 
@@ -220,7 +225,7 @@ namespace Blomstertonden
         }
         public int OrderStatus
         {
-            get { return OrderCatalog.Instance.DataPackage.FK_Status + 1 ; }
+            get { return OrderCatalog.Instance.DataPackage.FK_Status - 1 ; }
             set { OrderCatalog.Instance.DataPackage.FK_Status = value + 1; }
         }
 

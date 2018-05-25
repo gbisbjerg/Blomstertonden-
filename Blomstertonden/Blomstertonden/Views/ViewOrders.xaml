@@ -138,8 +138,8 @@
                 <TextBlock Text="Total pris:" FontSize="12" FontWeight="Bold" Grid.Column="0" Grid.Row="9" Margin="10,0,0,0"/>
                 <TextBox Text="{Binding TotalPrice}" IsEnabled="False" FontSize="12" TextAlignment="Right" Grid.Column="1" Grid.Row="9" BorderThickness="0,0,0,0"/>
                 <TextBlock Text="Levering:" FontWeight="Bold" FontSize="12" Grid.Column="0" Grid.Row="10" Margin="10,0,0,0"/>
-                <TextBlock Text="Kunde navn:" FontWeight="Bold" FontSize="12" Grid.Column="0" Grid.Row="11" Margin="10,0,0,0"/>
-                <TextBox Text="Else Olsen" FontSize="12" Grid.Column="1" Grid.Row="11" BorderThickness="0,0,0,0"/>
+                <TextBlock Text="Delivery Date:" FontWeight="Bold" FontSize="12" Grid.Column="0" Grid.Row="11" Margin="10,0,0,0"/>
+                <TextBox Text="{Binding DeliveryDate}" FontSize="12" Grid.Column="1" Grid.Row="11" BorderThickness="0,0,0,0"/>
                 <TextBlock Text="Adresse:" FontWeight="Bold" FontSize="12" Grid.Column="0" Grid.Row="12" Margin="10,0,0,0"/>
                 <TextBox Text="Søborg Hovedgade 125" FontSize="12" Grid.Column="1" Grid.Row="12" BorderThickness="0,0,0,0"/>
                 <TextBlock Text="Postnummer:" FontWeight="Bold" FontSize="13" Grid.Column="0" Grid.Row="13" Margin="10,0,0,0"/>

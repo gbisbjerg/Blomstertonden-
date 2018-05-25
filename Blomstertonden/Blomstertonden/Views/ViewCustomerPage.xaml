@@ -126,21 +126,26 @@
                 <!--End customer-->
 
                 <!--Start details-->
-                <!--<TextBlock Text="Ordrenr:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left"/>
-                <TextBlock Text="Dato:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center"/>
-                <TextBlock Text="Pris:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Right"/>-->
-                <!--<ListView ItemsSource="{Binding ItemViewModelCollection}" Background="LightGray" BorderThickness="1,1,1,1" Height="auto" BorderBrush="Black" Grid.Column="1" Grid.Row="5">
+                <StackPanel Grid.Column="1" Grid.Row="4" Orientation="Horizontal">
+                    <TextBlock Text="Ordrenr:" FontSize="12" FontWeight="Bold"/>
+                    <TextBlock Text="Dato:" FontSize="12" FontWeight="Bold"/>
+                    <TextBlock Text="Pris:" FontSize="12" FontWeight="Bold"/>
+                </StackPanel>
+                
+                <ListView ItemsSource="{Binding CustomerOrders}" Background="LightGray" BorderThickness="1,1,1,1" Height="auto" BorderBrush="Black" Grid.Column="1" Grid.Row="5">
                     <ListView.ItemTemplate >
-                        <DataTemplate x:DataType="local:CustomerIVM" >
+                        <DataTemplate x:DataType="local:OrderIVM" >
                             <StackPanel Width="700" Orientation="Horizontal" Height="51" BorderThickness="0,0,0,2" BorderBrush="MediumSeaGreen" >
-                                --><!--Name--><!--
-                                <TextBlock Text="{Binding Name}" Width="250" TextAlignment="Left" VerticalAlignment="Center" FontSize="12"/>
-                                --><!--Phone--><!--
-                                <TextBlock Text="{Binding Stamp}" Width="50" TextAlignment="Right" VerticalAlignment="Center" FontSize="12"/>
+                                <!--ID-->
+                                <TextBlock Text="{Binding ID}" Width="250" TextAlignment="Left" VerticalAlignment="Center" FontSize="12"/>
+                                <!--Date-->
+                                <TextBlock Text="{Binding Date}" Width="50" TextAlignment="Right" VerticalAlignment="Center" FontSize="12"/>
+                                <!--Price-->
+                                <TextBlock Text="{Binding Price}" Width="50" TextAlignment="Right" VerticalAlignment="Center" FontSize="12"/>
                             </StackPanel>
                         </DataTemplate>
                     </ListView.ItemTemplate>
-                </ListView>-->
+                </ListView>
                 <Button Command="{Binding DeletionCommand}" Grid.Row="7" Grid.Column="1" Content="Slet" HorizontalAlignment="Left"/>
                 <Button Command="{Binding UpdateCommand}" Grid.Row="7" Grid.Column="1" Content="Opdater" HorizontalAlignment="Right"/>
                 <!--end details-->

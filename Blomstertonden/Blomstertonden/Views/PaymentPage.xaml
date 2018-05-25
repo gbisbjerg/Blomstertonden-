@@ -83,7 +83,11 @@
 
 
                 <ComboBox  SelectedIndex="{Binding FK_PaymentType,Mode=TwoWay}" ItemsSource="{Binding PaymentTypeList}" HorizontalAlignment="Right" Grid.Row="8" Grid.RowSpan="2" Grid.Column="1" IsDropDownOpen="True" />
-                
+
+                <StackPanel Orientation="Horizontal" Margin="10, 0, 0, 10" Grid.Row="9" Grid.RowSpan="2" Grid.Column="1">
+                    <CalendarDatePicker Date="{Binding DeliveryDate, Mode=TwoWay}" Margin="100, 0, 0, 0" Header="Leveringsdato" Width="125" x:Name="arrivalCalendarDatePicker" DateFormat="{}{day.integer}/{month.integer}-{year.full}"/>
+                </StackPanel>
+
                 <Grid Grid.Row="10" Grid.Column="1">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*"/>
