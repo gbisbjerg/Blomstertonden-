@@ -10,7 +10,7 @@ namespace Blomstertonden
     {
         private static string _serverURL = "http://localhost:54477/";
 
-        //private static string _serverURL = "gregbisbjerg.database.windows.net";
+        //private static string _serverURL = "https://webserviceblomstertonden.azurewebsites.net/";
 
         public static string ServerURL => _serverURL;
     }
