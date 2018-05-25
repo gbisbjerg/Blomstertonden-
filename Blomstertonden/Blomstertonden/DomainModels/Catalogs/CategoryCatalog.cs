@@ -25,5 +25,10 @@ namespace Blomstertonden
                 return _instance;
             }
         }
+
+        public List<Category> CategoryList
+        {
+            get { return All.Values.ToList(); }
+        }
     }
 }

@@ -24,7 +24,7 @@ namespace Blomstertonden
         public int Price { get; set; }
 
         public bool IsPromational { get; set; }
-
+        //Rettet til FK_CategoryID
         public int FK_Category { get; set; }
 
         public virtual Category Category { get; set; }
