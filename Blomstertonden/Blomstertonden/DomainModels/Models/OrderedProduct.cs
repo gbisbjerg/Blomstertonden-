@@ -9,8 +9,6 @@ namespace Blomstertonden
     [Table("OrderedProduct")]
     public partial class OrderedProduct : IKey<int>
     {
-        [Key]
-        [Column(Order = 0)]
         public int Id { get; set; }
         public int FK_Order { get; set; }
         public int FK_Product { get; set; }

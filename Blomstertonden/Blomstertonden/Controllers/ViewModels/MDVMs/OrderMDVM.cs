@@ -19,9 +19,12 @@ namespace Blomstertonden
         private CustomerSearchCmd _customerSerarchCmd;
         private Product _productItemViewModelSelected;
         private AddProductToOrder _addProductCmd;
+        private DeleteProductFromOrderCmd _deleteProductFromOrderCmd;
         private ClearDataPackagesCmd _clear;
+        private bool _isProductSelected = false;
 
         private static ObservableCollection<OrderedProductTData> _addedProducts = new ObservableCollection<OrderedProductTData>();
+        private OrderedProductTData _selectedProduct;
 
         public OrderMDVM() : base(new OrderVMFactory(), OrderCatalog.Instance)
         {
@@ -31,6 +34,7 @@ namespace Blomstertonden
 
             _clear = new ClearDataPackagesCmd();
             _addProductCmd = new AddProductToOrder(this);
+            _deleteProductFromOrderCmd = new DeleteProductFromOrderCmd(this);
             _createCommand = new OrderCreateCmd(_catalog, this);
             _customerSerarchCmd = new CustomerSearchCmd(this);
         }
@@ -215,6 +219,27 @@ namespace Blomstertonden
         {
             get => _orderedProductCatalog.DataPackage.Quantity;
             set => _orderedProductCatalog.DataPackage.Quantity = value;
+        }
+        public OrderedProductTData SelectedProduct
+        {
+            get => _selectedProduct;
+            set
+            {
+                _selectedProduct = value;
+                IsProductItemSelected = true;
+                _deleteProductFromOrderCmd.RaiseCanExecuteChanged();
+            }
+        }
+        public ICommand DeleteProductFromOrder => _deleteProductFromOrderCmd;
+
+        public bool IsProductItemSelected
+        {
+            get => _isProductSelected;
+            set
+            {
+                _isProductSelected = value;
+                OnPropertyChanged();
+            }
         }
         #endregion
 

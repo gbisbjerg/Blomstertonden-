@@ -9,8 +9,6 @@ namespace WebService3
     [Table("OrderedProduct")]
     public partial class OrderedProduct
     {
-        [Key]
-        [Column(Order = 0)]
         public int Id { get; set; }
         public int FK_Order { get; set; }
 
