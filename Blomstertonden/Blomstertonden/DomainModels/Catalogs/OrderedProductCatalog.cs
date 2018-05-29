@@ -16,6 +16,7 @@ namespace Blomstertonden
         public OrderedProductCatalog( string apiId) : base(new OrderedProductFactory(), apiId)
         {
             _orderedProductTDataList = new List<OrderedProductTData>();
+            //Load();
         }
 
         public static OrderedProductCatalog Instance
@@ -27,6 +28,17 @@ namespace Blomstertonden
                     _instance = new OrderedProductCatalog("OrderedProducts");
                 }
                 return _instance;
+            }
+        }
+
+        public async void DeleteOrdersOP(int _orderNumber)
+        {
+            foreach (OrderedProduct op in _data.Values)
+            {
+                if(op.FK_Order == _orderNumber)
+                {
+                    await Delete(op.Key);
+                }
             }
         }
 

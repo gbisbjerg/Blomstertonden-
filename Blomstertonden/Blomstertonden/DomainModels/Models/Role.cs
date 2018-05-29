@@ -1,3 +1,4 @@
+using GenericsLibrary;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -6,7 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Blomstertonden
 {
     [Table("Role")]
-    public partial class Role
+    public partial class Role : IKey<int>
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Role()
@@ -23,5 +24,6 @@ namespace Blomstertonden
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<User> Users { get; set; }
+        public int Key { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
     }
 }

@@ -1,23 +1,22 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using GenericsLibrary;
 
 namespace Blomstertonden
 {
-    [Table("User")]
-    public partial class User : IKey<int>
+    class UserTData : IKey<int>
     {
         public int Id { get; set; }
-        [Required]
-        [StringLength(100)]
+
         public string Name { get; set; }
-        [Required]
-        [StringLength(50)]
+
         public string Password { get; set; }
+
         public int FK_Role { get; set; }
-        public virtual Role Role { get; set; }
+
         public int Key { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
     }
 }
