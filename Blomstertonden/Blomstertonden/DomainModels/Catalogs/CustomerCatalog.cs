@@ -26,5 +26,16 @@ namespace Blomstertonden
                 return _instance;
             }
         }
+
+        //This method adds a stamp to the provided customer
+        public async void AddStamp(CustomerTData customerDataPackage)
+        {
+            customerDataPackage.Stamps += 1;
+            await Update(customerDataPackage);
+            
+        }
+
+
+
     }
 }

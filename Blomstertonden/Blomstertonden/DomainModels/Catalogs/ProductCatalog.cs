@@ -38,7 +38,9 @@ namespace Blomstertonden
             List<Product> products = new List<Product>();
             foreach (Product p in Data.Values)
             {
-                if (p.Category.Name == _catagory)
+                Category category = _categoryCatalog.getCategory(p.FK_Category);
+
+                if ( category.Name == _catagory)
                 {
                     products.Add(p);
                 }

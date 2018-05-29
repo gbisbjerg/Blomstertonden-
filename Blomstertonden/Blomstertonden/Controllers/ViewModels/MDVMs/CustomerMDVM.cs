@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,8 +10,10 @@ namespace Blomstertonden
 {
     public class CustomerMDVM : MasterDetailsViewModelBase<CustomerTData, Customer, int>
     {
+        CustomerOrdersVMFactory _customerOrdersVMFactory;
         public CustomerMDVM() : base(new CustomerVMFactory(), CustomerCatalog.Instance)
         {
+            _customerOrdersVMFactory = new CustomerOrdersVMFactory();
             _deleteCommand = new CustomerDeleteCmd(_catalog, this);
             _updateCommand = new CustomerUpdateCmd(_catalog, this);
         }
@@ -24,6 +27,9 @@ namespace Blomstertonden
 
             _deleteCommand.RaiseCanExecuteChanged();
             _updateCommand.RaiseCanExecuteChanged();
+
+            //orderCatalog.getCustomerOrders(FK_Customer);
+            OnPropertyChanged(nameof(CustomerOrders));
         }
         //All properties for binding to the given view
         public string Name
@@ -43,6 +49,12 @@ namespace Blomstertonden
             get => _catalog.DataPackage.Stamps = ItemViewModelSelected.Obj.Stamps;
             set => _catalog.DataPackage.Stamps = value;
         }
+
+        public List<ItemViewModelBase<Order, int>> CustomerOrders
+        {
+            get => _customerOrdersVMFactory.GetItemViewModelCollection(OrderCatalog.Instance, ItemViewModelSelected.Obj.Key);
+        }
+
 
     }
 }

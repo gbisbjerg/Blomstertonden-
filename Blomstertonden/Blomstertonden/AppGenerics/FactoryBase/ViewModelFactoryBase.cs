@@ -18,5 +18,15 @@ using System.Linq;
             }
             return items;
         }
+        public virtual List<ItemViewModelBase<T, TKey>> GetItemViewModelCollection(ICRUD<T, TData, TKey> catalog, int FK)
+        {
+            List<ItemViewModelBase<T, TKey>> items = new List<ItemViewModelBase<T, TKey>>();
+
+            foreach (T obj in catalog.All.OrderByDescending(Model => Model.Key))
+            {
+                items.Add(CreateItemViewModel(obj));
+            }
+            return items;
+        }
     }
 }

@@ -39,7 +39,6 @@ namespace Blomstertonden
         {
             OnPropertyChanged(nameof(Quantity));
 
-
             _orderedProductCatalog.DataPackage.Name = LastProduct.Name;
             _orderedProductCatalog.DataPackage.Price = LastProduct.Price;
             _orderedProductCatalog.DataPackage.FK_Product = LastProduct.Key;
@@ -83,9 +82,18 @@ namespace Blomstertonden
             }
         }
 
-        public List<Product> ProductFlowerList { get => _productCatalog.getProducts("Begravelse"); }
-        public List<Product> ProductWineList { get => _productCatalog.getProducts("Buketter"); }
-        public List<Product> ProductChocolateList { get => _productCatalog.getProducts("Bod"); }
+        public List<Product> ProductBuketList { get => _productCatalog.getProducts("Buket"); }
+        public List<Product> ProductBrugskunstList { get => _productCatalog.getProducts("Brugskunst"); }
+        public List<Product> ProductSpecialiteterList { get => _productCatalog.getProducts("Specialiteter"); }
+        //public List<Product> ProductSaesonList { get => _productCatalog.getProducts("Sæson"); }
+        //public List<Product> ProductAloeVeraList { get => _productCatalog.getProducts("AloeVera"); }
+        //public List<Product> ProductEuroFloristList { get => _productCatalog.getProducts("EuroFlorist"); }
+        //public List<Product> ProductDiverseList { get => _productCatalog.getProducts("Diverse"); }
+        //public List<Product> ProductLeveringList { get => _productCatalog.getProducts("Levering"); }
+        //public List<Product> ProductBegravelseList { get => _productCatalog.getProducts("Begravelse"); }
+        //public List<Product> ProductPotteplanteList { get => _productCatalog.getProducts("Potteplante"); }
+        //public List<Product> ProductBidList { get => _productCatalog.getProducts("Bod"); }
+
         #endregion
 
         //All properties for binding to the given view
@@ -180,6 +188,26 @@ namespace Blomstertonden
               OnPropertyChanged();
             }
         }
+
+        public DateTime? DeliveryDate
+        {
+            get =>  _catalog.DataPackage.DeliveryDate;
+            set => _catalog.DataPackage.DeliveryDate = value;
+        }
+
+        public void DeliveryDateSet()
+        {
+            if (_isDelivering == true)
+            {
+                _catalog.DataPackage.DeliveryDate = DateTime.Now;
+                OnPropertyChanged(nameof(DeliveryDate));
+            }
+            else
+            {
+                _catalog.DataPackage.DeliveryDate = null;
+                OnPropertyChanged(nameof(DeliveryDate));
+            }
+        }
         #endregion
 
         #region OrderedProduct
@@ -201,6 +229,7 @@ namespace Blomstertonden
             {
                 _isDelivering = value;
                 OnPropertyChanged();
+                DeliveryDateSet();
             }
         }
         #region ComboBox
@@ -210,7 +239,7 @@ namespace Blomstertonden
         }
         public int? PaymentType
         {
-            get { return OrderCatalog.Instance.DataPackage.FK_PaymentType + 1; }
+            get { return OrderCatalog.Instance.DataPackage.FK_PaymentType - 1; }
             set { OrderCatalog.Instance.DataPackage.FK_PaymentType = value + 1; }
         }
 
@@ -220,7 +249,7 @@ namespace Blomstertonden
         }
         public int OrderStatus
         {
-            get { return OrderCatalog.Instance.DataPackage.FK_Status + 1 ; }
+            get { return OrderCatalog.Instance.DataPackage.FK_Status - 1 ; }
             set { OrderCatalog.Instance.DataPackage.FK_Status = value + 1; }
         }
 

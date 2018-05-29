@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,6 +30,19 @@ namespace Blomstertonden
                 }
                 return _instance;
             }
+        }
+
+        //This method checks if an order qualifys for a stamp
+        //True = Qualifies 
+        public bool QualifyStamp(int fk_order)
+        {
+            Order order;
+            Data.TryGetValue(fk_order, out order);
+            if (order.TotalPrice >= 200)
+            {
+                return true;
+            }
+            return false;
         }
 
 

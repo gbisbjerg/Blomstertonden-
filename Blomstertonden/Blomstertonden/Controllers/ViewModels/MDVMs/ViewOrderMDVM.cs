@@ -33,6 +33,8 @@ namespace Blomstertonden
             OnPropertyChanged(nameof(OrderStatus));
             OnPropertyChanged(nameof(PaymentType));
             OnPropertyChanged(nameof(Date));
+            OnPropertyChanged(nameof(DeliveryDate));
+            OnPropertyChanged(nameof(OrderStatus));
 
             _catalog.DataPackage.FK_Customer = Customer.Key;
             _catalog.DataPackage.FK_City = ItemViewModelSelected.Obj.FK_City;
@@ -125,6 +127,12 @@ namespace Blomstertonden
             get => _catalog.DataPackage.CardMessage = ItemViewModelSelected.Obj.CardMessage;
             set => _catalog.DataPackage.CardMessage = value;
         }
+        public DateTime? DeliveryDate
+        {
+            get => _catalog.DataPackage.DeliveryDate = ItemViewModelSelected.Obj.DeliveryDate;
+            set => _catalog.DataPackage.DeliveryDate = value;
+        }
+
         #endregion
         #region ComboBox
         public List<PaymentType> PaymentTypeList
@@ -133,7 +141,11 @@ namespace Blomstertonden
         }
         public int? PaymentType
         {
-            get { return _catalog.DataPackage.FK_PaymentType = ItemViewModelSelected.Obj.FK_PaymentType - 1; }
+            get
+            {
+                _catalog.DataPackage.FK_PaymentType = ItemViewModelSelected.Obj.FK_PaymentType;
+                return ItemViewModelSelected.Obj.FK_PaymentType - 1;
+            }
             set { _catalog.DataPackage.FK_PaymentType = value + 1; }
         }
 
@@ -143,7 +155,11 @@ namespace Blomstertonden
         }
         public int OrderStatus
         {
-            get { return _catalog.DataPackage.FK_Status = ItemViewModelSelected.Obj.FK_Status - 1; }
+            get
+            {
+                _catalog.DataPackage.FK_Status = ItemViewModelSelected.Obj.FK_Status;
+                return  ItemViewModelSelected.Obj.FK_Status - 1;
+            }
             set { _catalog.DataPackage.FK_Status = value + 1; }
         }
         #endregion
