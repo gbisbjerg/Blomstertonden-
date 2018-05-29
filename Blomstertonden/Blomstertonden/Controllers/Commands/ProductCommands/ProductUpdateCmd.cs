@@ -15,7 +15,7 @@ namespace Blomstertonden
             //_orderCatalog = OrderCatalog.Instance;
         }
 
-        public async override void Execute()
+        public override async void Execute()
         {
             await _catalog.Update(_catalog.DataPackage);
 

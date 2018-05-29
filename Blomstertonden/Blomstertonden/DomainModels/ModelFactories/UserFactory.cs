@@ -7,18 +7,16 @@ using GenericsLibrary;
 
 namespace Blomstertonden
 {
-    public class ProductFactory : IFactory<ProductTData, Product>
+    class UserFactory : IFactory<UserTData, User>
     {
-        public Product Convert(ProductTData data)
+        public User Convert(UserTData data)
         {
-            Product obj = new Product()
+            User obj = new User
             {
                 Id = data.Key,
                 Name = data.Name,
-                Price = data.Price,
-                IsPromational = data.IsPromational,
-                FK_Category = data.FK_Category
-
+                Password = data.Password,
+                FK_Role = data.FK_Role
             };
             return obj;
         }

@@ -33,6 +33,7 @@ namespace Blomstertonden
             OnPropertyChanged(nameof(OrderStatus));
             OnPropertyChanged(nameof(PaymentType));
             OnPropertyChanged(nameof(Date));
+            OnPropertyChanged(nameof(DeliveryDate));
             OnPropertyChanged(nameof(OrderStatus));
 
             _catalog.DataPackage.FK_Customer = Customer.Key;

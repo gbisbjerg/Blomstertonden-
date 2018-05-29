@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GenericsLibrary;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 
 namespace Blomstertonden
 {
@@ -69,6 +71,8 @@ namespace Blomstertonden
             //Wipes ORderedProducts
             _vm.AddedProducts = new ObservableCollection<OrderedProductTData>();
             ExecuteEvent();
+
+
         }
     }
 }
