@@ -93,11 +93,12 @@
                     <RowDefinition Height="20*"/>
                     <RowDefinition Height="20*"/>
                     <RowDefinition Height="20*"/>
+                    <RowDefinition Height="15*"/>
+                    <RowDefinition Height="15*"/>
                     <RowDefinition Height="20*"/>
+                    <RowDefinition Height="15*"/>
                     <RowDefinition Height="20*"/>
-                    <RowDefinition Height="20*"/>
-                    <RowDefinition Height="90*"/>
-                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="70*"/>
                     <RowDefinition Height="20*"/>
                     <RowDefinition Height="15*"/>
                 </Grid.RowDefinitions>
@@ -114,15 +115,14 @@
                 <TextBlock Text="Pris:" FontSize="12" Grid.Column="0" Grid.Row="3" Margin="10,0,0,0" Height="20"/>
                 <TextBox Text="{Binding Price, Mode=TwoWay}" Background="LightGray" BorderThickness="1,1,1,1"  BorderBrush="Black" VerticalAlignment="Center" PlaceholderText="Pris" FontSize="12" Height="20" Grid.Column="1" Grid.Row="3" Margin="10,0,10,0"/>
                 <!--End customer-->
-
-                <ComboBox SelectedIndex="{Binding ProductCategory, Mode=TwoWay}" ItemsSource="{Binding ProductCategoryList}" Grid.Column="1" Grid.Row="5" />
-               
+                <TextBlock Text="Vælg kategory til nyt produkt. Indtast navn og pris" Grid.Column="1" Grid.Row="5"/>
+                <ComboBox SelectedIndex="{Binding ProductCategory, Mode=TwoWay}" ItemsSource="{Binding ProductCategoryList}" Grid.Column="1" Grid.Row="6" VerticalAlignment="Top"/>
+                <Button Command="{Binding CreateCommand}" Grid.Row="6" Grid.Column="1" Content="Opret produkt" HorizontalAlignment="Right" VerticalAlignment="Top"/>
                 <!--Start details-->
 
-
-                <Button Command="{Binding DeletionCommand}" Grid.Row="7" Grid.Column="1" Content="Slet" HorizontalAlignment="Left"/>
-                <Button Command="{Binding CreateCommand}" Grid.Row="7" Grid.Column="1" Content="Opret produkt" HorizontalAlignment="Center"/>
-                <Button Command="{Binding UpdateCommand}" Grid.Row="7" Grid.Column="1" Content="Opdater" HorizontalAlignment="Right"/>
+                <TextBlock Text="Vælg produkt til venstre og rediger eller slet produkt" Grid.Column="1" Grid.Row="7" />
+                <Button Command="{Binding DeletionCommand}" Grid.Row="8" Grid.Column="1" Content="Slet" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Button Command="{Binding UpdateCommand}" Grid.Row="8" Grid.Column="1" Content="Opdater" HorizontalAlignment="Right" VerticalAlignment="Top"/>
                 <!--end details-->
             </Grid>
         </Grid>

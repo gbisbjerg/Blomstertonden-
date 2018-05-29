@@ -76,13 +76,13 @@
                 <ListView ItemsSource="{Binding AddedProducts}" Background="LightGray" BorderThickness="1,1,1,1" BorderBrush="Black" Grid.Column="1" Grid.Row="8">
                     <ListView.ItemTemplate>
                         <DataTemplate x:DataType="local:OrderedProductTData">
-                            <StackPanel Width="300px" Orientation="Horizontal" Height="51" BorderThickness="0,0,0,2" BorderBrush="Blue">
+                            <StackPanel Width="400" Orientation="Horizontal" Height="51" BorderThickness="0,0,0,2" BorderBrush="MediumSeaGreen">
                                 <!--Name-->
-                                <TextBlock Width="70px" Text="{Binding Name}"/>
+                                <TextBlock Width="175" Text="{Binding Name}"/>
                                 <!--Quantity-->
-                                <TextBlock  Width="50px"  Text="{Binding Quantity}"/>                                
+                                <TextBlock  Width="100"  Text="{Binding Quantity}"/>                                
                                 <!--Price-->
-                                <TextBlock Width="50px" Text="{Binding TotalPrice}"/>
+                                <TextBlock Width="50" Text="{Binding TotalPrice}"/>
                                 <Button  Command="{Binding Clear}"  x:Name="btn" FontFamily="Segoe MDL2 Assets" Content="&#xE107;" Width="50" Height="50" Background="Transparent" Grid.Column="1" Grid.Row="9"/>
 
                             </StackPanel>
@@ -131,7 +131,7 @@
 
                                 <ListView.ItemTemplate>
                                     <DataTemplate x:DataType="local:Product">
-                                        <StackPanel Width="700" Orientation="Horizontal" Height="51" BorderThickness="0,0,0,2" BorderBrush="Blue">
+                                        <StackPanel Width="700" Orientation="Horizontal" Height="51" BorderThickness="0,0,0,2" BorderBrush="MediumSeaGreen">
                                             <!--Nameddddd-->
                                             <TextBlock Text="{Binding Name}"/>
                                             <!--Price-->
@@ -148,7 +148,7 @@
                             <ListView  ItemsSource="{Binding ProductBrugskunstList}" SelectedItem="{Binding ProductItemViewModelSelected, Mode=TwoWay}"  x:Name="ListView2" Visibility="Collapsed" Background="White" HorizontalAlignment="Stretch" Height="auto" VerticalAlignment="Top" Width="Auto" BorderBrush="Black" BorderThickness="2">
                                 <ListView.ItemTemplate>
                                     <DataTemplate x:DataType="local:Product">
-                                        <StackPanel Width="700" Orientation="Horizontal" Height="51" BorderThickness="0,0,0,2" BorderBrush="Blue">
+                                        <StackPanel Width="700" Orientation="Horizontal" Height="51" BorderThickness="0,0,0,2" BorderBrush="MediumSeaGreen">
                                             <!--Name-->
                                             <TextBlock Text="{Binding Name}"/>
                                             <!--Price-->
@@ -164,7 +164,7 @@
                             <ListView ItemsSource="{Binding ProductSpecialiteterList}" SelectedItem="{Binding ProductItemViewModelSelected, Mode=TwoWay}"  x:Name="ListView3" Visibility="Collapsed" Background="White" HorizontalAlignment="Stretch" Height="auto" VerticalAlignment="Top" Width="Auto" BorderBrush="Black" BorderThickness="2">
                                 <ListView.ItemTemplate>
                                     <DataTemplate x:DataType="local:Product">
-                                        <StackPanel Width="700" Orientation="Horizontal" Height="51" BorderThickness="0,0,0,2" BorderBrush="Blue">
+                                        <StackPanel Width="700" Orientation="Horizontal" Height="51" BorderThickness="0,0,0,2" BorderBrush="MediumSeaGreen">
                                             <!--Name-->
                                             <TextBlock Text="{Binding Name}"/>
                                             <!--Price-->

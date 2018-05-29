@@ -46,7 +46,7 @@
                             <ColumnDefinition Width="475*"/>
                             <ColumnDefinition Width="75*"/>
                         </Grid.ColumnDefinitions>
-                        <TextBlock Text="ORDRELISTE:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" Height="20"/>
+                        <TextBlock Text="Ordreliste:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" Height="20"/>
                         <TextBlock Text="Ordrenummer:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left"/>
                         <TextBlock Text="Dato:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center"/>
                         <TextBlock Text="Pris:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right"/>
@@ -54,7 +54,7 @@
                         <ListView ItemsSource="{Binding ItemViewModelCollection}" SelectedItem="{Binding ItemViewModelSelected, Mode=TwoWay}" Background="LightGray" BorderThickness="1,1,1,1" Height="auto" BorderBrush="Black" Grid.Column="1" Grid.Row="2">
                             <ListView.ItemTemplate>
                                 <DataTemplate x:DataType="local:OrderIVM">
-                                    <StackPanel Width="700" Orientation="Horizontal" Height="51" BorderThickness="0,0,0,2" BorderBrush="Blue">
+                                    <StackPanel Width="700" Orientation="Horizontal" Height="51" BorderThickness="0,0,0,2" BorderBrush="MediumSeaGreen">
                                         <!--Order Number-->
                                         <TextBlock Text="{Binding ID}"/>
                                         <!--Date-->
@@ -91,10 +91,10 @@
                     <RowDefinition Height="10*"/>
                     <RowDefinition Height="10*"/>
                     <RowDefinition Height="10*"/>
-                    <RowDefinition Height="40*"/>
-                    <RowDefinition Height="5*"/>
                     <RowDefinition Height="20*"/>
                     <RowDefinition Height="5*"/>
+                    <RowDefinition Height="15*"/>
+                    <RowDefinition Height="5*"/>
                     <RowDefinition Height="20*"/>
                     <RowDefinition Height="10*"/>
                     <RowDefinition Height="10*"/>
@@ -102,6 +102,9 @@
                     <RowDefinition Height="10*"/>
                     <RowDefinition Height="10*"/>
                     <RowDefinition Height="10*"/>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="5*"/>
+                    <RowDefinition Height="15*"/>
                     <RowDefinition Height="10*"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
@@ -111,14 +114,16 @@
 
                 </Grid.ColumnDefinitions>
 
-                <TextBlock Text="Ordre beskrivelse:" FontSize="12" TextAlignment="Center" FontWeight="Bold" Grid.Column="1" Grid.Row="0"/>
+                <TextBlock Text="Ordre beskrivelse:" FontSize="12" TextAlignment="Center" FontWeight="Bold" Grid.Column="1" Grid.Row="0" />
                 <TextBlock Text="Ordrenummer:" FontSize="12" FontWeight="Bold" Grid.Column="0" Grid.Row="1" Margin="10,0,0,0"/>
-                <TextBox Text="{Binding Id}" IsEnabled="False" FontSize="12" Grid.Column="1" Grid.Row="1" BorderThickness="0,0,0,0"/>
+
+                <TextBlock Text="{Binding Id}" FontSize="12" Grid.Column="1" Grid.Row="1" Margin="10,0,0,0"/>
                 <TextBlock Text="Navn:" FontSize="12" FontWeight="Bold" Grid.Column="0" Grid.Row="2" Margin="10,0,0,0"/>
-                <TextBox Text="{Binding Name}" IsEnabled="False" FontSize="12" Grid.Column="1" Grid.Row="2" BorderThickness="0,0,0,0"/>
+                <TextBlock Text="{Binding Name}" FontSize="12" Grid.Column="1" Grid.Row="2"  Margin="10,0,0,0"/>
                 <TextBlock Text="Telefon:" FontSize="12" FontWeight="Bold" Grid.Column="0" Grid.Row="3" Margin="10,0,0,0"/>
-                <TextBox Text="{Binding Phone}" IsEnabled="False" FontSize="12" Grid.Column="1" Grid.Row="3" BorderThickness="0,0,0,0"/>
+                <TextBlock Text="{Binding Phone}" FontSize="12" Grid.Column="1" Grid.Row="3" Margin="10,0,0,0"/>
                 <TextBlock Text="Beskrivelse:" FontSize="12" FontWeight="Bold" Grid.Column="0" Grid.Row="4" Margin="10,0,0,0"/>
+
                 <TextBox Text="{Binding Description, Mode=TwoWay}" FontSize="12" Grid.Column="1" Grid.Row="4" BorderThickness="1" BorderBrush="Black"/>
                 <TextBlock Text="Korttekst:" FontSize="12" FontWeight="Bold" Grid.Column="0" Grid.Row="6" Margin="10,0,0,0"/>
                 <TextBox Text="{Binding CardMessage, Mode=TwoWay}" FontSize="12" Grid.Column="1" Grid.Row="6" BorderThickness="1" BorderBrush="Black"/>
@@ -136,22 +141,21 @@
                     <TextBox Text="1500 kr." TextAlignment="Right" FontSize="12" Grid.Column="3" BorderThickness="0,0,0,0"/>
                 </Grid>
                 <TextBlock Text="Total pris:" FontSize="12" FontWeight="Bold" Grid.Column="0" Grid.Row="9" Margin="10,0,0,0"/>
-                <TextBox Text="{Binding TotalPrice}" IsEnabled="False" FontSize="12" TextAlignment="Right" Grid.Column="1" Grid.Row="9" BorderThickness="0,0,0,0"/>
+                <TextBlock Text="{Binding TotalPrice}" FontSize="12" TextAlignment="Right" Grid.Column="1" Grid.Row="9" Margin="10,0,0,0"/>
                 <TextBlock Text="Levering:" FontWeight="Bold" FontSize="12" Grid.Column="0" Grid.Row="10" Margin="10,0,0,0"/>
-                <TextBlock Text="Delivery Date:" FontWeight="Bold" FontSize="12" Grid.Column="0" Grid.Row="11" Margin="10,0,0,0"/>
-                <TextBox Text="{Binding DeliveryDate}" FontSize="12" Grid.Column="1" Grid.Row="11" BorderThickness="0,0,0,0"/>
+                <TextBlock Text="Dato:" FontWeight="Bold" FontSize="12" Grid.Column="0" Grid.Row="11" Margin="10,0,0,0"/>
+                <TextBox Text="{Binding DeliveryDate}" FontSize="12" Grid.Column="1" Grid.Row="11" BorderThickness="1,1,1,0"/>
                 <TextBlock Text="Adresse:" FontWeight="Bold" FontSize="12" Grid.Column="0" Grid.Row="12" Margin="10,0,0,0"/>
-                <TextBox Text="Søborg Hovedgade 125" FontSize="12" Grid.Column="1" Grid.Row="12" BorderThickness="0,0,0,0"/>
-                <TextBlock Text="Postnummer:" FontWeight="Bold" FontSize="13" Grid.Column="0" Grid.Row="13" Margin="10,0,0,0"/>
-                <TextBox Text="2860" FontSize="12" Grid.Column="1" Grid.Row="13" BorderThickness="0,0,0,0"/>
-                <TextBlock Text="By:" FontWeight="Bold" FontSize="14" Grid.Column="0" Grid.Row="14" Margin="10,0,0,0"/>
-                <TextBox Text="Søborg" FontSize="12" Grid.Column="1" Grid.Row="14" BorderThickness="0,0,0,0"/>
+                <TextBox FontSize="12" Grid.Column="1" Grid.Row="12" BorderThickness="1,0,1,0"/>
+                <TextBlock Text="Postnummer:" FontSize="12" FontWeight="Bold" Grid.Column="0" Grid.Row="13" Margin="10,0,0,0"/>
+                <TextBox Grid.Column="1" Grid.Row="13" BorderThickness="1,0,1,0"/>
+                <TextBlock Text="By:" FontWeight="Bold" FontSize="12" Grid.Column="0" Grid.Row="14" Margin="10,0,0,0"/>
+                <TextBox FontSize="12" Grid.Column="1" Grid.Row="14" BorderThickness="1,0,1,0"/>
                 <TextBlock Text="Bestilt:" FontWeight="Bold" FontSize="12" Grid.Column="0" Grid.Row="15" Margin="10,0,0,0"/>
-                <TextBox Text="{Binding Date}" FontSize="12" Grid.Column="1" Grid.Row="15" BorderThickness="0,0,0,0"/>
-
-                <Button Content="Update" Command="{Binding UpdateCommand}" IsEnabled="{Binding IsItemSelected}" Grid.Column="2" Grid.Row="13"/>
-                <ComboBox SelectedIndex="{Binding OrderStatus,Mode=TwoWay}" ItemsSource="{Binding OrderStatusList}" Grid.Column="2" Grid.Row="14" />
-                <Button Content="Delete" Command="{Binding DeletionCommand}" IsEnabled="{Binding IsItemSelected}" Grid.Column="2" Grid.Row="15"/>
+                <TextBox Text="{Binding Date}" FontSize="12" Grid.Column="1" Grid.Row="15" BorderThickness="1,0,1,6" />
+                <Button Content="Opdater" Command="{Binding UpdateCommand}" IsEnabled="{Binding IsItemSelected}" Grid.Column="1" Grid.Row="17"/>
+                <ComboBox SelectedIndex="{Binding OrderStatus,Mode=TwoWay}" ItemsSource="{Binding OrderStatusList}" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="17" />
+                <Button Content="Slet" Command="{Binding DeletionCommand}" IsEnabled="{Binding IsItemSelected}" HorizontalAlignment="Right" Grid.Column="1" Grid.Row="17"/>
                 
             </Grid>
         </Grid>
