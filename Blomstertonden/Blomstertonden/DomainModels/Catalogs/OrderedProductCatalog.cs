@@ -16,7 +16,7 @@ namespace Blomstertonden
         public OrderedProductCatalog( string apiId) : base(new OrderedProductFactory(), apiId)
         {
             _orderedProductTDataList = new List<OrderedProductTData>();
-            //Load();
+            Load();
         }
 
         public static OrderedProductCatalog Instance
@@ -33,13 +33,19 @@ namespace Blomstertonden
 
         public async void DeleteOrdersOP(int _orderNumber)
         {
+            List<int> KeysToRemove = new List<int>();
             foreach (OrderedProduct op in _data.Values)
             {
                 if(op.FK_Order == _orderNumber)
                 {
-                    await Delete(op.Key);
+                    KeysToRemove.Add(op.Key);
                 }
             }
+            foreach (int key in KeysToRemove)
+            {
+                await Delete(key);
+            }
+            
         }
 
         public List<OrderedProductTData> OPTDataList { get => _orderedProductTDataList; set => _orderedProductTDataList = value; }

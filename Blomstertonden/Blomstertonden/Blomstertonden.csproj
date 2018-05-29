@@ -111,6 +111,7 @@
     <Compile Include="Controllers\Commands\OrderCommands\OrderProductDeleteCmd.cs" />
     <Compile Include="Controllers\Commands\OrderCommands\OrderUpdateCmd.cs" />
     <Compile Include="Controllers\Commands\ProductCommands\AddProductToOrder.cs" />
+    <Compile Include="Controllers\Commands\ProductCommands\DeleteProductFromOrderCmd.cs" />
     <Compile Include="Controllers\Commands\ProductCommands\ProductCreateCmd.cs" />
     <Compile Include="Controllers\Commands\ProductCommands\ProductDeleteCmd.cs" />
     <Compile Include="Controllers\Commands\ProductCommands\ProductUpdateCmd.cs" />
