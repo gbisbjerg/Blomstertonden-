@@ -13,7 +13,6 @@ namespace Blomstertonden
         {
             Product obj = new Product()
             {
-
                 Id = data.Key,
                 Name = data.Name,
                 Price = data.Price,
