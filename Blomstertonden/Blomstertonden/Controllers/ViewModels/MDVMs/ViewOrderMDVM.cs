@@ -122,6 +122,7 @@ namespace Blomstertonden
             get => _catalog.DataPackage.Street = ItemViewModelSelected.Obj.Street;
             set => _catalog.DataPackage.Street = value;
         }
+
         public int TotalPrice
         {
             get => _catalog.DataPackage.TotalPrice = ItemViewModelSelected.Obj.TotalPrice;
