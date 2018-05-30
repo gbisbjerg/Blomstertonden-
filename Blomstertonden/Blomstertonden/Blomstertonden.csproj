@@ -121,6 +121,7 @@
     <Compile Include="Controllers\TData\ProductTData.cs" />
     <Compile Include="Controllers\TData\UserTData.cs" />
     <Compile Include="Controllers\ViewModels\IVMs\CustomerIVM.cs" />
+    <Compile Include="Controllers\ViewModels\IVMs\OrderedProductIVM.cs" />
     <Compile Include="Controllers\ViewModels\IVMs\OrderIVM.cs" />
     <Compile Include="Controllers\ViewModels\IVMs\ProductIVM.cs" />
     <Compile Include="Controllers\ViewModels\IVMs\UserIVM.cs" />
@@ -131,6 +132,7 @@
     <Compile Include="Controllers\ViewModels\MDVMs\ViewOrderMDVM.cs" />
     <Compile Include="Controllers\ViewModels\ViewModelFactories\CustomerOrdersVMFactory.cs" />
     <Compile Include="Controllers\ViewModels\ViewModelFactories\CustomerVMFactory.cs" />
+    <Compile Include="Controllers\ViewModels\ViewModelFactories\OrderedProductVMFactory.cs" />
     <Compile Include="Controllers\ViewModels\ViewModelFactories\OrderVMFactory.cs" />
     <Compile Include="Controllers\ViewModels\ViewModelFactories\ProductVMFactory.cs" />
     <Compile Include="Controllers\ViewModels\ViewModelFactories\UserVMFactory.cs" />

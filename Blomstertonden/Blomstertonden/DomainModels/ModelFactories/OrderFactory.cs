@@ -16,7 +16,7 @@ namespace Blomstertonden
                 Id = data.Key,
                 Description = data.Description,
                 Date = data.Date,
-                DeliveryDate = data.DeliveryDate,
+                DeliveryDate = data.DeliveryDate.Value.DateTime,
                 Street = data.Street,
                 TotalPrice = data.TotalPrice,
                 CardMessage = data.CardMessage,
