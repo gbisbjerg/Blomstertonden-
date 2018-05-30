@@ -30,5 +30,11 @@ namespace Blomstertonden
             get => Quantity * ProductCatalog.Instance.GetProduct(Obj.FK_Product).Price;
         }
 
+        public int Price
+        {
+            get => ProductCatalog.Instance.GetProduct(Obj.FK_Product).Price;
+        }
+
+
     }
 }

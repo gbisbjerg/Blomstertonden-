@@ -64,7 +64,11 @@ namespace Blomstertonden
             foreach (OrderedProductTData opTData in _orderedProductCatalog.OPTDataList)
             {
                 opTData.FK_Order = Orderkey;
-                opTData.Quantity = 1;
+                if (opTData.Quantity <= 0)
+                {
+                    opTData.Quantity = 1;
+                }
+
                 await _orderedProductCatalog.Create(opTData);
             }
 
