@@ -114,9 +114,6 @@
 
                 </Grid.ColumnDefinitions>
 
-                <TextBlock Text="Ordre beskrivelse:" FontSize="12" TextAlignment="Center" FontWeight="Bold" Grid.Column="1" Grid.Row="0" />
-                <TextBlock Text="Ordrenummer:" FontSize="12" FontWeight="Bold" Grid.Column="0" Grid.Row="1" Margin="10,0,0,0"/>
-
                 <TextBlock Text="{Binding Id}" FontSize="12" Grid.Column="1" Grid.Row="1" Margin="10,0,0,0"/>
                 <TextBlock Text="Navn:" FontSize="12" FontWeight="Bold" Grid.Column="0" Grid.Row="2" Margin="10,0,0,0"/>
                 <TextBlock Text="{Binding Name}" FontSize="12" Grid.Column="1" Grid.Row="2"  Margin="10,0,0,0"/>
@@ -137,8 +134,19 @@
                         <ColumnDefinition Width="1*"/>
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
-                    <TextBox Text="Kistepynt" FontSize="12" Grid.Column="0" BorderThickness="0,0,0,0"/>
-                    <TextBox Text="1500 kr." TextAlignment="Right" FontSize="12" Grid.Column="3" BorderThickness="0,0,0,0"/>
+
+                    <ListView ItemsSource="{Binding OrderProducts}"  BorderThickness="1,1,1,1" Height="auto" BorderBrush="Black"  Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="0" >
+                        <ListView.ItemTemplate>
+                            <DataTemplate x:DataType="local:OrderedProductIVM">
+                                <StackPanel Width="700" Orientation="Horizontal" Height="51" BorderThickness="0,0,0,2" BorderBrush="MediumSeaGreen">
+                                    <TextBlock Text="{Binding Name}" Width="180"/>
+                                    <TextBlock Text="{Binding Quantity}" Width="30"/>
+                                    <TextBlock Text="{Binding TotalPrice}" Width="80"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+
                 </Grid>
                 <TextBlock Text="Total pris:" FontSize="12" FontWeight="Bold" Grid.Column="0" Grid.Row="9" Margin="10,0,0,0"/>
                 <TextBlock Text="{Binding TotalPrice}" FontSize="12" TextAlignment="Right" Grid.Column="1" Grid.Row="9" Margin="10,0,0,0"/>

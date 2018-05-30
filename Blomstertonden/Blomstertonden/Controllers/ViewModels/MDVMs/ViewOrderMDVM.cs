@@ -11,9 +11,13 @@ namespace Blomstertonden
     public class ViewOrderMDVM : MasterDetailsViewModelBase<OrderTData, Order, int>
     {
         private CustomerCatalog _customerCatalog;
+        private OrderedProductCatalog _orderedProduct;
+        private ViewModelFactoryBase<OrderedProductTData, OrderedProduct, int> _OrderedProductfactoryVM;
 
         public ViewOrderMDVM() : base(new OrderVMFactory(), OrderCatalog.Instance)
         {
+            _OrderedProductfactoryVM = new OrderedProductVMFactory();
+            _orderedProduct = OrderedProductCatalog.Instance;
             _customerCatalog = CustomerCatalog.Instance;
             _deleteCommand = new OrderDeleteCmd(_catalog, this);
             _updateCommand = new OrderUpdateCmd(_catalog, this);
@@ -35,6 +39,7 @@ namespace Blomstertonden
             OnPropertyChanged(nameof(Date));
             OnPropertyChanged(nameof(DeliveryDate));
             OnPropertyChanged(nameof(OrderStatus));
+            OnPropertyChanged(nameof(OrderProducts));
 
             _catalog.DataPackage.FK_Customer = Customer.Key;
             _catalog.DataPackage.FK_City = ItemViewModelSelected.Obj.FK_City;
@@ -127,7 +132,7 @@ namespace Blomstertonden
             get => _catalog.DataPackage.CardMessage = ItemViewModelSelected.Obj.CardMessage;
             set => _catalog.DataPackage.CardMessage = value;
         }
-        public DateTime? DeliveryDate
+        public DateTimeOffset? DeliveryDate
         {
             get => _catalog.DataPackage.DeliveryDate = ItemViewModelSelected.Obj.DeliveryDate;
             set => _catalog.DataPackage.DeliveryDate = value;
@@ -161,6 +166,13 @@ namespace Blomstertonden
                 return  ItemViewModelSelected.Obj.FK_Status - 1;
             }
             set { _catalog.DataPackage.FK_Status = value + 1; }
+        }
+        #endregion
+
+        #region ListofProducts
+        public List<ItemViewModelBase<OrderedProduct, int>> OrderProducts
+        {
+            get => _OrderedProductfactoryVM.GetItemViewModelCollection(OrderedProductCatalog.Instance, ItemViewModelSelected.Obj.Key);
         }
         #endregion
     }

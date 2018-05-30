@@ -193,25 +193,12 @@ namespace Blomstertonden
             }
         }
 
-        public DateTime? DeliveryDate
+        public DateTimeOffset? DeliveryDate
         {
             get =>  _catalog.DataPackage.DeliveryDate;
             set => _catalog.DataPackage.DeliveryDate = value;
         }
 
-        public void DeliveryDateSet()
-        {
-            if (_isDelivering == true)
-            {
-                _catalog.DataPackage.DeliveryDate = DateTime.Now;
-                OnPropertyChanged(nameof(DeliveryDate));
-            }
-            else
-            {
-                _catalog.DataPackage.DeliveryDate = null;
-                OnPropertyChanged(nameof(DeliveryDate));
-            }
-        }
         #endregion
 
         #region OrderedProduct
@@ -254,7 +241,6 @@ namespace Blomstertonden
             {
                 _isDelivering = value;
                 OnPropertyChanged();
-                DeliveryDateSet();
             }
         }
         #region ComboBox

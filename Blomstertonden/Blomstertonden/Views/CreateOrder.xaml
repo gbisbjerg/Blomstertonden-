@@ -179,8 +179,8 @@
                     </StackPanel>
                 </ScrollViewer>
 
-                <TextBlock Text="Antal" Grid.Row="1" Grid.Column="0" Margin="250, 15, 0, 0" />
-                <TextBox  Grid.Row="1" Grid.Column="0" Text="{Binding Quantity,Mode=TwoWay}" HorizontalAlignment="Right" Height="20" Margin="0, 2, 20, 0"/>
+                <TextBlock Height="20" Text="Antal" Grid.Row="1" Grid.Column="0" Margin="250, 0, 0, 0" />
+                <TextBox  Grid.Row="1" Grid.Column="0" Text="{Binding Quantity,Mode=TwoWay}" HorizontalAlignment="Right" Height="20" Margin="0, 0, 20, 0"/>
 
                 <Button Command="{Binding AddProductCommand}"  IsEnabled="{Binding IsItemSelected}" Grid.Row="1" Grid.Column="1" Content="Tilføj produkt" HorizontalAlignment="Left" />
 
