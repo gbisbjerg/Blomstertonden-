@@ -11,7 +11,6 @@ namespace Blomstertonden
 {
     public class OrderTData : IKey<int>
     {
-        private DateTimeOffset? _deliveryDate = DateTime.Now;
 
         public int Key { get; set; }
 
@@ -19,17 +18,8 @@ namespace Blomstertonden
 
         public DateTime Date { get; set; }
 
-        public DateTimeOffset? DeliveryDate
-        { 
-            get
-            {
-                return _deliveryDate;
-            }
-            set
-            {
-                _deliveryDate = value;
-            }
-        }
+        public DateTime? DeliveryDate { get; set; }
+
         [StringLength(100)]
         public string Street { get; set; }
 

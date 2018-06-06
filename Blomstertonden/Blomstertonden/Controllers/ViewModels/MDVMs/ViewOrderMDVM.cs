@@ -136,7 +136,7 @@ namespace Blomstertonden
         public DateTimeOffset? DeliveryDate
         {
             get => _catalog.DataPackage.DeliveryDate = ItemViewModelSelected.Obj.DeliveryDate;
-            set => _catalog.DataPackage.DeliveryDate = value;
+            set => _catalog.DataPackage.DeliveryDate = value.Value.DateTime;
         }
 
         #endregion
