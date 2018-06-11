@@ -62,7 +62,7 @@
                                 <TextBlock Text="{Binding Name}" Width="155" TextAlignment="Left" VerticalAlignment="Center" FontSize="12"/>
                                 <!--Price-->
                                 <TextBlock Text="{Binding Price}" TextAlignment="Left" VerticalAlignment="Center" FontSize="12"/>
-                                <TextBlock Text="kr." VerticalAlignment="Center" Margin="3,0,0,0"/>
+                                <TextBlock Text="kr." VerticalAlignment="Center" Margin="3,0,0,0" FontSize="12"/>
                             </StackPanel>
 
                         </DataTemplate>
