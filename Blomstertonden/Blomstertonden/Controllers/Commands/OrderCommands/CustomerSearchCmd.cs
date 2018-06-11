@@ -16,7 +16,7 @@ namespace Blomstertonden
         {
             _vm = viewModel;
         }
-        public void Execute2()
+        public override void Execute()
         {
             Customer obj = new Customer();
             bool found = false;
@@ -30,27 +30,14 @@ namespace Blomstertonden
                     _vm.Stamps = i.Value.Stamps;
 
                     found = true;
+                    _vm.IsErrorBoxVisible = false;
                 }
             }
             if (!found)
             {
-                throw new System.DivideByZeroException();
-            }
+                _vm.IsErrorBoxVisible = true;
+            }      
         }
-
-        public override void Execute()
-        {
-            try
-            {
-                Execute2();
-            }
-            catch (DivideByZeroException e)
-            {
-                throw e;
-            }
-        }
-
-
         public override bool CanExecute()
         {
             return base.CanExecute();
