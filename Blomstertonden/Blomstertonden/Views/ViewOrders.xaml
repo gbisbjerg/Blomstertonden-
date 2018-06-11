@@ -113,7 +113,7 @@
                     <ColumnDefinition Width="75*"/>
 
                 </Grid.ColumnDefinitions>
-
+                <TextBlock Text="Ordrenummer:" FontSize="12" FontWeight="Bold" Grid.Column="0" Grid.Row="1" Margin="10,0,0,0"/>
                 <TextBlock Text="{Binding Id}" FontSize="12" Grid.Column="1" Grid.Row="1" Margin="10,0,0,0"/>
                 <TextBlock Text="Navn:" FontSize="12" FontWeight="Bold" Grid.Column="0" Grid.Row="2" Margin="10,0,0,0"/>
                 <TextBlock Text="{Binding Name}" FontSize="12" Grid.Column="1" Grid.Row="2"  Margin="10,0,0,0"/>

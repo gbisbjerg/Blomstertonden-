@@ -9,10 +9,8 @@ namespace Blomstertonden
 {
     public class OrderedProductTData : IKey<int>
     {
-        private Tuple<int, int> _composite;
         public OrderedProductTData()
         {
-            _composite = new Tuple<int, int>(FK_Order, FK_Product);
         }
         public int Key { get; set; }
 
