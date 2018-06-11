@@ -13,7 +13,6 @@ namespace Blomstertonden
         {
             OrderedProduct obj = new OrderedProduct
             {
-                Key = data.Key,
                 FK_Order = data.FK_Order,
                 FK_Product = data.FK_Product,
                 Quantity = data.Quantity

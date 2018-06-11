@@ -195,8 +195,8 @@ namespace Blomstertonden
 
         public DateTimeOffset? DeliveryDate
         {
-            get =>  _catalog.DataPackage.DeliveryDate;
-            set => _catalog.DataPackage.DeliveryDate = value;
+            get =>  _catalog.DataPackage.DeliveryDate = DateTime.Now;
+            set => _catalog.DataPackage.DeliveryDate = value.Value.DateTime;
         }
 
         #endregion
