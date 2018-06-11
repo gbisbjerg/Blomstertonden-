@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,7 @@ namespace Blomstertonden
         {
             Customer obj = new Customer();
             bool found = false;
+
             foreach (KeyValuePair<int, Customer> i in CustomerCatalog.Instance.Data)
             {
                 if (i.Value.Phone == _vm.Phone)
@@ -28,11 +30,13 @@ namespace Blomstertonden
                     _vm.Stamps = i.Value.Stamps;
 
                     found = true;
-                }            }
+                }
+            }
             if (!found)
             {
-                throw new NotImplementedException();
+                throw new System.Exception("Nummer findes ikke");
             }
+
             
         }
         public override bool CanExecute()
