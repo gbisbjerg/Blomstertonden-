@@ -30,14 +30,13 @@ namespace Blomstertonden
                     _vm.Stamps = i.Value.Stamps;
 
                     found = true;
+                    _vm.IsErrorBoxVisible = false;
                 }
             }
             if (!found)
             {
-                throw new System.Exception("Nummer findes ikke");
-            }
-
-            
+                _vm.IsErrorBoxVisible = true;
+            }      
         }
         public override bool CanExecute()
         {

@@ -22,6 +22,7 @@ namespace Blomstertonden
         private DeleteProductFromOrderCmd _deleteProductFromOrderCmd;
         private ClearDataPackagesCmd _clear;
         private bool _isProductSelected = false;
+        private bool _isErrorBoxVisible;
 
         private static ObservableCollection<OrderedProductTData> _addedProducts = new ObservableCollection<OrderedProductTData>();
         private OrderedProductTData _selectedProduct;
@@ -232,25 +233,22 @@ namespace Blomstertonden
 
 
 
-        public ICommand CustomerSerarchCmd
+        public ICommand CustomerSerarchCmd => _customerSerarchCmd;
+
+        public bool IsErrorBoxVisible
         {
             get
             {
-                try
-                {
-                    return _customerSerarchCmd;
-                }
-                catch (Exception e)
-                {
-                    ErrorBoxText = e.ToString();
-                    OnPropertyChanged(nameof(IsErrorBoxVisible));
-                }
-                return new CommandDoNothing();
+                return _isErrorBoxVisible;
+            }
+            set
+            {
+                _isErrorBoxVisible = value;
+                OnPropertyChanged();
             }
         }
 
-        public bool IsErrorBoxVisible { get; }
-        public string ErrorBoxText { get; set; }
+        public string ErrorBoxText { get { return "Nummer eksister ikke!"; } }
 
         public bool IsDelivering
         {
