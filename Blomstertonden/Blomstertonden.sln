@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebService3", "WebService3\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebService4", "WebService4\WebService4.csproj", "{00D5D276-1325-4DFD-9C8A-03E7B9593591}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest2", "UnitTest2\UnitTest2.csproj", "{BDA6CD35-466E-4D85-ADBF-9FA6BD28003E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -73,6 +75,26 @@ Global
 		{00D5D276-1325-4DFD-9C8A-03E7B9593591}.Release|x64.Build.0 = Release|Any CPU
 		{00D5D276-1325-4DFD-9C8A-03E7B9593591}.Release|x86.ActiveCfg = Release|Any CPU
 		{00D5D276-1325-4DFD-9C8A-03E7B9593591}.Release|x86.Build.0 = Release|Any CPU
+		{BDA6CD35-466E-4D85-ADBF-9FA6BD28003E}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{BDA6CD35-466E-4D85-ADBF-9FA6BD28003E}.Debug|ARM.ActiveCfg = Debug|ARM
+		{BDA6CD35-466E-4D85-ADBF-9FA6BD28003E}.Debug|ARM.Build.0 = Debug|ARM
+		{BDA6CD35-466E-4D85-ADBF-9FA6BD28003E}.Debug|ARM.Deploy.0 = Debug|ARM
+		{BDA6CD35-466E-4D85-ADBF-9FA6BD28003E}.Debug|x64.ActiveCfg = Debug|x64
+		{BDA6CD35-466E-4D85-ADBF-9FA6BD28003E}.Debug|x64.Build.0 = Debug|x64
+		{BDA6CD35-466E-4D85-ADBF-9FA6BD28003E}.Debug|x64.Deploy.0 = Debug|x64
+		{BDA6CD35-466E-4D85-ADBF-9FA6BD28003E}.Debug|x86.ActiveCfg = Debug|x86
+		{BDA6CD35-466E-4D85-ADBF-9FA6BD28003E}.Debug|x86.Build.0 = Debug|x86
+		{BDA6CD35-466E-4D85-ADBF-9FA6BD28003E}.Debug|x86.Deploy.0 = Debug|x86
+		{BDA6CD35-466E-4D85-ADBF-9FA6BD28003E}.Release|Any CPU.ActiveCfg = Release|x86
+		{BDA6CD35-466E-4D85-ADBF-9FA6BD28003E}.Release|ARM.ActiveCfg = Release|ARM
+		{BDA6CD35-466E-4D85-ADBF-9FA6BD28003E}.Release|ARM.Build.0 = Release|ARM
+		{BDA6CD35-466E-4D85-ADBF-9FA6BD28003E}.Release|ARM.Deploy.0 = Release|ARM
+		{BDA6CD35-466E-4D85-ADBF-9FA6BD28003E}.Release|x64.ActiveCfg = Release|x64
+		{BDA6CD35-466E-4D85-ADBF-9FA6BD28003E}.Release|x64.Build.0 = Release|x64
+		{BDA6CD35-466E-4D85-ADBF-9FA6BD28003E}.Release|x64.Deploy.0 = Release|x64
+		{BDA6CD35-466E-4D85-ADBF-9FA6BD28003E}.Release|x86.ActiveCfg = Release|x86
+		{BDA6CD35-466E-4D85-ADBF-9FA6BD28003E}.Release|x86.Build.0 = Release|x86
+		{BDA6CD35-466E-4D85-ADBF-9FA6BD28003E}.Release|x86.Deploy.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
