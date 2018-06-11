@@ -232,7 +232,25 @@ namespace Blomstertonden
 
 
 
-        public CustomerSearchCmd CustomerSerarchCmd => _customerSerarchCmd;
+        public ICommand CustomerSerarchCmd
+        {
+            get
+            {
+                try
+                {
+                    return _customerSerarchCmd;
+                }
+                catch (Exception e)
+                {
+                    ErrorBoxText = e.ToString();
+                    OnPropertyChanged(nameof(IsErrorBoxVisible));
+                }
+                return new CommandDoNothing();
+            }
+        }
+
+        public bool IsErrorBoxVisible { get; }
+        public string ErrorBoxText { get; set; }
 
         public bool IsDelivering
         {

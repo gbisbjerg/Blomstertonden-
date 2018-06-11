@@ -67,7 +67,7 @@
                 <TextBlock Text="ORDRE:" VerticalAlignment="Center" FontWeight="Bold" FontSize="12" Grid.Column="0" Grid.Row="4" Margin="10,0,0,0"/>
                 <TextBlock Text="BESKRIVELSE:" FontWeight="Bold" TextAlignment="Center" VerticalAlignment="Center" FontSize="12" Grid.Column="1" Grid.Row="4"/>
                 <TextBox  Text="{Binding Description, Mode=TwoWay}" VerticalAlignment="Stretch" Background="LightGray" TextWrapping="Wrap" BorderThickness="1,1,1,1" BorderBrush="Black" PlaceholderText="Beskrivelse af ordre" FontSize="12" Grid.Column="1" Grid.Row="5" Margin="0,10"/>
-                
+
                 <Border Grid.ColumnSpan="3" Grid.Row="6" BorderThickness="0,0,0,1"  BorderBrush="Black"/>
                 <TextBlock Text="Produkt:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="7" HorizontalAlignment="Left"  Margin="10, 0, 0, 0"/>
                 <TextBlock Text="Antal:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="7" HorizontalAlignment="Center"/>
@@ -80,7 +80,7 @@
                                 <!--Name-->
                                 <TextBlock Width="175" Text="{Binding Name}"/>
                                 <!--Quantity-->
-                                <TextBlock  Width="150"  Text="{Binding Quantity}"/>                                
+                                <TextBlock  Width="150"  Text="{Binding Quantity}"/>
                                 <!--Price-->
                                 <TextBlock Width="200" Text="{Binding TotalPrice}"/>
 
@@ -88,7 +88,7 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-                
+
                 <TextBlock Text="Total pris: " TextAlignment="Right" VerticalAlignment="Center" FontSize="12" Grid.Column="1" Width="175" Grid.Row="9"/>
 
                 <StackPanel Background="LightGray" BorderThickness="1,1,1,1" BorderBrush="Black" HorizontalAlignment="Right" Grid.Column="1" Width="100" Height="30" Grid.Row="9">
@@ -96,6 +96,7 @@
                 </StackPanel>
                 <Button Content="Til betaling" FontSize="12" BorderThickness="1,1,1,1" Width="100" BorderBrush="Black"  Grid.Column="1" Grid.Row="9" Height="32" Margin="120,0,10,0" MinWidth="40" Click="BtnClickP1" />
                 <Button  Command="{Binding DeleteProductFromOrder}"  IsEnabled="{Binding IsProductItemSelected}"  x:Name="btn" Content="Fjern Product" FontSize="12" BorderBrush="Black" BorderThickness="1,1,1,1" Width="100" Height="30" Background="LightGray" Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="9" Margin="62, 0, 0, 0"/>
+                <TextBlock Grid.ColumnSpan="3" HorizontalAlignment="Left" Margin="82,144,-130,-154" Grid.RowSpan="10" Text="{Binding ErrorBoxText}" TextWrapping="Wrap" VerticalAlignment="Top" Height="10" Width="48" FontSize="8" Foreground="red" Visibility="{Binding IsErrorBoxVisible}"/>
 
             </Grid>
         </Grid>
@@ -140,7 +141,7 @@
                                         </StackPanel>
                                     </DataTemplate>
                                 </ListView.ItemTemplate>
-                                
+
                             </ListView>
                         </StackPanel>
 
