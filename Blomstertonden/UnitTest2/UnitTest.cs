@@ -9,6 +9,15 @@ namespace UnitTest2
     [TestClass]
     public class UnitTest1
     {
+
+        int _customerFK;
+        int _orderFK;
+        public UnitTest1()
+        {
+            _customerFK = GenerateCustomer().Result;
+            _orderFK = GenerateOrder(_customerFK).Result;
+        }
+
         OrderCatalog _orderCatalog = OrderCatalog.Instance;
         CustomerCatalog _customerCatalog = CustomerCatalog.Instance;
 
@@ -51,69 +60,71 @@ namespace UnitTest2
             return OrderFK;
         }
 
-        public async void Clear(int CustomerFK, int OrderFK)
+        [TestMethod]
+        public void CreateOrder()
         {
-            await _customerCatalog.Delete(CustomerFK);
-            await _orderCatalog.Delete(OrderFK);
+            Customer customer = _customerCatalog.Read(_customerFK).Result;
+            Order order = _orderCatalog.Read(_orderFK).Result;
+            Assert.AreEqual(_customerFK, customer.Key);
+            Assert.AreEqual(_orderFK, order.Key);
         }
 
         [TestMethod]
-        public async Task CreateOrder()
+        public void QualifyStamps()
         {
-            // arrange  
-            // act
-            int CustomerFK = await GenerateCustomer();
-            int OrderFK = await GenerateOrder(CustomerFK);
-
-            // assert  
-            Customer customer = await _customerCatalog.Read(CustomerFK);
-            Order order = await _orderCatalog.Read(OrderFK);
-            Assert.AreEqual(CustomerFK, customer.Key);
-            Assert.AreEqual(OrderFK, order.Key);
-
-            Clear(CustomerFK, OrderFK);
+            Assert.AreEqual(false, _orderCatalog.QualifyStamp(_orderFK));
         }
 
         [TestMethod]
-        public async Task DeleteOrder()
+        public void Stamp()
         {
-            // arrange 
-            int CustomerFK = await GenerateCustomer();
-            int OrderFK = await GenerateOrder(CustomerFK);
+            Customer _customer;
+            _customerCatalog.Data.TryGetValue(_customerFK, out _customer);
 
-            // act
-            await _customerCatalog.Delete(CustomerFK);
-            await _orderCatalog.Delete(OrderFK);
-
-            // assert  
-            Assert.AreEqual(null, _customerCatalog.Read(CustomerFK));
-            Assert.AreEqual(null, _orderCatalog.Read(OrderFK));
+            Assert.AreEqual(0, _customer.Stamps);
         }
 
-        [TestMethod]
-        public async Task UpdateOrder()
-        {
-            // arrange 
-            int CustomerFK = await GenerateCustomer();
-            int OrderFK = await GenerateOrder(CustomerFK);
 
+        [TestMethod]
+        public void UpdateOrder()
+        {
             CustomerTData customerTData = GenerateCustomerTData();
-            OrderTData orderTData = GenerateOrderTData(0);
+            OrderTData orderTData = GenerateOrderTData(_customerFK);
 
+            customerTData.Key = _customerFK;
             customerTData.Name = "New Name";
+            orderTData.Key = _orderFK;
             orderTData.CardMessage = "New Card";
-            // act
-            await _customerCatalog.Update(customerTData);
-            await _orderCatalog.Update(orderTData);
 
-            // assert  
-            Customer customer = await _customerCatalog.Read(CustomerFK);
-            Order order = await _orderCatalog.Read(OrderFK);
+            _customerCatalog.Update(customerTData).Wait();
+            _orderCatalog.Update(orderTData).Wait();
 
-            Assert.AreEqual("New Name", customer.Name);
-            Assert.AreEqual(null, order.CardMessage);
+            Order _order;
+            _orderCatalog.Data.TryGetValue(_orderFK, out _order);
 
-            Clear(CustomerFK, OrderFK);
+            Customer _customer;
+            _customerCatalog.Data.TryGetValue(_customerFK, out _customer);
+
+            Assert.AreEqual("New Name", _customer.Name);
+            Assert.AreEqual("New Card", _order.CardMessage);
         }
+
+        [TestMethod]
+        public void DeleteOrder()
+        {
+            _orderCatalog.Delete(_orderFK).Wait();
+            _customerCatalog.Delete(_customerFK).Wait();
+
+            Order _order;
+            _orderCatalog.Data.TryGetValue(_orderFK, out _order);
+
+            Customer _customer;
+            _customerCatalog.Data.TryGetValue(_customerFK, out _customer);
+
+            Assert.AreEqual(null, _order);
+            Assert.AreEqual(null, _customer);
+        }
+
+
     }
 }

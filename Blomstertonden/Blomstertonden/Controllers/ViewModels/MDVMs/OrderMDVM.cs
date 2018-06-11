@@ -240,7 +240,7 @@ namespace Blomstertonden
                 {
                     return _customerSerarchCmd;
                 }
-                catch (Exception e)
+                catch (DivideByZeroException e)
                 {
                     ErrorBoxText = e.ToString();
                     OnPropertyChanged(nameof(IsErrorBoxVisible));

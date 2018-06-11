@@ -16,7 +16,7 @@ namespace Blomstertonden
         {
             _vm = viewModel;
         }
-        public override void Execute()
+        public void Execute2()
         {
             Customer obj = new Customer();
             bool found = false;
@@ -34,11 +34,23 @@ namespace Blomstertonden
             }
             if (!found)
             {
-                throw new System.Exception("Nummer findes ikke");
+                throw new System.DivideByZeroException();
             }
-
-            
         }
+
+        public override void Execute()
+        {
+            try
+            {
+                Execute2();
+            }
+            catch (DivideByZeroException e)
+            {
+                throw e;
+            }
+        }
+
+
         public override bool CanExecute()
         {
             return base.CanExecute();
