@@ -70,19 +70,23 @@
                 
                 <Border Grid.ColumnSpan="3" Grid.Row="6" BorderThickness="0,0,0,1"  BorderBrush="Black"/>
                 <TextBlock Text="Produkt:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="7" HorizontalAlignment="Left"  Margin="10, 0, 0, 0"/>
-                <TextBlock Text="Antal:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="7" HorizontalAlignment="Center"/>
-                <TextBlock Text="Pris:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="7" HorizontalAlignment="Right" Margin="0, 0 ,30, 0"/>
+                <TextBlock Text="Antal:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="7" HorizontalAlignment="Center" Margin="10, 0, 0, 0"/>
+                <TextBlock Text="Pris:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="7" HorizontalAlignment="Right" Margin="0, 0 ,50, 0"/>
+                
 
                 <ListView ItemsSource="{Binding AddedProducts}" SelectedItem="{Binding SelectedProduct, Mode=TwoWay}" Background="LightGray" BorderThickness="1,1,1,1" BorderBrush="Black" Grid.Column="1" Grid.Row="8">
                     <ListView.ItemTemplate>
                         <DataTemplate x:DataType="local:OrderedProductTData">
                             <StackPanel Width="400" Orientation="Horizontal" Height="51" BorderThickness="0,0,0,2" BorderBrush="MediumSeaGreen">
                                 <!--Name-->
-                                <TextBlock Width="175" Text="{Binding Name}"/>
+                                <TextBlock Width="175" Text="{Binding Name}" VerticalAlignment="Center"/>
                                 <!--Quantity-->
-                                <TextBlock  Width="150"  Text="{Binding Quantity}"/>                                
+                                <TextBlock  Width="130"  Text="{Binding Quantity}" VerticalAlignment="Center"/>                     
                                 <!--Price-->
-                                <TextBlock Width="200" Text="{Binding TotalPrice}"/>
+                                <TextBlock Text="{Binding TotalPrice}" VerticalAlignment="Center"/>
+                                <TextBlock Text="kr." VerticalAlignment="Center" Margin="3,0,0,0"/>
+
+
 
                             </StackPanel>
                         </DataTemplate>
@@ -127,16 +131,17 @@
                     <StackPanel MinWidth="250"  Height="auto" Width="auto" VerticalAlignment="Top">
 
                         <StackPanel>
-                            <Button Content="Blomster" FontSize="30px" Height="60px" HorizontalAlignment="Stretch" BorderThickness="0,0,0,2" BorderBrush="Black" Click="Button_Click" Background="#3F1E7832"/>
+                            <Button Content="Buket" FontSize="30px" Height="60px" HorizontalAlignment="Stretch" BorderThickness="0,0,0,2" BorderBrush="Black" Click="Button_Click" Background="#3F1E7832"/>
                             <ListView  ItemsSource="{Binding ProductBuketList}" SelectedItem="{Binding ProductItemViewModelSelected, Mode=TwoWay}" Visibility="Collapsed" x:Name="ListView1" Background="White" HorizontalAlignment="Stretch" Height="auto" VerticalAlignment="Top" Width="Auto" BorderBrush="Black" BorderThickness="2">
 
                                 <ListView.ItemTemplate>
                                     <DataTemplate x:DataType="local:Product">
                                         <StackPanel Width="700" Orientation="Horizontal" Height="51" BorderThickness="0,0,0,2" BorderBrush="MediumSeaGreen">
                                             <!--Nameddddd-->
-                                            <TextBlock Text="{Binding Name}"/>
+                                            <TextBlock Text="{Binding Name}" Width="150" VerticalAlignment="Center"/>
                                             <!--Price-->
-                                            <TextBlock Text="{Binding Price}"/>
+                                            <TextBlock Text="{Binding Price}" VerticalAlignment="Center"/>
+                                            <TextBlock Text="kr." VerticalAlignment="Center" Margin="3,0,0,0"/>
                                         </StackPanel>
                                     </DataTemplate>
                                 </ListView.ItemTemplate>
@@ -145,15 +150,16 @@
                         </StackPanel>
 
                         <StackPanel>
-                            <Button Content="Buketter" FontSize="30px" Height="60px" HorizontalAlignment="Stretch" BorderThickness="0,0,0,2" BorderBrush="Black" Click="Button_Click_1" Background="#3F1E7832"/>
+                            <Button Content="Brugskunst" FontSize="30px" Height="60px" HorizontalAlignment="Stretch" BorderThickness="0,0,0,2" BorderBrush="Black" Click="Button_Click_1" Background="#3F1E7832"/>
                             <ListView  ItemsSource="{Binding ProductBrugskunstList}" SelectedItem="{Binding ProductItemViewModelSelected, Mode=TwoWay}"  x:Name="ListView2" Visibility="Collapsed" Background="White" HorizontalAlignment="Stretch" Height="auto" VerticalAlignment="Top" Width="Auto" BorderBrush="Black" BorderThickness="2">
                                 <ListView.ItemTemplate>
                                     <DataTemplate x:DataType="local:Product">
                                         <StackPanel Width="700" Orientation="Horizontal" Height="51" BorderThickness="0,0,0,2" BorderBrush="MediumSeaGreen">
                                             <!--Name-->
-                                            <TextBlock Text="{Binding Name}"/>
+                                            <TextBlock Text="{Binding Name}" Width="150" VerticalAlignment="Center"/>
                                             <!--Price-->
-                                            <TextBlock Text="{Binding Price}"/>
+                                            <TextBlock Text="{Binding Price}" VerticalAlignment="Center"/>
+                                            <TextBlock Text="kr." VerticalAlignment="Center" Margin="3,0,0,0"/>
                                         </StackPanel>
                                     </DataTemplate>
                                 </ListView.ItemTemplate>
@@ -167,9 +173,10 @@
                                     <DataTemplate x:DataType="local:Product">
                                         <StackPanel Width="700" Orientation="Horizontal" Height="51" BorderThickness="0,0,0,2" BorderBrush="MediumSeaGreen">
                                             <!--Name-->
-                                            <TextBlock Text="{Binding Name}"/>
+                                            <TextBlock Text="{Binding Name}" Width="150" VerticalAlignment="Center"/>
                                             <!--Price-->
-                                            <TextBlock Text="{Binding Price}"/>
+                                            <TextBlock Text="{Binding Price}" VerticalAlignment="Center"/>
+                                            <TextBlock Text="kr." VerticalAlignment="Center" Margin="3,0,0,0"/>
                                         </StackPanel>
                                     </DataTemplate>
                                 </ListView.ItemTemplate>

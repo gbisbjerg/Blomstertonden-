@@ -143,7 +143,10 @@
                             <StackPanel Orientation="Horizontal" Height="51" BorderThickness="0,0,0,2" BorderBrush="MediumSeaGreen" >
                                 <TextBlock Text="{Binding ID}" Width="75" TextAlignment="Left" VerticalAlignment="Center" FontSize="12"/>
                                 <TextBlock Text="{Binding Date}" Width="225"  VerticalAlignment="Center" FontSize="12"/>
-                                <TextBlock Text="{Binding Price}" Width="50"  VerticalAlignment="Center" FontSize="12"/>
+                                <TextBlock Text="{Binding Price}" VerticalAlignment="Center" FontSize="12"/>
+                                <TextBlock Text="kr." VerticalAlignment="Center" Margin="3,0,0,0" FontSize="12"/>
+
+                                
                             </StackPanel>
                         </DataTemplate>
                     </ListView.ItemTemplate>

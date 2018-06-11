@@ -48,19 +48,20 @@
                         </Grid.ColumnDefinitions>
                         <TextBlock Text="Ordreliste:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" Height="20"/>
                         <TextBlock Text="Ordrenummer:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left"/>
-                        <TextBlock Text="Dato:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center"/>
-                        <TextBlock Text="Pris:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right"/>
+                        <TextBlock Text="Dato:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" Margin="0, 0, 70, 0"/>
+                        <TextBlock Text="Pris:" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right" Margin="0, 0,45, 0"/>
 
                         <ListView ItemsSource="{Binding ItemViewModelCollection}" SelectedItem="{Binding ItemViewModelSelected, Mode=TwoWay}" Background="LightGray" BorderThickness="1,1,1,1" Height="auto" BorderBrush="Black" Grid.Column="1" Grid.Row="2">
                             <ListView.ItemTemplate>
                                 <DataTemplate x:DataType="local:OrderIVM">
-                                    <StackPanel Width="700" Orientation="Horizontal" Height="51" BorderThickness="0,0,0,2" BorderBrush="MediumSeaGreen">
+                                    <StackPanel Width="700" Orientation="Horizontal" Height="40" BorderThickness="0,0,0,2" BorderBrush="MediumSeaGreen">
                                         <!--Order Number-->
-                                        <TextBlock Text="{Binding ID}"/>
+                                        <TextBlock Text="{Binding ID}" Width="125" VerticalAlignment="Center"/>
                                         <!--Date-->
-                                        <TextBlock Text="{Binding Date}"/>
+                                        <TextBlock Text="{Binding Date}" Width="170" VerticalAlignment="Center"/>
                                         <!--Price-->
-                                        <TextBlock Text="{Binding Price}"/>
+                                        <TextBlock Text="{Binding Price}" VerticalAlignment="Center"/>
+                                        <TextBlock Text="kr." VerticalAlignment="Center" Margin="3,0,0,0"/>
                                     </StackPanel>
                                 </DataTemplate>
                             </ListView.ItemTemplate>
@@ -95,12 +96,13 @@
                     <RowDefinition Height="5*"/>
                     <RowDefinition Height="15*"/>
                     <RowDefinition Height="5*"/>
+                    <RowDefinition Height="10*"/>
                     <RowDefinition Height="20*"/>
                     <RowDefinition Height="10*"/>
                     <RowDefinition Height="10*"/>
                     <RowDefinition Height="10*"/>
                     <RowDefinition Height="10*"/>
-                    <RowDefinition Height="10*"/>
+                                        <RowDefinition Height="10*"/>
                     <RowDefinition Height="10*"/>
                     <RowDefinition Height="10*"/>
                     <RowDefinition Height="5*"/>
@@ -124,10 +126,10 @@
                 <TextBox Text="{Binding Description, Mode=TwoWay}" FontSize="12" Grid.Column="1" Grid.Row="4" BorderThickness="1" BorderBrush="Black"/>
                 <TextBlock Text="Korttekst:" FontSize="12" FontWeight="Bold" Grid.Column="0" Grid.Row="6" Margin="10,0,0,0"/>
                 <TextBox Text="{Binding CardMessage, Mode=TwoWay}" FontSize="12" Grid.Column="1" Grid.Row="6" BorderThickness="1" BorderBrush="Black"/>
-                <TextBlock Text="Pris:" FontSize="12" FontWeight="Bold" Grid.Column="0" Grid.Row="8" Margin="10,0,0,0"/>
+                <TextBlock Text="Pris:" FontSize="12" FontWeight="Bold" Grid.Column="0" Grid.Row="9" Margin="10,0,0,0"/>
 
 
-                <Grid Grid.Row="8" Grid.Column="1" BorderBrush="Black" BorderThickness="1">
+                <Grid Grid.Row="9" Grid.Column="1" BorderBrush="Black" BorderThickness="1">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*"/>
                         <ColumnDefinition Width="1*"/>
@@ -135,36 +137,45 @@
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
 
+
+
                     <ListView ItemsSource="{Binding OrderProducts}" Height="auto" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="0" >
                         <ListView.ItemTemplate>
                             <DataTemplate x:DataType="local:OrderedProductIVM">
-                                <StackPanel Width="700" Orientation="Horizontal" Height="51" BorderThickness="0,0,0,2" BorderBrush="MediumSeaGreen">
-                                    <TextBlock Text="{Binding Name}" FontSize="12" Width="180"/>
-                                    <TextBlock Text="{Binding Quantity}" FontSize="12" Width="50"/>
-                                    <TextBlock Text="{Binding Price}" FontSize="12" Width="50"/>
-                                    <TextBlock Text="{Binding TotalPrice}" FontSize="12" Width="50"/>
+                                
+                                <StackPanel Width="700" Orientation="Horizontal" Height="40" BorderThickness="0,0,0,2" BorderBrush="MediumSeaGreen">
+                                    <TextBlock Text="{Binding Name}" FontSize="12" Width="180" VerticalAlignment="Center"/>
+                                    <TextBlock Text="{Binding Quantity}" FontSize="12" Width="50" VerticalAlignment="Center"/>
+                                    <TextBlock Text="{Binding Price}" FontSize="12" Width="50" VerticalAlignment="Center"/>
+                                    <TextBlock Text="{Binding TotalPrice}" FontSize="12" Width="50" VerticalAlignment="Center"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
 
                 </Grid>
-                <TextBlock Text="Total pris:" FontSize="12" FontWeight="Bold" Grid.Column="0" Grid.Row="9" Margin="10,0,0,0"/>
-                <TextBlock Text="{Binding TotalPrice}" FontSize="12" TextAlignment="Right" Grid.Column="1" Grid.Row="9" Margin="0,0,28,0"/>
-                <TextBlock Text="Levering:" FontWeight="Bold" FontSize="12" Grid.Column="0" Grid.Row="10" Margin="10,0,0,0"/>
-                <TextBlock Text="Dato:" FontWeight="Bold" FontSize="12" Grid.Column="0" Grid.Row="11" Margin="10,0,0,0"/>
-                <TextBox Text="{Binding DeliveryDate}" FontSize="12" Grid.Column="1" Grid.Row="11" BorderThickness="0,0,0,0"/>
-                <TextBlock Text="Adresse:" FontWeight="Bold" FontSize="12" Grid.Column="0" Grid.Row="12" Margin="10,0,0,0"/>
-                <TextBox FontSize="12" Grid.Column="1" Grid.Row="12" BorderThickness="0,0,0,0"/>
-                <TextBlock Text="Postnummer:" FontSize="12" FontWeight="Bold" Grid.Column="0" Grid.Row="13" Margin="10,0,0,0"/>
-                <TextBox Grid.Column="1" Grid.Row="13" BorderThickness="0,0,0,0"/>
-                <TextBlock Text="By:" FontWeight="Bold" FontSize="12" Grid.Column="0" Grid.Row="14" Margin="10,0,0,0"/>
-                <TextBox FontSize="12" Grid.Column="1" Grid.Row="14" BorderThickness="0,0,0,0"/>
-                <TextBlock Text="Bestilt:" FontWeight="Bold" FontSize="12" Grid.Column="0" Grid.Row="15" Margin="10,0,0,0"/>
-                <TextBox Text="{Binding Date}" FontSize="12" Grid.Column="1" Grid.Row="15" BorderThickness="0,0,0,0"/>
-                <Button Content="Opdater" Command="{Binding UpdateCommand}" IsEnabled="{Binding IsItemSelected}" Grid.Column="1" Grid.Row="17"/>
-                <ComboBox SelectedIndex="{Binding OrderStatus,Mode=TwoWay}" ItemsSource="{Binding OrderStatusList}" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="17" />
-                <Button Content="Slet" Command="{Binding DeletionCommand}" IsEnabled="{Binding IsItemSelected}" HorizontalAlignment="Right" Grid.Column="1" Grid.Row="17"/>
+                <TextBlock Text="Produkt" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="8" Margin="10,0,0,0"/>
+                <TextBlock Text="Antal" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="8" Margin="180,0,0,0"/>
+                <TextBlock Text="Pris" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="8" Margin="237,0,20,0" />
+                <TextBlock Text="Total" FontSize="12" FontWeight="Bold" Grid.Column="1" Grid.Row="8" Margin="0,0,25,0" HorizontalAlignment="Right"/>
+                <TextBlock Text="Total pris:" FontSize="12" FontWeight="Bold" Grid.Column="0" Grid.Row="10" Margin="10,0,0,0"/>
+                <TextBlock Text="{Binding TotalPrice}" FontSize="12" TextAlignment="Right" Grid.Column="1" Grid.Row="10" Margin="0,0,26,0"/>
+                <TextBlock Text="kr." Margin="3,0,10,0" FontSize="12" Grid.Column="1" TextAlignment="Right" Grid.Row="10"/>
+                
+                <TextBlock Text="Levering:" FontWeight="Bold" FontSize="12" Grid.Column="0" Grid.Row="11" Margin="10,0,0,0"/>
+                <TextBlock Text="Dato:" FontWeight="Bold" FontSize="12" Grid.Column="0" Grid.Row="12" Margin="10,0,0,0"/>
+                <TextBox Text="{Binding DeliveryDate}" FontSize="12" Grid.Column="1" Grid.Row="12" BorderThickness="0,0,0,0"/>
+                <TextBlock Text="Adresse:" FontWeight="Bold" FontSize="12" Grid.Column="0" Grid.Row="13" Margin="10,0,0,0"/>
+                <TextBox FontSize="12" Grid.Column="1" Grid.Row="13" BorderThickness="0,0,0,0"/>
+                <TextBlock Text="Postnummer:" FontSize="12" FontWeight="Bold" Grid.Column="0" Grid.Row="14" Margin="10,0,0,0"/>
+                <TextBox Grid.Column="1" Grid.Row="14" BorderThickness="0,0,0,0"/>
+                <TextBlock Text="By:" FontWeight="Bold" FontSize="12" Grid.Column="0" Grid.Row="15" Margin="10,0,0,0"/>
+                <TextBox FontSize="12" Grid.Column="1" Grid.Row="15" BorderThickness="0,0,0,0"/>
+                <TextBlock Text="Bestilt:" FontWeight="Bold" FontSize="12" Grid.Column="0" Grid.Row="16" Margin="10,0,0,0"/>
+                <TextBox Text="{Binding Date}" FontSize="12" Grid.Column="1" Grid.Row="16" BorderThickness="0,0,0,0"/>
+                <Button Content="Opdater" Command="{Binding UpdateCommand}" IsEnabled="{Binding IsItemSelected}" Grid.Column="1" Grid.Row="18"/>
+                <ComboBox SelectedIndex="{Binding OrderStatus,Mode=TwoWay}" ItemsSource="{Binding OrderStatusList}" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="18" />
+                <Button Content="Slet" Command="{Binding DeletionCommand}" IsEnabled="{Binding IsItemSelected}" HorizontalAlignment="Right" Grid.Column="1" Grid.Row="18"/>
                 
             </Grid>
         </Grid>

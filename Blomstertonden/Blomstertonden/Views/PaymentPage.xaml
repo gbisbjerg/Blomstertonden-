@@ -156,7 +156,7 @@
                 <TextBox Text="{Binding Description}" FontSize="12" Grid.Column="1" Grid.Row="4" BorderThickness="1" BorderBrush="Black"/>
                 <TextBlock Text="Korttekst:" FontSize="12" FontWeight="Bold" Grid.Column="0" Grid.Row="6" Margin="10,0,0,0"/>
                 <TextBox Text="{Binding CardMessage}" FontSize="12" Grid.Column="1" Grid.Row="6" BorderThickness="1" BorderBrush="Black"/>
-                <TextBlock Text="Pris:" FontSize="12" FontWeight="Bold" Grid.Column="0" Grid.Row="8" Margin="10,0,0,0"/>
+                <TextBlock Text="Pris:" FontSize="12" FontWeight="Bold" Grid.Column="0" Grid.Row="8" Margin="10,10,0,0"/>
 
 
                 <Grid Grid.Row="8" Grid.Column="1" BorderBrush="Black" BorderThickness="1">
@@ -174,16 +174,18 @@
                                     <!--Name-->
                                     <TextBlock Width="200px" Text="{Binding Name}" FontSize="12"/>
                                     <!--Quantity-->
-                                    <TextBlock  Width="75"  Text="{Binding Quantity}" FontSize="12"/>
+                                    <TextBlock  Width="60"  Text="{Binding Quantity}" FontSize="12"/>
                                     <!--Price-->
                                     <TextBlock Width="100px" Text="{Binding TotalPrice}" FontSize="12"/>
+                                    
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
                 </Grid>
-                <TextBlock Text="Total pris:" FontSize="12" FontWeight="Bold" Grid.Column="1"  HorizontalAlignment="Right" Grid.Row="9" Margin="0,2,50,0"/>
+                <TextBlock Text="Total pris:" FontSize="12" FontWeight="Bold" Grid.Column="0"  HorizontalAlignment="Left" Grid.Row="9" Margin="10,2,0,0"/>
                 <TextBox Text="{Binding TotalPrice}" FontSize="12" TextAlignment="Right" Grid.Column="1" Grid.Row="9" BorderThickness="0,0,0,0" Margin="0,0,22,0"/>
+                <TextBlock Text="kr." FontSize="12" VerticalAlignment="Center" Margin="0,0,10,7" Grid.Column="1" Grid.Row="9" TextAlignment="Right"/>
                 <TextBlock Text="Levering:" FontWeight="Bold" FontSize="12" Grid.Column="0" Grid.Row="10" Margin="10,0,0,0"/>
                 <TextBlock Text="Kunde navn:" FontWeight="Bold" FontSize="12" Grid.Column="0" Grid.Row="11" Margin="10,0,0,0"/>
                 <TextBox Text="" FontSize="12" Grid.Column="1" Grid.Row="11" BorderThickness="0,0,0,0"/>
